@@ -28,11 +28,33 @@ umd_fees_pct <- umd_fees |> mutate(pct_change = (`Fall 2024`- `Fall 2021`)/`Fall
 ```
 
 
+```{r}
+umd_fees_pct_2524 <- umd_fees |> mutate(pct_change = (`Fall 2025`- `Fall 2024`)/`Fall 2024` * 100)
+```
+
+
+
 
 ### Task 4: Describe our results
 
 Write a few sentences about what you found in the data. What's the story here?
 
+According to the data, UMD fees increased or stayed the same for almost all categories from 2024 to 2025. The category with the highest increase was student activities, while athletics and student sustainability did not increase or decrease. In my opinion, the story here is that UMD fees increased in general.
+
+
+
+```{r}
+comp <- read_csv("https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/class_composition.csv")
+
+comp |>
+  summarize(
+    mean_first = mean(first_year),
+    mean_soph = mean(sophomore),
+    mean_junior = mean(junior),
+    mean_senior = mean(senior),
+    mean_grad = mean(grad)
+  )
+```
 
 
 
