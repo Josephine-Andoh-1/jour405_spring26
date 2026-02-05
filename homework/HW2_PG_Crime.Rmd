@@ -86,7 +86,7 @@ Write up a lede and nutgraf of a story focused on the crime data in Prince Georg
 
 Accidents are the most common crime committed in Prince George's County, according to police department data.
 
-5,776 accidents occurred in a year, averaging about 481 per month. This average was higher than all other crime categories, including homicides, sex offenses and residential robbery. Accidents resulting in impoundments were put in a separate category from regular accidents. Roughly 321 of those incidents occurred per month, the fourth-highest monthly average after automobile theft and theft from automobiles.
+5,776 accidents occurred in a year, averaging about 481 per month. This average was higher than all other crime categories, including homicides, sex offenses and residential robbery. Accidents resulting in impoundments were put in a separate category from regular accidents. An average of 321 impoundments occurred per month, the fourth-highest after automobile theft and theft from automobiles.
 
 
 ### Task 9: Save Your Work and Put it on GitHub
