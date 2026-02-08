@@ -76,7 +76,7 @@ wh_salaries|>
 
 Write a couple of sentences describing the results of your analysis. What do the mean and median salaries tell you about the data? What do the minimum and maximum salaries tell you? Are there any outliers in the data?
 
-The mean and median salaries tell me that the data are positively skewed. The fact that the mean is roughly $8,000 higher than the median shows that there are more salaries above $109,117.40 than below. The minimum salary tells me that a handful of White House employees work in unpaid positions. The maximum salary tells me that one White House detailee makes more money than all other detailees and employees, including Marco Rubio and Karoline Leavitt. Consequently, the highest salary is the main outlier in the data.
+The mean and median salaries tell me that the data are positively skewed. The fact that the mean is roughly $8,000 higher than the median shows that there are more salaries above $109,117.40 than below. The minimum salary tells me that a handful of White House employees work in unpaid positions. The maximum salary tells me that one White House detailee makes more money than all other detailees and employees, including Marco Rubio and Karoline Leavitt. Consequently, the highest salary is a potential outlier in the data.
 
 
 ### Task 7: Story Idea
