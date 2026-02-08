@@ -27,7 +27,7 @@ You should examine that dataframe carefully by clicking on it in the Environment
 
 The two categories of employment statuses are employee and detailee. The categories of position titles are managers, assistants, directors, writers, speechwriters, personal aides, counsels, coordinators, policy advisors, stenographers, lead advance representatives, associates, shift leads, supervisors, analysts, editors, operators and czars. 
 
-From a reporting standpoint, what stands out to me about this data is how high Jacalynne Klopp's salary is, since their job title is not very specific. The salary values of $0 could cause problems for analysis because they will not be included in any calculations. They are also confusing since it is unlikely that employees at any institution, especially not the White House, would work for free.
+From a reporting standpoint, what stands out to me about this data is how high Jacalynne Klopp's salary is, since their job title is not very specific. Salaries of $0 could cause problems for analysis because they will be excluded from both mean and median calculations. Those values are also confusing since it is unlikely that employees at any institution, especially not the White House, would work for free.
 
 
 ### Task 4: Calculate the Mean and Median of the Salaries
@@ -76,7 +76,7 @@ wh_salaries|>
 
 Write a couple of sentences describing the results of your analysis. What do the mean and median salaries tell you about the data? What do the minimum and maximum salaries tell you? Are there any outliers in the data?
 
-The mean and median salaries tell me that the data has a positive skew. The fact that the mean is roughly $8,000 higher than the median shows that there are more salaries above $109,117.40 than below. The minimum salary tells me that a handful of White House employees work in unpaid positions. The maximum salary tells me that one White House detailee makes more money than all other detailees and employees, including Marco Rubio and Karoline Leavitt. Consequently, the highest salary is the main outlier in the data.
+The mean and median salaries tell me that the data are positively skewed. The fact that the mean is roughly $8,000 higher than the median shows that there are more salaries above $109,117.40 than below. The minimum salary tells me that a handful of White House employees work in unpaid positions. The maximum salary tells me that one White House detailee makes more money than all other detailees and employees, including Marco Rubio and Karoline Leavitt. Consequently, the highest salary is the main outlier in the data.
 
 
 ### Task 7: Story Idea
