@@ -12,18 +12,11 @@ install.packages("janitor")
 library(janitor)
 ```
 
-
-
 ### Task 2: Load the crime dataset from https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/md_annual_crime.csv
 
 ```{r}
 crimes <- read_csv("https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/md_annual_crime.csv") |> clean_names()
 ```
-
-
-### Task 3: Use janitor to clean up the column names
-
-
 
 ### Task 4: Calculate the total crime rate for each year (picking our unit!)
 
@@ -31,22 +24,22 @@ crimes <- read_csv("https://raw.githubusercontent.com/dwillis/jour405/refs/heads
 crimes |> mutate(total_rate = grand_total/population * 10000)
 ```
 
-
-
 ### Task 5: Calculate the violent and property crime rates for each year (same unit)
 
 ```{r}
 crimes_with_rates <- crimes |> mutate(violent_rate = violent_crime_total/population * 10000, property_rate = property_crime_total/population * 10000)
 ```
 
-
-
 ### Task 6: Describe our results
 
 Write a few sentences about what you found in the data. What years had the highest crime rates? What years had the lowest crime rates? Does the pattern match your expectations?
 
 
+1992-93 had the highest violent crime rates, and 1979-81 had the highest property crime rates. On the other hand, 2020 had the lowest violent crime rate, and 2018-20 had the lowest property crime rates.
+
+The pattern for the lowest violent crime rates matches my expectations because Maryland's COVID-19 restrictions likely prevented many people from committing violent crimes in 2020. However, the other patterns did not match my expectations. 
+
+To me, it has felt like violent and property crime has been increasing each year, most likely due to how often I read about it in the news or see it on social media. Though I knew that violent and property crime rates now are lower than they were in the past, it seems like they have been talked about more frequently by the general public.
 
 
 When you are done, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.
-
