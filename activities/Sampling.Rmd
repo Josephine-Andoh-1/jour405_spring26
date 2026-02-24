@@ -60,7 +60,7 @@ population_stats
 Compare the means and standard deviations. Are they similar? Go back and re-run the sampling and statistics calculations with a smaller sample size. How do the results change?
 
 
-The mean and standard deviation were the exact same when my sample size was 100. However, as my sample size decreased, the mean and standard deviation started to vary a bit.
+The mean and standard deviation were the exact same when my sample size was 100. However, as my sample sizes decreased, the means and standard deviations started to vary a bit. Despite that, they generally reflected the information in the dataset.
 
 
 When finished, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.
