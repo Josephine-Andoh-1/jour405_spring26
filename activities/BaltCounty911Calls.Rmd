@@ -74,7 +74,9 @@ summary(daily_calls$call_count)
 
 Let's visualize the time series of daily calls. What patterns do you see? If you had to draw horizontal lines that would highlight unusual days, where would those lines be?
 
-ANSWER HERE
+
+One pattern I see is that the number of daily calls seems to increase from February to mid-April 2022 and seems to decrease from January to February 2023. If I had to draw horizontal lines that would highlight unusual days, they would be around June 2022, early October 2022 and New Year's Day 2023. 
+
 
 ```{r daily-calls-plot}
 # Plot daily call volume
@@ -137,7 +139,6 @@ unusual_days |>
 
 Let's visualize these unusual days in the context of the full dataset. How do they differ from your answer on Task 3?
 
-ANSWER HERE
 
 ```{r plot-unusual-days}
 # Create a clean factor for the plot legend
