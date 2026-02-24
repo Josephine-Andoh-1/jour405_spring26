@@ -75,7 +75,7 @@ summary(daily_calls$call_count)
 Let's visualize the time series of daily calls. What patterns do you see? If you had to draw horizontal lines that would highlight unusual days, where would those lines be?
 
 
-One pattern I see is that the number of daily calls seems to increase from February to mid-April 2022 and seems to decrease from January to February 2023. If I had to draw horizontal lines that would highlight unusual days, they would be around June 2022, early October 2022 and New Year's Day 2023. 
+One pattern I see is that the number of daily calls seems to increase from February to mid-April 2022 and seems to decrease from January to February 2023. If I had to draw horizontal lines that would highlight unusual days, I would draw them around June 2022, early October 2022 and New Year's Day 2023. 
 
 
 ```{r daily-calls-plot}
@@ -138,6 +138,9 @@ unusual_days |>
 ```
 
 Let's visualize these unusual days in the context of the full dataset. How do they differ from your answer on Task 3?
+
+
+The unusual days differ from my answer on Task 3 because there are more unusual days than I thought I saw. For example, I didn't count the unusual days in late April/early May 2022 or early July 2022 because I overlooked them.
 
 
 ```{r plot-unusual-days}
@@ -208,7 +211,9 @@ ggplot(dow_summary, aes(x = day_of_week, y = avg_calls)) +
 
 We can also calculate z-scores that account for the day of the week pattern. How would you describe the day with the highest z-score without using the term "z-score"?
 
-ANSWER HERE
+
+I would describe the day with the highest z-score as the day with the most unusual volume of 911 calls in Baltimore County from February 6, 2022 to February 6, 2023. I could also describe it as the day with the highest number of 911 calls in Baltimore County within that time period.
+
 
 ```{r day-of-week-z-scores}
 # Calculate day-of-week adjusted z-scores
@@ -299,5 +304,7 @@ top_outliers |> kable(digits = 2)
 
 Based on our z-score analysis, what are some potential angles for reporting? What would your next steps be and what would you tell an editor about your findings?
 
-ANSWER HERE
 
+Based on our z-score analysis, there are many potential angles for reporting. One angle could be looking for patterns among the unusual days, and another could be the fact that Thursdays typically had the lowest number of 911 calls, except for July 14. A third potential angle for reporting could be the increase from April to June 2022, or the decrease from January to February 2023.
+
+My next steps would be to try and see if any unusual events happened at the same time as any unusual activity, such as a large event or an influx of deadly drugs. If I found anything, I would tell my editor that there could be a correlation between the event and the number of 911 calls and pitch the correlation as a potential story.
