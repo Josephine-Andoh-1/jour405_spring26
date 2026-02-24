@@ -140,7 +140,7 @@ unusual_days |>
 Let's visualize these unusual days in the context of the full dataset. How do they differ from your answer on Task 3?
 
 
-The unusual days differ from my answer on Task 3 because there are more unusual days than I thought I saw. For example, I didn't count the unusual days in late April/early May 2022 or early July 2022 because I overlooked them.
+The unusual days differ from my answer on Task 3 because there are more unusual days than I thought I saw. For example, I didn't count the unusual days in late April/early May 2022 or early July 2022 because I accidentally overlooked them.
 
 
 ```{r plot-unusual-days}
@@ -307,4 +307,4 @@ Based on our z-score analysis, what are some potential angles for reporting? Wha
 
 Based on our z-score analysis, there are many potential angles for reporting. One angle could be looking for patterns among the unusual days, and another could be the fact that Thursdays typically had the lowest number of 911 calls, except for July 14. A third potential angle for reporting could be the increase from April to June 2022, or the decrease from January to February 2023.
 
-My next steps would be to try and see if any unusual events happened at the same time as any unusual activity, such as a large event or an influx of deadly drugs. If I found anything, I would tell my editor that there could be a correlation between the event and the number of 911 calls and pitch the correlation as a potential story.
+My next steps would be to try and see if any unusual events happened at the same time as any unusual activity, such as a large event or an influx of deadly drugs. If I found anything, I would tell my editor that there could be a correlation between the event and the number of 911 calls and pitch the correlation as the basis of a potential story.
