@@ -335,6 +335,7 @@ if(nrow(extreme_outliers) > 0) {
 For the extreme outliers identified (z-scores beyond ±3), what do they have in common?
 
 
+All of the extreme outliers in the dataset occur on either a Friday, Saturday, Sunday or Monday. Also, they all have either extremely high or extremely low numbers of accidents.
 
 
 
