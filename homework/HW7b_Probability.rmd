@@ -117,7 +117,7 @@ actual_prob
 
 **Write a sentence describing this probability in plain English. How does the normal approximation (prob_less) compare to the actual percentage?**
 
-There is an 18% chance that a randomly selected 2025 White House employee makes over $150,000 per year. The normal approximation is slightly lower than the actual percentage.
+A White House employee had a 16% chance of making over $150,000 per year in 2025. The normal approximation is slightly lower than the actual percentage.
 
 
 ### Task 5: Probability between two values (3 points)
@@ -192,7 +192,7 @@ Then write 2-3 sentences describing how you would use probability thinking to ad
 White House employees had a 16% chance of making over $150,000 per year in 2025, according to probability analysis. (lede)
 
 
-To advance this story, I could compare the probability of a White House employee making over $150,000 annually over many years, specifically focusing on 2024. I could also analyze the actual percentages of White House employees who make over $150,000 annually over the years to see if or how it has changed. Additionally, I could analyze which positions make employees more or less likely to make over $150,000 per year.
+To advance this story, I could compare the probability of a White House employee making over $150,000 annually over many years, specifically focusing on 2024. I could also analyze the actual percentages of White House employees who made over $150,000 annually over the years to see if or how it has changed. Additionally, I could analyze which positions make employees more or less likely to make over $150,000 per year.
 
 
 
