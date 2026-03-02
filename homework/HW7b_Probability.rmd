@@ -9,6 +9,9 @@ In this assignment, you'll build on your z-score skills to answer probability qu
 Load the tidyverse and the White House salaries data from https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/white_house_salaries_2025.csv into a dataframe called `wh_salaries`
 
 ```{r}
+library(tidyverse)
+
+wh_salaries <- read_csv("https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/white_house_salaries_2025.csv")
 ```
 
 ### Task 2: Filter and summarize (2 points)
@@ -19,18 +22,29 @@ You may remember from HW3 that some White House staffers have a salary of $0. Le
 wh_paid <- wh_salaries |>
   filter(SALARY > 0)
 
-
-
+wh_paid <- wh_paid |>
+  mutate(
+    mean_salary = mean(SALARY),
+    median_salary = median(SALARY),
+    sd_salary = sd(SALARY)
+  )
 ```
 
 Now create a histogram of the paid salaries with a vertical line for the mean and two more for ±1 standard deviation, similar to what you did in HW6 with Spotify data.
 
 ```{r}
+wh_paid |>
+  ggplot() +
+  geom_histogram(aes(x = SALARY), binwidth = 35000) +
+  geom_vline(aes(xintercept = mean(SALARY)), color = "red", linetype = "dashed", linewidth = 1) +
+  geom_vline(aes(xintercept = mean(SALARY) - sd(SALARY)), color = "blue", linetype = "dashed", linewidth = 1) + 
+  geom_vline(aes(xintercept = mean(SALARY) + sd(SALARY)), color = "blue", linetype = "dashed", linewidth = 1)
 ```
 
 **Describe the shape of the distribution. Is it roughly normal? Skewed? Where do most salaries cluster?**
 
-ANSWER HERE
+The dataset appears to be positively skewed. Most salaries are clustered between $74,500 and $101,500.  
+
 
 ### Task 3: The Empirical Rule (3 points)
 
@@ -64,7 +78,8 @@ empirical
 
 **How closely does the data follow the empirical rule? What does any deviation tell you about the distribution?**
 
-ANSWER HERE
+The data follows the empirical rule relatively closely, meaning that the dataset has an almost-normal distribution. The standard deviations show that there are no extremely unusual values in the dataset since none of them have a z-score higher than three.
+
 
 ### Task 4: From z-scores to probability with pnorm() (4 points)
 
@@ -102,7 +117,8 @@ actual_prob
 
 **Write a sentence describing this probability in plain English. How does the normal approximation (prob_less) compare to the actual percentage?**
 
-ANSWER HERE
+There is an 18% chance that a randomly selected 2025 White House employee makes over $150,000 per year. The normal approximation is slightly lower than the actual percentage.
+
 
 ### Task 5: Probability between two values (3 points)
 
@@ -112,21 +128,22 @@ You'll need to calculate z-scores for those two figures, use `pnorm()` for each,
 
 ```{r}
 
-z_lower <- (REPLACE_ME - mean_sal) / sd_sal
-z_upper <- (REPLACE_ME - mean_sal) / sd_sal
+z_lower <- (80000 - mean_sal) / sd_sal
+z_upper <- (120000 - mean_sal) / sd_sal
 
 prob_between <- pnorm(z_upper) - pnorm(z_lower)
 prob_between
 
 # Verify with actual data
-actual_between <- sum(wh_paid$SALARY >= REPLACE_ME & wh_paid$SALARY <= REPLACE_ME) / total_n
+actual_between <- sum(wh_paid$SALARY >= 80000 & wh_paid$SALARY <= 120000) / total_n
 actual_between
 
 ```
 
 **Interpret this result. What does this "middle range" tell us about the White House salary structure?**
 
-ANSWER HERE
+According to the normal approximation, approximately 36.6% of 2025 White House employees should make between $80,000 and $120,000 per year. However, only around 32.6% do. This "middle range" tells us, once again, that the White House salary structure has an almost-normal distribution. However, it has more values outside the "middle range" than a normally-distributed dataset would.
+
 
 ### Task 6: Expected vs. observed (3 points)
 
@@ -158,7 +175,10 @@ bins |> select(category, expected_count, observed_count, difference)
 
 **Where does reality differ most from what the normal distribution predicts? What might explain those differences?**
 
-ANSWER HERE
+Reality differs most from what the normal distribution predicts concerning salaries between $60,000 to $90,000 per year. This might be explained by the large number of managers and associate directors who worked at the White House in 2025, who mostly made $74,500 and $83,500 per year, respectively.
+
+Another category where reality differs from prediction is salaries below $60,000. This might be explained by the fact that White House employees and detailees are most likely college-educated, meaning they have to earn (somewhat) competitive salaries.
+
 
 ### Task 7: Story pitch (4 points)
 
@@ -166,7 +186,15 @@ Based on your probability analysis, write a headline and lede for a story about 
 
 Then write 2-3 sentences describing how you would use probability thinking to advance this story — what could you compare these probabilities to, and what additional analysis would help?
 
-ANSWER HERE
+
+2025 White House employees have 16% chance of making over $150,000 per year (headline) 
+
+White House employees had a 16% chance of making over $150,000 per year in 2025, according to probability analysis. (lede)
+
+
+To advance this story, I could compare the probability of a White House employee making over $150,000 annually over many years, specifically focusing on 2024. I could also analyze the actual percentages of White House employees who make over $150,000 annually over the years to see if or how it has changed. Additionally, I could analyze which positions make employees more or less likely to make over $150,000 per year.
+
+
 
 ### Task 8: Save Your Work and Put it on GitHub
 
