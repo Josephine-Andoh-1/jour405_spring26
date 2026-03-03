@@ -23,7 +23,7 @@ wh_paid <- wh_salaries |>
   filter(SALARY > 0)
 
 wh_paid <- wh_paid |>
-  mutate(
+  summarize(
     mean_salary = mean(SALARY),
     median_salary = median(SALARY),
     sd_salary = sd(SALARY)
@@ -35,7 +35,7 @@ Now create a histogram of the paid salaries with a vertical line for the mean an
 ```{r}
 wh_paid |>
   ggplot() +
-  geom_histogram(aes(x = SALARY), binwidth = 35000) +
+  geom_histogram(aes(x = SALARY), binwidth = 10000) +
   geom_vline(aes(xintercept = mean(SALARY)), color = "red", linetype = "dashed", linewidth = 1) +
   geom_vline(aes(xintercept = mean(SALARY) - sd(SALARY)), color = "blue", linetype = "dashed", linewidth = 1) + 
   geom_vline(aes(xintercept = mean(SALARY) + sd(SALARY)), color = "blue", linetype = "dashed", linewidth = 1)
@@ -43,7 +43,7 @@ wh_paid |>
 
 **Describe the shape of the distribution. Is it roughly normal? Skewed? Where do most salaries cluster?**
 
-The dataset appears to be positively skewed. Most salaries are clustered between $74,500 and $101,500.  
+The dataset appears to be positively skewed. Most salaries are clustered between $60,000 and $125,000.  
 
 
 ### Task 3: The Empirical Rule (3 points)
@@ -187,9 +187,9 @@ Based on your probability analysis, write a headline and lede for a story about 
 Then write 2-3 sentences describing how you would use probability thinking to advance this story — what could you compare these probabilities to, and what additional analysis would help?
 
 
-2025 White House employees have 16% chance of making over $150,000 per year (headline) 
+18% of White House employees had salary of over $150,000 in 2025 (headline) 
 
-White House employees had a 16% chance of making over $150,000 per year in 2025, according to probability analysis. (lede)
+18% of White House employees had a salary of over $150,000 per year in 2025, according to analysis. (lede)
 
 
 To advance this story, I could compare the probability of a White House employee making over $150,000 annually over many years, specifically focusing on 2024. I could also analyze the actual percentages of White House employees who made over $150,000 annually over the years to see if or how it has changed. Additionally, I could analyze which positions make employees more or less likely to make over $150,000 per year.
