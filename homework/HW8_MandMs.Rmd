@@ -6,26 +6,58 @@ In this assignment, you'll be picking up where you left off with the M&Ms activi
 
 ### Task 1: Load the tidyverse
 
+```{r}
+library(tidyverse)
+```
 
 ### Task 2: Load the M&Ms dataset from https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/mandms.csv
 
+```{r}
+m_and_ms <- read_csv("https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/mandms.csv")
+```
 
 ### Task 3: Sample 5 rows of data from the dataset
 
+```{r}
+set.seed(42)
 
-### Task 4: Calculate the mean age and standard deviation of the sample, using either the blue or white number of M&Ms
+sample_5 <- m_and_ms |> sample_n(5)
+```
 
+### Task 4: Calculate the mean and standard deviation of the sample, using either the red or black number of M&Ms
 
-### Task 5: Calculate the mean age and standard deviation of the population, using the same measure as in Task 4
+```{r}
+sample_5_results <- sample_5 |>
+  summarize (
+    mean_black = mean(black),
+    sd_black = sd(black)
+  )
+```
 
+### Task 5: Calculate the mean and standard deviation of the population, using the same measure as in Task 4
+
+```{r}
+m_and_ms_results <- m_and_ms |>
+  summarize (
+    mean_black = mean(black),
+    sd_black = sd(black)
+  )
+```
 
 ### Task 6: Compare the sample and population statistics
 
 Compare the two sets of means and standard deviations. Are they similar?
 
+The sample's mean is higher than the population's, but its standard deviation is lower than the population's.
+
+
 ### Task 7: Describe the results
 
 Write a few sentences about what you found in the data. What does this tell you about the M&Ms dataset and about the act of random sampling?
+
+The largest difference in the population was when there were 117 red M&Ms and 77 black M&Ms. On the other hand, the largest difference in the sample was 82 red M&Ms compared to 72 black M&Ms. The range of the black M&M population is 76, while the range of the black M&M sample is 24. This tells me that the complete M&M dataset includes a wide range of black-to-red ratios and totals, whereas the sample represents a condensed version of those things.
+
+This also tells me that to conduct random sampling accurately, your sample size should be proportionate to the population size. For this dataset, a sample size of five can lead to inconsistent means and standard deviations. However, as I increased my sample sizes (to eight, ten and 15, respectively), the means and standard deviations became more accurate.
 
 
 When finished, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.
