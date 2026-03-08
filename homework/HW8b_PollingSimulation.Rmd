@@ -117,7 +117,7 @@ ggplot(simulations_all, aes(x = proportion)) +
 
 **Describe the shape of the n=50 histogram.** Is it as symmetric as the unaffiliated histogram from class? Why do you think that is, given that White Evangelicals make up only about 10% of the population?
 
-The n=50 histogram has roughly the same symmetry as the unaffiliated histogram from class. I think that is because of the central limit theorem, since a graph of 50 probability simulations will somewhat resemble a bell curve.
+The n=50 histogram has roughly the same symmetry as the unaffiliated histogram from class. I think that is because of the central limit theorem, since a graph plotting 50 probability simulations will somewhat resemble a bell curve.
 
 
 **Compare the n=50 and n=500 histograms for this group.** How much does the distribution change with a larger sample? Is the improvement bigger or smaller than what you saw in class with the unaffiliated group?
