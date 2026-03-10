@@ -183,7 +183,7 @@ These calculations reveal that 50% of Maryland counties had car theft rates in 2
 
 Based on my findings, a possible lede of a story is:
 
-Baltimore City had the highest car theft rate of any large Maryland district in 2023 per capita, according to analysis.
+Baltimore City had the highest car theft rate of any large Maryland district in 2023 per capita, according to crime data.
 
 ---
 
