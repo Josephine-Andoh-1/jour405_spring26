@@ -179,7 +179,7 @@ md_car_thefts |>
 
 ### Task 14: Write 2–3 sentences describing what these calculations reveal about the distribution of car thefts in Maryland. What is the lede of a story based on your findings? (8 points)
 
-These calculations reveal that 50% of Maryland counties had car theft rates in 2023 that were above the median. However, they also show that Baltimore City, Prince George's County and St. Mary's County had very high car theft rates and would have skewed our analysis if we had used the mean to analyze instead.
+These calculations reveal that 50% of large Maryland districts had car theft rates in 2023 that were above the median. However, they also show that Baltimore City, Prince George's County and St. Mary's County had very high car theft rates and would have skewed our analysis if we had used the mean to analyze instead.
 
 Based on my findings, a possible lede of a story is:
 
