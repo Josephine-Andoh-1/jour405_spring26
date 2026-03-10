@@ -93,8 +93,6 @@ ggplot(daily_calls, aes(x = date, y = call_count)) +
 ```
 
 
-
-
 ## Task 4: Calculating Z-Scores for Daily Call Volume
 
 Now, let's calculate z-scores to identify statistically unusual days:

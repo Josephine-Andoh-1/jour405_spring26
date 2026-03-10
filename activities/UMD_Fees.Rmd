@@ -13,8 +13,6 @@ library(tidyverse)
 ```
 
 
-
-
 ### Task 2: Load the UMD Fees dataset from https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/umd_fees.csv
 
 ```{r}
@@ -33,14 +31,11 @@ umd_fees_pct_2524 <- umd_fees |> mutate(pct_change = (`Fall 2025`- `Fall 2024`)/
 ```
 
 
-
-
 ### Task 4: Describe our results
 
 Write a few sentences about what you found in the data. What's the story here?
 
 According to the data, UMD fees increased or stayed the same for almost all categories from 2024 to 2025. The category with the highest increase was student activities, while athletics and student sustainability did not increase or decrease. In my opinion, the story here is that UMD fees increased in general.
-
 
 
 ```{r}
@@ -55,8 +50,6 @@ comp |>
     mean_grad = mean(grad)
   )
 ```
-
-
 
 
 When you are done, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.

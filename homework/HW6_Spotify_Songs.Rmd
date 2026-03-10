@@ -13,7 +13,7 @@ library(tidyverse)
 ### Task 2: Load the Spotify Songs dataset from https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/spotify_2020.csv
 
 ```{r}
-songs <- read.csv("https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/spotify_2020.csv")
+songs <- read_csv("https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/spotify_2020.csv")
 ```
 
 ### Task 3: Calculate the mean and standard deviation of the danceability scores
@@ -22,11 +22,6 @@ Write code to calculate the mean and standard deviation of the danceability scor
 
 ```{r}
 songs |> summarize(mean = mean(danceability), sd = sd(danceability))
-```
-
-```{r}
-songs |> summarize(mean(danceability) - sd(danceability))
-songs |> summarize(mean(danceability) + sd(danceability))
 ```
 
 
@@ -61,9 +56,7 @@ songs |>
   geom_histogram(aes(x = danceability), binwidth = 0.15) +
   geom_vline(aes(xintercept = mean(danceability)), color = "red", linetype = "dashed", size = 1) +
   geom_vline(aes(xintercept = mean(danceability) - sd(danceability)), color = "blue", linetype = "dashed", size = 1) +
-  geom_vline(aes(xintercept = mean(danceability) + sd(danceability)), color = "blue", linetype = "dashed", size = 1) +
-  geom_vline(aes(xintercept = mean(danceability) - sd(danceability) - sd(danceability)), color = "blue", linetype = "dashed", size = 1) +
-  geom_vline(aes(xintercept = mean(danceability) + sd(danceability) + sd(danceability)), color = "blue", linetype = "dashed", size = 1)
+  geom_vline(aes(xintercept = mean(danceability) + sd(danceability)), color = "blue", linetype = "dashed", size = 1)
 ```
 
 ### Task 7: Describe our results and pitch a story
