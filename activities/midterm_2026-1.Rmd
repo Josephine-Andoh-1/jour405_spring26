@@ -195,7 +195,7 @@ Write 3–4 sentences for each of the following questions:
 
 ### Question A: Given that the mean is 187 and standard deviation is 42, which statistical measures would you prioritize using and why? (7 points)
 
-Given that the mean is 187 and standard deviation is 42, I would prioritize making a histogram of the data. A histogram would help me visualize the data and calculate z-scores, which would help me see how closely the data follows the empirical rule. Also, since this is a relatively large dataset, this aould greatly speed up analysis.
+Given that the mean is 187 and standard deviation is 42, I would prioritize making a histogram of the data. A histogram would help me visualize the data and calculate z-scores, which would help me see how closely the data follows the empirical rule. Also, since this is a relatively large dataset, this would greatly speed up analysis.
 
 
 ### Question B: How would you use z-scores to identify which pools are genuinely underperforming, and why is that more useful than simply ranking pools by raw attendance? (7 points)
