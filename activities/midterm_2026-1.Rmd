@@ -53,7 +53,7 @@ health |>
   geom_histogram(aes(x = compliance_score), binwidth = 10) +
   geom_vline(aes(xintercept = mean(compliance_score)), color = "red", linetype = "dashed", linewidth = 1) +
   theme_minimal() +
-  labs(title = "Compliance Scores for Montgomery County Restaurants",
+  labs(title = "Majority of Montgomery County Restaurants are Majorly Compliant",
        x = "Compliance Score",
        y = "Number of Restaurants") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
@@ -153,7 +153,7 @@ md_car_thefts <- md_car_thefts |>
   mutate (theft_rate_2023 = thefts_2023/population *10000)
 ```
 
-A per-capita rate is more useful than raw counts for this comparison because it ensures that we are comparing data based on the same rates, meaning that no data points will appear larger or smaller than they actually are.
+A per-capita rate is more useful than raw counts for this comparison because it ensures that we are comparing different population sizes on equal bases, meaning that no areas will appear to have larger or smaller car theft rates than they actually do.
 
 
 ### Task 13: Calculate the median car theft rate and the total number of car thefts statewide. Show the counties that have rates above the median. (7 points)
@@ -183,7 +183,7 @@ These calculations reveal that 50% of large Maryland districts had car theft rat
 
 Based on my findings, a possible lede of a story is:
 
-Baltimore City had the highest car theft rate of any large Maryland district in 2023 per capita, according to crime data.
+Baltimore City and St. Mary's County accounted for the majority of car thefts among Maryland's jurisdictions in 2023, according to state crime data.
 
 ---
 
@@ -195,7 +195,7 @@ Write 3–4 sentences for each of the following questions:
 
 ### Question A: Given that the mean is 187 and standard deviation is 42, which statistical measures would you prioritize using and why? (7 points)
 
-Given that the mean is 187 and standard deviation is 42, I would prioritize making a histogram of the data. A histogram would help me visualize the data and calculate z-scores, which would help me see how closely the data follows the empirical rule. Also, since this is a relatively large dataset, this would greatly speed up analysis.
+Given that the mean is 187 and standard deviation is 42, I would prioritize making a histogram of the data. A histogram would help me visualize the data and calculate z-scores, which would help me see how closely the data follows the empirical rule. Using the empirical rule would help me detect and analyze any anomalies, such as if a pool had an extremely high or low number of visitors compared to the average. Also, since this is a relatively large dataset, this would greatly speed up analysis.
 
 
 ### Question B: How would you use z-scores to identify which pools are genuinely underperforming, and why is that more useful than simply ranking pools by raw attendance? (7 points)
