@@ -52,7 +52,7 @@ proportion_50 <- mean(sample_50$evangelical)
 
 How close is your sample estimate to the population proportion? How does the accuracy compare to what you saw with the unaffiliated group in class?
 
-My sample estimate is almost 50% smaller than the population proportion. It is much less accurate than the sample of religiously unaffiliated Americans.
+My sample estimate is almost 50% larger than the population proportion. It is much less accurate than the sample of religiously unaffiliated Americans.
 
 
 ### Task 5: Take a single larger sample
@@ -117,7 +117,7 @@ ggplot(simulations_all, aes(x = proportion)) +
 
 **Describe the shape of the n=50 histogram.** Is it as symmetric as the unaffiliated histogram from class? Why do you think that is, given that White Evangelicals make up only about 10% of the population?
 
-The n=50 histogram has roughly the same symmetry as the unaffiliated histogram from class. I think that is because of the central limit theorem, since a graph plotting 50 probability simulations will somewhat resemble a bell curve.
+The n=50 histogram is less symmetrical than the unaffiliated histogram from class because it has a slightly positive skew. I think that is because analyzing a small sample from a small group in a population makes your analysis more prone to error.
 
 
 **Compare the n=50 and n=500 histograms for this group.** How much does the distribution change with a larger sample? Is the improvement bigger or smaller than what you saw in class with the unaffiliated group?
