@@ -58,4 +58,6 @@ weekly_wmata |>
 
 **Answer this question:** Describe the trend you see. Is ridership going up, down, or staying flat? What are the big dips, and what might explain them? What would you want to know before writing a story about Metro weekly ridership trends?
 
-ANSWER HERE
+The general trend I see is that Metro ridership is going down. The first big dip happened in January 2024, when the Metro began a major project that replaced eight escalators at Rosslyn Station. The second big dip happened in the summer of 2024, when five Red Line stations were closed for maintenance. The third big dip happened in December 2024, when some downtown Blue, Orange and Silver Line stations were closed. 
+
+Before writing a story about Metro weekly ridership trends, I would want to know the station closures and openings that correlate with changes in ridership. I would also want to know what stations and cities have the most and least riders.
