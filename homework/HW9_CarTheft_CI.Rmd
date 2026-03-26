@@ -134,7 +134,7 @@ ggplot(aes(x = month, y = total)) +
            label = paste0("Mean: ", round(theft_summary$mean_thefts, 1)),
            hjust = 0, color = "red") +
   labs(
-    title = "Prince George's County averages almost 376 car thefts per month, data shows",
+    title = "Prince George's County averages almost 376 car thefts per month",
     x = "Month",
     y = "Number of Car Thefts"
   ) +
@@ -187,7 +187,14 @@ Based on everything you've calculated, answer the following:
 
 2. Your editor says "Just tell me if car thefts are going up or down." Using only the confidence interval (no significance testing yet), what's the most accurate answer you can give? What would you need to do next to answer that question more definitively?
 
-PUT ANSWERS HERE
+
+1. Prince George's County averages almost 376 car thefts per month (headline)
+
+Prince George's County averages almost 376 car thefts per month, according to crime data. Analysis on a hypothetical 40-month sample showed it is almost certain that the county averages between between 345.24 and 405.89 car thefts. (lede)
+
+2. Using only the confidence interval, the most accurate answer I can give is, "It seems that car thefts are going down." 
+
+To answer my editor's question more definitively, I would need to compare  
 
 
 When you are finished, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.
