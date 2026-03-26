@@ -173,7 +173,7 @@ comparison
 **Answer this question:** How did the margin of error and confidence interval change? What does this tell you about the tradeoff between having more data and being able to make precise claims? If you were covering crime trends, how many months of data would you want before writing a definitive story?
 
 
-When the number of months analyzed increased, the margin of error and range of the confidence interval decreased. This tells me that it is worth it to have more data when trying to make precise claims. However, this also tells me that calculations based on smaller amounts of data are not completely inaccurate (the margin of error and confidence interval bounds did not change by very large amounts).
+As the number of months analyzed increased, the margin of error and the confidence interval’s range decreased. This tells me that it is worth collecting more data when trying to make precise claims. However, this also tells me that calculations based on smaller amounts of data are not completely inaccurate (the margin of error and confidence interval bounds did not change by very large amounts).
 
 If I were covering crime trends, I would want at least 60 months of data before writing a definitive story. Thirty-two months of data is not enough to account for any multi-month trends, such as a global pandemic or a change in what classifies as a car theft. Five years of data should be enough to account for most trends, and it would give me a lot of information to work with.
 
@@ -189,9 +189,9 @@ Based on everything you've calculated, answer the following:
 
 1. Prince George's County averages almost 376 car thefts per month (headline)
 
-Prince George's County averages almost 376 car thefts per month, according to crime data. Analysis on a hypothetical 40-month sample showed it is almost certain that the county averages between 345.24 and 405.89 car thefts. (lede)
+Prince George's County averages almost 376 car thefts per month, according to crime data. Analysis of a hypothetical 40-month sample showed that it is almost certain the county averages between 345.24 and 405.89 car thefts. (lede)
 
-2. Using only the confidence interval, the most accurate answer I can give is, "It seems that car thefts are going down." To answer my editor's question more definitively, I would need to compare the number of car thefts month-by-month and see if the data suggests an increase or decrease. If I were using R for data analysis, I could use the "geom_smooth" function to see if it could detect a trend. 
+2. Using only the confidence interval, the most accurate answer I can give is, "It seems that car thefts are going down." To answer my editor's question more definitively, I would need to compare car thefts month-by-month and determine whether the data suggest an increase or decrease. If I were using R for data analysis, I could use the "geom_smooth" function to check whether it detects a trend. 
 
 
 When you are finished, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.
