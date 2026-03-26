@@ -12,6 +12,10 @@ knitr::opts_chunk$set(echo = TRUE)
 # LOAD THE TIDYVERSE
 ```
 
+```{r}
+library(tidyverse)
+```
+
 ### Task 2: Load the Prince George's county crime data
 
 ```{r}
@@ -29,7 +33,11 @@ glimpse(car_thefts)
 
 We'll make a line chart using geom_line() to try and illustrate any trend over time. What's your initial reaction to the change in car thefts? Is there a trend? If your editor asked you "how many car thefts happen in a typical month?", what would you say based on this chart alone?
 
-PUT ANSWERS HERE
+
+Overall, the number of car thefts appears to have decreased from July 2023 to February 2026. My initial reaction to this is surprise, since most crime reporting in this area makes it seem like all forms of crime are constantly on the rise.
+
+Based on this chart alone, I would tell my editor that approximately 350 to 450 car thefts happen in a typical month, as many of the data points for each month seem to cluster around that range.
+
 
 ```{r}
 
@@ -60,9 +68,9 @@ We've got a small number of months, so we need to quantify the uncertainty aroun
 theft_summary <- car_thefts |>
   summarize(
     mean_thefts = mean(total),
-    sd_thefts = sd(REPLACE_ME),
+    sd_thefts = sd(total),
     months = n(),
-    se_thefts = sd_thefts / sqrt(REPLACE_ME),
+    se_thefts = sd_thefts / sqrt(months),
     margin_error = qt(0.975, df = months - 1) * se_thefts
   )
 
@@ -73,7 +81,9 @@ theft_summary
 
 **Answer this question:** Explain in your own words what the margin of error tells us here. If you were writing a story, how would you use this number? For example, how would you complete this sentence: "Prince George's County averages about ___ car thefts per month, plus or minus ___."
 
-PUT ANSWERS HERE
+
+Here, the margin of error tells us how much the average number of car thefts per month would increase or decrease if we took samples of many different 32-month periods. If I were writing a story, I would use the margin of error to tell readers how much the average number of car thefts per month possibly ranges. For example, I could say, "Prince George's County averages about 376.56 car thefts per month, plus or minus 34.19."
+
 
 ### Task 5: Build the confidence interval
 
