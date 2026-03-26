@@ -190,11 +190,9 @@ Based on everything you've calculated, answer the following:
 
 1. Prince George's County averages almost 376 car thefts per month (headline)
 
-Prince George's County averages almost 376 car thefts per month, according to crime data. Analysis on a hypothetical 40-month sample showed it is almost certain that the county averages between between 345.24 and 405.89 car thefts. (lede)
+Prince George's County averages almost 376 car thefts per month, according to crime data. Analysis on a hypothetical 40-month sample showed it is almost certain that the county averages between 345.24 and 405.89 car thefts. (lede)
 
-2. Using only the confidence interval, the most accurate answer I can give is, "It seems that car thefts are going down." 
-
-To answer my editor's question more definitively, I would need to compare  
+2. Using only the confidence interval, the most accurate answer I can give is, "It seems that car thefts are going down." To answer my editor's question more definitively, I would need to compare the number of car thefts month-by-month and see if the data suggests an increase or decrease. If I were using R for data analysis, I could use the "geom_smooth" function to see if it could detect a trend. 
 
 
 When you are finished, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.
