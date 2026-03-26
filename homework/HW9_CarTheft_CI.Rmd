@@ -46,8 +46,7 @@ ggplot(aes(x = month, y = total)) +
   geom_line(color = "steelblue", size = 1) +
   geom_point(color = "darkblue", size = 3) +
   labs(
-    title = "Monthly Car Thefts (July 2023 - February 2026)",
-    subtitle = "Is there a trend over time?",
+    title = "Car thefts in Prince George's County appear to decrease over months",
     x = "Month",
     y = "Number of Car Thefts"
   ) +
