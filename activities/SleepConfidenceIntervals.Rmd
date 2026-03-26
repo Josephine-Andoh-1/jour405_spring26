@@ -74,8 +74,8 @@ sleep_stats <- sleep_stats |>
   mutate(
     t_critical = qt(0.975, df = n - 1),
     margin_error = t_critical * se_hours,
-    ci_lower = mean_hours - se_hours,
-    ci_upper = mean_hours + se_hours
+    ci_lower = mean_hours - margin_error,
+    ci_upper = mean_hours + margin_error
   )
 
 sleep_stats |>
@@ -84,7 +84,7 @@ sleep_stats |>
 
 **Answer this question:** Write one sentence explaining what this confidence interval means in plain English that a reader would understand.
 
-It is very likely that the average adult aged 18 to 25 get between 7.51 and 7.95 hours of sleep each night, based on data from 37 people.
+It is very likely that the average adult aged 18 to 25 get between 7.28 and 8.18 hours of sleep each night, based on data from 37 people.
 
 
 ### Task 5: Visualize the distribution with the confidence interval
