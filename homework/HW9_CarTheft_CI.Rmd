@@ -46,7 +46,7 @@ ggplot(aes(x = month, y = total)) +
   geom_line(color = "steelblue", size = 1) +
   geom_point(color = "darkblue", size = 3) +
   labs(
-    title = "Car thefts in Prince George's County appear to decrease over months",
+    title = "Car thefts in Prince George's County appear to decrease over time",
     x = "Month",
     y = "Number of Car Thefts"
   ) +
@@ -81,7 +81,7 @@ theft_summary
 **Answer this question:** Explain in your own words what the margin of error tells us here. If you were writing a story, how would you use this number? For example, how would you complete this sentence: "Prince George's County averages about ___ car thefts per month, plus or minus ___."
 
 
-Here, the margin of error tells us how much the average number of car thefts per month would increase or decrease if we took samples of many different 32-month periods. If I were writing a story, I would use the margin of error to tell readers how much the average number of car thefts per month possibly ranges. For example, I could say, "Prince George's County averages about 376.56 car thefts per month, plus or minus 34.19."
+Here, the margin of error tells us how much the average number of car thefts per month would increase or decrease if we took samples of many different 32-month periods. If I were writing a story, I would use the margin of error to tell readers how much the average number of car thefts per month possibly ranges. For example, I could say, "Prince George's County averages about 375.56 car thefts per month, plus or minus 34.19."
 
 
 ### Task 5: Build the confidence interval
@@ -189,9 +189,9 @@ Based on everything you've calculated, answer the following:
 
 1. Prince George's County averages almost 376 car thefts per month (headline)
 
-Prince George's County averages almost 376 car thefts per month, according to crime data. Analysis of a hypothetical 40-month sample showed that it is almost certain the county averages between 345.24 and 405.89 car thefts. (lede)
+Prince George's County averages almost 376 car thefts per month, according to crime data. The average number of car thefts from July 2023 to February 2026 was 375.56. However, analysis of a hypothetical 40-month sample showed it is almost certain the county averages between 345.24 and 405.89 car thefts per month. (lede)
 
-2. Using only the confidence interval, the most accurate answer I can give is, "It seems that car thefts are going down." To answer my editor's question more definitively, I would need to compare car thefts month-by-month and determine whether the data suggest an increase or decrease. If I were using R for data analysis, I could use the "geom_smooth" function to check whether it detects a trend. 
+2. Using only the confidence interval, the most accurate answer I can give is, "It seems that car thefts are going down." To answer my editor's question more definitively, I would need to compare car thefts month-by-month and determine whether the data suggest an increase or decrease. If I were using R for data analysis, I could also use the "geom_smooth" function to check whether it detects a trend. 
 
 
 When you are finished, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.
