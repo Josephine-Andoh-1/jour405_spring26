@@ -209,6 +209,7 @@ The new light rail line has increased average home prices by 6.8% in a local nei
 However, the standard deviation of property values 
 
 
+was $32,000, meaning the increase 
 
 
 **Part B:** A $19,500 increase is real and statistically significant, but what *else* could explain rising home prices in this neighborhood? List at least two alternative explanations that a good reporter would want to investigate before attributing the increase entirely to the transit line.
