@@ -203,21 +203,12 @@ You now have all the statistical evidence. But writing the story requires more t
 
 **Part A:** The local officials are going to claim the transit line increased home values. Based on your analysis, is that claim supported? Write 2-3 sentences for the top of your story that accurately reflect both the statistical significance AND the effect size. Don't just echo the officials' talking points — interrogate them.
 
-The new light rail line has increased average home prices by 6.8% in a local neighborhood.
-
-The average price has increased from $285,000 to $304,500
-
-
-This increase is based on 14 recent home sales in the neighborhood
+The new light rail line has increased average home prices by 6.8% in a local neighborhood. The average price has increased by $19,500, based on a sample of 14 recent home sales in the neighborhood.
 
 
 However, the standard deviation of property values 
 
 
-$285,000 to 
-
-
-Since the extension opened, your news team collected sales data from 14 recent home sales in the neighborhood:
 
 
 **Part B:** A $19,500 increase is real and statistically significant, but what *else* could explain rising home prices in this neighborhood? List at least two alternative explanations that a good reporter would want to investigate before attributing the increase entirely to the transit line.
