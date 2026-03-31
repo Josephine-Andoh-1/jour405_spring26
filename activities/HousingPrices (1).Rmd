@@ -112,8 +112,8 @@ This is where we formally test the officials' claim. Fill in the REPLACE_ME valu
 
 **Hypotheses:**
 
-- **H₀ (Null):** The new light rail line has not increased property values in a local neighborhood.
-- **H₁ (Alternative):** The new light rail line has increased property values in a local neighborhood.
+- **H₀ (Null):** The new light rail line has not increased home prices in a local neighborhood.
+- **H₁ (Alternative):** The new light rail line has increased home prices in a local neighborhood.
 
 ```{r}
 # Set the significance level
@@ -132,7 +132,7 @@ t_test_result
 
 **Answer this question:** Look at the p-value. Is it less than our alpha of 0.05? What does this mean for our null hypothesis — can we reject it? What can we now say about the officials' claim?
 
-The p-value is less than our alpha of 0.05. This means that we can reject the null hypothesis. Now, we can say that the officials' claims aren't false, but we cannot prove the extent of the improvement in property values.
+The p-value is less than our alpha of 0.05. This means that we can reject the null hypothesis. Now, we can say that the officials' claims aren't false, but we cannot prove the extent of the improvement in home prices.
 
 
 ### Task 5: Interpret the results with a confidence interval (2 points)
@@ -163,7 +163,7 @@ story_stats
 
 **Answer this question:** The 95% confidence interval tells us the range where the true average home price likely falls. Does that range include the old average of $285,000? What does that tell you?
 
-The 95% confidence interval does not include the old average of $285,000. This tells me that the improvement in property values is truly tangible.
+The 95% confidence interval does not include the old average of $285,000. This tells me that the improvement in home prices is truly tangible.
 
 
 ### Task 6: Calculate the effect size (3 points)
@@ -194,7 +194,7 @@ tibble(
 
 **Answer this question:** The effect size is "medium." In dollar terms, the average increase is about $19,500. But remember that the standard deviation of home prices in this neighborhood was $32,000 *before* the transit line — meaning prices already varied by tens of thousands of dollars from sale to sale. Given that context, does a $19,500 increase seem large or modest? How does the effect size help you think about this differently than just looking at the dollar amount?
 
-Given that context, a $19,500 increase seems modest. The effect size helps me think about the improvement in greater context. A $19,500 increase seems good at first, but since this area already has large variations in property values
+Given that context, a $19,500 increase seems modest. The effect size helps me think about the improvement in greater context. A $19,500 increase seems good at first, but since this area already has large variations in home prices, it is not as drastic as it originally appears.
 
 
 ### Task 7: What's the story? (6 points)
@@ -203,12 +203,26 @@ You now have all the statistical evidence. But writing the story requires more t
 
 **Part A:** The local officials are going to claim the transit line increased home values. Based on your analysis, is that claim supported? Write 2-3 sentences for the top of your story that accurately reflect both the statistical significance AND the effect size. Don't just echo the officials' talking points — interrogate them.
 
-ANSWER HERE
+The new light rail line has increased average home prices by 6.8% in a local neighborhood.
+
+The average price has increased from $285,000 to $304,500
+
+
+This increase is based on 14 recent home sales in the neighborhood
+
+
+However, the standard deviation of property values 
+
+
+$285,000 to 
+
+
+Since the extension opened, your news team collected sales data from 14 recent home sales in the neighborhood:
 
 
 **Part B:** A $19,500 increase is real and statistically significant, but what *else* could explain rising home prices in this neighborhood? List at least two alternative explanations that a good reporter would want to investigate before attributing the increase entirely to the transit line.
 
-ANSWER HERE
+A
 
 
 When you are finished, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.
