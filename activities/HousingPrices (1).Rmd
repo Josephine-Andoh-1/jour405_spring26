@@ -103,7 +103,7 @@ ggplot(home_data, aes(x = sale_price)) +
 
 **Answer this question:** Look at where the old average (red dashed line) falls relative to the new sales. How many of the 14 homes sold for more than the old average? What does the histogram tell you about the spread of the new prices?
 
-All of the new homes sold for more than the old average. The histogram tells me that the new prices seem to be skeweed below the new average.
+All of the new homes sold for more than the old average. The histogram tells me that the new prices seem to be skewed below the new average.
 
 
 ### Task 4: Set up and perform a hypothesis test (2 points)
@@ -203,13 +203,7 @@ You now have all the statistical evidence. But writing the story requires more t
 
 **Part A:** The local officials are going to claim the transit line increased home values. Based on your analysis, is that claim supported? Write 2-3 sentences for the top of your story that accurately reflect both the statistical significance AND the effect size. Don't just echo the officials' talking points — interrogate them.
 
-The new light rail line has increased average home prices by 6.8% in a local neighborhood. The average price has increased by $19,500, based on a sample of 14 recent home sales in the neighborhood.
-
-
-However, the standard deviation of property values 
-
-
-was $32,000, meaning the increase 
+The new light rail line has increased average home prices by 6.8% in a local neighborhood. The average price has increased by $19,500, based on a sample of 14 recent home sales in the neighborhood. However, the standard deviation of housing prices was $32,000, meaning this increase will not largely affect overall prices.
 
 
 **Part B:** A $19,500 increase is real and statistically significant, but what *else* could explain rising home prices in this neighborhood? List at least two alternative explanations that a good reporter would want to investigate before attributing the increase entirely to the transit line.
