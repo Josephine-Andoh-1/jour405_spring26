@@ -38,7 +38,7 @@ home_data <- tibble(
   sale_price = new_prices
 )
 
-# Why does a "1" have to go before the "14?"
+# My question: Why does a "1:" have to go before the "14?"
 
 # View the data
 home_data
@@ -61,7 +61,7 @@ new_stats
 
 **Answer this question:** How does the new average compare to the prior average of $285,000? How much higher is it in dollar terms? Does that seem like a big difference to you? What else would you want to know?
 
-The new average is $19,500 higher than the prior average. This seems like a large difference to me, but I want to know if it is statistically significant, as well as its effect size.
+The new average is $19,500 higher than the prior average. This seems like a small difference to me, but I want to know if it is statistically significant, as well as its effect size.
 
 ```{r}
 304500-285000
@@ -208,9 +208,7 @@ The new light rail line has increased average home prices by 6.8% in a local nei
 
 **Part B:** A $19,500 increase is real and statistically significant, but what *else* could explain rising home prices in this neighborhood? List at least two alternative explanations that a good reporter would want to investigate before attributing the increase entirely to the transit line.
 
-One alternative explanation to the rising home prices in this neighborhood is inflation. 
-
-Another alternative explanation to the rising home prices in this neighborhood is .
+One alternative explanation to the rising home prices in this neighborhood is inflation. Another alternative explanation to the rising home prices in this neighborhood is an influx of new residents (due to company relocations, etc.).
 
 
 When you are finished, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.
