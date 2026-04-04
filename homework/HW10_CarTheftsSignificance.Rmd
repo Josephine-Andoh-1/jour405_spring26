@@ -149,16 +149,16 @@ You now have three pieces of evidence: the confidence intervals from last week, 
 
 In response, I would tell my editor that car thefts are going down.
 
-In the first half of the 32-month sample, the county averaged around 438.94 thefts per month. Based on probability, it was very certain that said average would be between 399.4 and 478.48. In the sample's second half, the county averaged around 312.19 thefts per month. Based on probability, it was very certain that said average would be between 279.94 and 344.44.
+In the first half of the 32-month sample, the county averaged around 438.94 thefts per month. Based on statistical analysis, it was very certain that said average would be between 399.4 and 478.48. In the sample's second half, the county averaged around 312.19 thefts per month. Based on statistical analysis, it was very certain that said average would be between 279.94 and 344.44.
 
-The p-value of the difference between the periods was much lower than 0.05, meaning that it is statistically significant. Additionally, the difference between the periods is very large.
+The p-value of the difference between the first and second halves of the sample was much lower than 0.05, meaning that the change is statistically significant. Additionally, the difference between the halves is very large.
 
 
 2. Write a headline and a 2-3 sentence lede for a story about car thefts in Prince George's County. Unlike the response times story from class (where the effect was small and the headline needed to be cautious), this is a case where the data strongly supports a clear conclusion. Your writing should reflect that — but still note the limitations (correlation vs. causation, what else might explain the decline).
 
 Prince George's County car thefts decrease month-by-month (headline)
 
-Car thefts in Prince George's County decreased month-by-month from July 2023 to February 2026, according to crime data. The county averaged almost 440 thefts from July 2023 to October 2024, but the average dropped to just over 312 from November 2024 to February 2026. According to analysis, this decrease was both statistically significant and relatively large. It also may have occurred for a variety of reasons, including increased education on car theft prevention or an abnormal spike in car thefts in 2023. (lede)
+Car thefts in Prince George's County decreased month-by-month from July 2023 to February 2026, according to crime data. The county averaged almost 440 thefts from July 2023 to October 2024, but the average dropped to just over 312 from November 2024 to February 2026. According to analysis, this decrease was both statistically significant and relatively large. It also may have occurred for a variety of reasons, including increased education on car theft prevention or an abnormal spike in car thefts in the second half of 2023. (lede)
 
 
 When you are finished, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.
