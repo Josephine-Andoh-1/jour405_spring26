@@ -158,7 +158,7 @@ The p-value of the difference between the periods was much lower than 0.05, mean
 
 Prince George's County car thefts decrease month-by-month (headline)
 
-Car thefts in Prince George's County car decreased month-by-month from July 2023 to February 2026, according to crime data. The county averaged almost 440 thefts from July 2023 to October 2024, but the averaged dropped to just over 312 from November 2024 to February 2026. According to analysis, this decrease was both statistically significant and relatively large. It also may have occurred for a variety of reasons, including increased education on car theft prevention or an abnormal spike in car thefts in 2023. (lede)
+Car thefts in Prince George's County decreased month-by-month from July 2023 to February 2026, according to crime data. The county averaged almost 440 thefts from July 2023 to October 2024, but the average dropped to just over 312 from November 2024 to February 2026. According to analysis, this decrease was both statistically significant and relatively large. It also may have occurred for a variety of reasons, including increased education on car theft prevention or an abnormal spike in car thefts in 2023. (lede)
 
 
 When you are finished, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.
