@@ -5,12 +5,18 @@ date: "2025-04-01"
 
 ```{r setup, include=FALSE}
 library(knitr)
-#install.packages("kableExtra")
-#library(kableExtra)
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 library(tidyverse)
-
 ```
+
+```{r}
+install.packages("kableExtra")
+```
+
+```{r}
+library(kableExtra)
+```
+
 
 # Introduction
 
@@ -99,7 +105,7 @@ The weights in this dataset range from 0.2298 to 3.0386.
 
 2. What does it mean when a respondent has a weight of 0.23? What about 3.04?
 
-When a respondent has a weight of 0.23, it means that they count as 23% of a person in analysis. However, when a respondent has a weight of 3.04, it means that they count as 304% of a person in analysis.
+When a respondent has a weight of 0.23, it means that their response counts as if they were 23% of a person. However, when a respondent has a weight of 3.04, it means that their response counts as if they were 304% of a person.
 
 
 3. Why might some respondents be weighted more heavily than others?
@@ -247,9 +253,9 @@ The voter category that shows the biggest difference between weighted and unweig
 
 2. How might these differences affect reporting on likely voter turnout?
 
-These differences affect reporting on likely voter turnout because they make it more inaccurate. If those who rarely, never or sporadically vote decide to vote in a particular election, their presence is likely to surprise reporters and make them underestimate turnout percentages. On the other hand, if those who always vote decide not to vote in a particular election, reporters are likely to overestimate turnout percentages.
+These differences affect reporting on likely voter turnout because they make it less accurate. For example, since the percentage of those who rarely or never vote is underrepresented, if many people from that voter group decide to vote in the next election, journalists will underestimate what percentage of them will vote. Consequently, if their turnout swings an election one way or another, journalists will be caught by surprise.
 
 
 3. Why do you think these differences exist? What does this tell us about who might be over or under-represented in the sample?
 
-I think these differences exist because voter behavior cannot be perfectly predicted. Those who do not consistently vote can change their minds at a whim, and since they have a history of not voting, pollsters are less likely to understand their voting behavior. Consequently, this tells us that those who rarely or never vote are underrepresented in the sample.
+I think these differences exist because all surveys are samples of the general population, and extrapolations based on samples will never be completely accurate. This survey's results tell us that nonvoters in all three categories who are planning to vote and nonvoters who always vote are overrepresented in the sample. However, nonvoters in all three categories who are unsure of voting, those who rarely or never vote who do not plan to vote and sporadic voters who do not plan to vote are underrepresented in the sample.
