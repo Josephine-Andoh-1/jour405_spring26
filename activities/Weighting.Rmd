@@ -242,6 +242,14 @@ kable(comparison, digits = 1, caption = "Difference Between Weighted and Unweigh
 
 1. Which voter category shows the biggest difference between weighted and unweighted results?
 
+The voter category that shows the biggest difference between weighted and unweighted results is those who rarely or never vote.
+
+
 2. How might these differences affect reporting on likely voter turnout?
 
+These differences affect reporting on likely voter turnout because they make it more inaccurate. If those who rarely, never or sporadically vote decide to vote in a particular election, their presence is likely to surprise reporters and make them underestimate turnout percentages. On the other hand, if those who always vote decide not to vote in a particular election, reporters are likely to overestimate turnout percentages.
+
+
 3. Why do you think these differences exist? What does this tell us about who might be over or under-represented in the sample?
+
+I think these differences exist because voter behavior cannot be perfectly predicted. Those who do not consistently vote can change their minds at a whim, and since they have a history of not voting, pollsters are less likely to understand their voting behavior. Consequently, this tells us that those who rarely or never vote are underrepresented in the sample.
