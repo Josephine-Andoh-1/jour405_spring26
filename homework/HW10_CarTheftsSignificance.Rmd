@@ -26,9 +26,9 @@ car_thefts <- read_csv("https://raw.githubusercontent.com/dwillis/jour405/refs/h
 
 We'll split the monthly data into two halves, and then ask whether there's a statistically significant difference between these periods. To do that, we'll use a t-test with our alpha at 0.05. First, fill in the hypotheses, then replace the REPLACE_ME values in the code.
 
-**Null Hypothesis:** The number of car thefts in Prince George's County did not decrease month-to-month from July 2023 to February 2026.
+**Null Hypothesis:** There is no difference in the number of car thefts per month in Prince George's County when comparing the periods of July 2023 to October 2024 and November 2024 to February 2026.
 
-**Alternative Hypothesis:** The number of car thefts in Prince George's County decreased month-to-month from July 2023 to February 2026.
+**Alternative Hypothesis:** There is a difference in the number of car thefts per month in Prince George's County when comparing the periods of July 2023 to October 2024 and November 2024 to February 2026.
 
 ```{r}
 
@@ -48,7 +48,7 @@ t_test_periods
 
 **Answer this question:** What is the p-value? Is it less than 0.05? Can we reject the null hypothesis? What does this tell your editor?
 
-The p-value is 0.0000214, which is much less than 0.05, so we can reject the null hypothesis. This tells my editor that the number of car thefts didn't not decrease month-to-month during that time period.
+The p-value is 0.0000214, which is much less than 0.05, so we can reject the null hypothesis. This tells my editor that there is a difference in the number of car thefts per month between the two time periods.
 
 
 ### Task 3: Visualize the comparison (4 points)
@@ -67,7 +67,7 @@ period_summary <- car_thefts |>
     sd_thefts = sd(total),
     months = n(),
     se_thefts = sd_thefts / sqrt(months),
-    margin_error = qt(0.975, df = 32 - 1) * se_thefts,
+    margin_error = qt(0.975, df = months - 1) * se_thefts,
     ci_lower = mean_thefts - margin_error,
     ci_upper = mean_thefts + margin_error
   )
@@ -138,7 +138,7 @@ tibble(
 
 **Answer this question:** How would you describe this effect size? Compare it to the effect sizes we calculated in class (the response times activity had a small effect, the housing prices activity had a medium effect). What does a large effect size mean for the story you'd write about car thefts?
 
-I would describe this effect size as large, especially compared to the effect sizes we calculated in class. A large effect size means that I can confidently write that the number of car thefts decreased month-by-month during this time period, and that said decrease is significant. 
+I would describe this effect size as large, especially compared to the effect sizes we calculated in class (personal note: BE MORE SPECIFIC NEXT TIME). A large effect size means that I can confidently write that the number of car thefts decreased month-by-month during this time period, and that said decrease is significant. 
 
 
 ### Task 5: Putting it all together (7 points)
