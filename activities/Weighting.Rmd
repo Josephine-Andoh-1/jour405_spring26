@@ -5,8 +5,8 @@ date: "2025-04-01"
 
 ```{r setup, include=FALSE}
 library(knitr)
-install.packages("kableExtra")
-library(kableExtra)
+#install.packages("kableExtra")
+#library(kableExtra)
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 library(tidyverse)
 
@@ -94,9 +94,18 @@ ggplot(nonvoters_data, aes(x = weight)) +
 
 1. What is the range of weights in this dataset?
 
+The weights in this dataset range from 0.2298 to 3.0386.
+
+
 2. What does it mean when a respondent has a weight of 0.23? What about 3.04?
 
+When a respondent has a weight of 0.23, it means that they count as 23% of a person in analysis. However, when a respondent has a weight of 3.04, it means that they count as 304% of a person in analysis.
+
+
 3. Why might some respondents be weighted more heavily than others?
+
+Some respondents are weighted more heavily than others if the groups they are in are underrepresented in the poll's sample relative to the population.
+
 
 # Exercise 1: Voter Categories and Weighting
 
