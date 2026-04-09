@@ -118,6 +118,8 @@ Let's make a chart showing the data with the mean and the 95% confidence interva
 
 In Task 3, I stated that approximately 350 to 450 car thefts happen in a typical month. Now, I would say that we are 95% certain that approximately 340 to 410 car thefts happen in a typical month. Though my original estimate was not completely inaccurate, this new data reflects mathematical reality rather than a simple guess.
 
+(Personal note: BE MORE SPECIFIC.)
+
 
 ```{r}
 # Make a chart with the mean and CI
@@ -175,7 +177,7 @@ comparison
 
 As the number of months analyzed increased, the margin of error and the confidence interval’s range decreased. This tells me that it is worth collecting more data when trying to make precise claims. However, this also tells me that calculations based on smaller amounts of data are not completely inaccurate (the margin of error and confidence interval bounds did not change by very large amounts).
 
-If I were covering crime trends, I would want at least 60 months of data before writing a definitive story. Thirty-two months of data is not enough to account for any multi-month trends, such as a global pandemic or a change in what classifies as a car theft. Five years of data should be enough to account for most trends, and it would give me a lot of information to work with.
+If I were covering crime trends, I would want at least 48 months of data before writing a definitive story. Thirty-two months of data is not enough to account for any multi-month trends, such as a global pandemic or a change in what classifies as a car theft. Five years of data should be enough to account for most trends, and it would give me a lot of information to work with.
 
 
 ### Task 8: Reporting with uncertainty
