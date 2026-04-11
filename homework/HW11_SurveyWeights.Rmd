@@ -27,6 +27,7 @@ Key variables:
 - `Q21`: Voting intention — 1 = Yes, 2 = No, 3 = Unsure
 - `educ`: Education level — College, Some college, High school or less
 
+
 ## Task 1: Examine the Weights (4 points)
 
 Before comparing weighted and unweighted results, let's understand what the weights look like.
