@@ -1,6 +1,6 @@
 ---
 title: "HW11: Education Level and Survey Weighting"
-author: "Your Name Here"
+author: Josephine Andoh
 ---
 
 ```{r setup, include=FALSE}
@@ -48,6 +48,7 @@ ggplot(nonvoters_data, aes(x = weight)) +
 
 ANSWER HERE
 
+
 ## Task 2: Education Distribution in the Sample (3 points)
 
 ```{r education-distribution}
@@ -59,6 +60,7 @@ nonvoters_data |>
 **Question 2:** College graduates are overrepresented in most surveys. Does that appear to be true here? Why might college graduates be more likely to respond to a survey than people with less education?
 
 ANSWER HERE
+
 
 ## Task 3: Unweighted Voting Intentions by Education (4 points)
 
@@ -88,6 +90,7 @@ unweighted_summary
 **Question 3:** Based only on these unweighted numbers, write a one-sentence headline for a story about education and voting intentions.
 
 ANSWER HERE
+
 
 ## Task 4: Weighted Voting Intentions by Education (2 points)
 
@@ -146,6 +149,7 @@ ggplot(viz_data, aes(x = educ, y = percentage, fill = Type)) +
 **Question 4:** Which education group shows the biggest shift between weighted and unweighted results? In percentage points, how large is that shift? Does weighting change the story, or does it just change the exact numbers?
 
 ANSWER HERE
+
 
 ## Task 6: The UMD Belonging Survey (8 points)
 
