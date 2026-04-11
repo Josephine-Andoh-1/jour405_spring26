@@ -47,20 +47,20 @@ ggplot(nonvoters_data, aes(x = weight)) +
 
 **Question 1:** Most weights cluster near 1.0, but some are much higher or lower. What does a weight of 0.2 tell you about that respondent's group in the sample? What about a weight of 3.5? Why might a pollster assign such extreme weights?
 
-ANSWER HERE
+A weight of 0.2 tells me that said respondent's group is underrepresented in the sample. A weight of 3.5 tells me that said respondent's group is overrepresented in the sample. A pollster might assign such extreme weights to ensure that their poll's results are not skewed by their undersampling or oversampling of particular groups in their sample.
 
 
 ## Task 2: Education Distribution in the Sample (3 points)
 
 ```{r education-distribution}
 nonvoters_data |>
-  count(REPLACE_ME) |>
+  count(educ) |>
   mutate(percentage = round(n / sum(n) * 100, 1))
 ```
 
 **Question 2:** College graduates are overrepresented in most surveys. Does that appear to be true here? Why might college graduates be more likely to respond to a survey than people with less education?
 
-ANSWER HERE
+It does appear that college graduates are overrepresented in this survey. College graduates might be more likely to respond to a survey because they may trust surveys more than people with less education. There is a general sentiment in the United States that polls, especially political polls, are inaccurate. However, college graduates may be more aware of the benefits of polling than those with less education. Additionally, college graduates tend to be more politically active and opinionated, meaning they may view polls as a way to have their voices heard.
 
 
 ## Task 3: Unweighted Voting Intentions by Education (4 points)
