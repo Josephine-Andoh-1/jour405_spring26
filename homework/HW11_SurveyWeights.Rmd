@@ -129,7 +129,7 @@ viz_data <- bind_rows(
   weighted_by_education |>
     filter(Q21 == 1) |>
     mutate(Type = "Weighted",
-           percentage = REPLACE_ME) |>
+           percentage = weighted_percentage) |>
     select(Type, educ, percentage)
 )
 
@@ -149,7 +149,11 @@ ggplot(viz_data, aes(x = educ, y = percentage, fill = Type)) +
 
 **Question 4:** Which education group shows the biggest shift between weighted and unweighted results? In percentage points, how large is that shift? Does weighting change the story, or does it just change the exact numbers?
 
-ANSWER HERE
+The group that shows the biggest shift between weighted and unweighted results is those with a high school education or less. In percentage points, the number of people in that group who planned to vote in the 2020 election decreased by 2.7382 percentage points. Weighting only changes the exact numbers for this story, not the story itself.
+
+```{r}
+73.51291 - 70.77471
+```
 
 
 ## Task 6: The UMD Belonging Survey (8 points)
