@@ -162,5 +162,9 @@ Earlier in class this week, we looked at the 2024 UMD Belonging and Community Su
 
 **Question 5:** Based on what you've learned in this assignment, write 2-3 paragraphs as if you were a reporter evaluating the UMD survey before writing a story based on it. Address: (1) what the lack of weighting means for how you'd use the results, (2) which groups in the UMD survey appeared most underrepresented based on Figures 1 and 2, and (3) what question you would ask the survey's authors before publishing.
 
-ANSWER HERE
+The University of Maryland's Belonging & Community Survey appears very informative, but aspects of its methodology make me cautious.
+
+One concerning aspect of its methodology was the fact that participants' responses were not weighted. This likely means that certain groups' lived experiences and opinions were overrepresented or underrepresented in the survey without any correction, reducing its overall accuracy. Consequently, when I report the results of this survey, I will repeatedly note that they are unweighted and likely less representative of the general UMD population.
+
+
 
