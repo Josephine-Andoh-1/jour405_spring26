@@ -166,11 +166,7 @@ The University of Maryland's Belonging & Community Survey appears very informati
 
 One concerning aspect of its methodology was the fact that participants' responses were not weighted. This likely means that certain groups' lived experiences and opinions were overrepresented or underrepresented in the survey without any correction, reducing its overall accuracy. Consequently, when I report the results of this survey, I will repeatedly note that they are unweighted and likely less representative of the general UMD population.
 
-Based on UMD's survey report, some groups were largely underrepresented. According to Figure 2 of the report, 5% of the survey's respondents were Hispanic or Latinx, though that demographic makes up 9% of the school's population. This means that Hispanic or Latinx members of the UMD community were very underrepresented in the survey.
-
-men
-
-Black members of the UMD community were also underrepresented, though not as much as Hispanic or Latinx members. They made up 11% of the survey's sample, but make up 13% of the school's general population.
+Based on UMD's survey report, some groups appear to be largely underrepresented. According to Figure 2 of the report, 5% of the survey's respondents were Hispanic or Latinx, though that demographic makes up 9% of the school's population. Men also appear to be underrepresented. According to Figure 1 of the report, men made up 50% of UMD's population but only 38% of the sample. Consequently, the opinions and experiences of the male and Hispanic or Latinx population at UMD were likely diminished in this survey. 
 
 
 
