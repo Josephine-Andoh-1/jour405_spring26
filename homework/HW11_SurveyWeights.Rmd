@@ -168,7 +168,7 @@ One concerning aspect of its methodology was the fact that participants' respons
 
 Based on UMD's survey report, some groups appear to be largely underrepresented. According to Figure 2 of the report, 5% of the survey's respondents were Hispanic or Latinx, though that demographic makes up 9% of the school's population. Men also appear to be underrepresented. According to Figure 1 of the report, men made up 50% of UMD's population but only 38% of the sample. Consequently, the opinions and experiences of the male and Hispanic or Latinx population at UMD were likely diminished in this survey. 
 
-Before publishing an article about the University of Maryland's Belonging & Community Survey, I would ask the survey's authors a handful of questions:
-
-Why did you decide not to weigh the survey's results based on any dem
-
+Before publishing an article about the University of Maryland's Belonging & Community Survey, I would ask the survey's authors a handful of questions: 
+- Why did you decide not to weigh the survey's results based on any demographic information?
+- Why did you decide not to calculate the margin of error or confidence interval of the survey's results?
+- Why are the survey's results not accessible to the public? If that is due to privacy concerns, why not redact any sensitive information?
