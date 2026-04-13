@@ -4,3 +4,14 @@ author: Josephine Andoh
 output: html_document
 ---
 
+```{r}
+library(tidyverse)
+
+pgcrime17_23 <- read_csv("PGCRIME17-23.csv")
+
+pgcrime23_26 <- read_csv("PGCRIME23-26.csv")
+
+mococrime <- read_csv("C:/Users/jojoa/Downloads/MOCOCRIME.csv")
+```
+
+
