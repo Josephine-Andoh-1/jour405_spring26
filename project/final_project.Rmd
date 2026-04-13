@@ -1,0 +1,6 @@
+---
+title: "final_project"
+author: Josephine Andoh
+output: html_document
+---
+
