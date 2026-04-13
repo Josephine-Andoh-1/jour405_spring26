@@ -30,4 +30,8 @@ How can I change the date-month-year format so that I can filter the crimes in c
 
 How can I exclude the dates and years I am not analyzing? Are there filters I can apply?
 
+Should I analyze my data based on days, weeks or months? I want to do months due to the sheer volume of my data. Is that a good idea?
+
+How many years' worth of data should I analyze? In HW9 (Car Thefts Confidence Interval & Error), Mr. Salama said that five years' worth of data was too long of a period to analyze.
+
 Is there any way I can combine the Prince George's County crime datasets together to facilitate my analysis? 
