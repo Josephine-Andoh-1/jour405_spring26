@@ -21,6 +21,8 @@ matches <- read_csv("https://raw.githubusercontent.com/dwillis/NCAAWomensSoccerD
 ### Task 3: Create a new column called `goal_diff` that calculates the difference between the two teams' goals.
 
 ```{r}
+# positive number = win, 0 = tie, negative score = loss
+
 matches <- matches |> mutate(goal_diff = team_score - opponent_score)
 ```
 
@@ -29,14 +31,22 @@ matches <- matches |> mutate(goal_diff = team_score - opponent_score)
 ### Task 4: Use `summarize()` and the `cor()` function to calculate the correlation between fouls and goal differential, using the pearson method.
 
 ```{r}
-matches |> summarize(correlation = cor(fouls, goal_diff, method="pearson"))
-```
+# correlation calculates Pearson's R (number between -1 and 1)
 
+matches |> summarize(correlation = cor(fouls, goal_diff, method="pearson"))
+
+# roughly 98% unrelated
+
+# 1 = the more you foul, the more you win; -1 = the more you foul, the less you win
+```
 
 
 ### Task 5: Create a scatterplot of fouls and goal differential, using `geom_point()`
 
 ```{r}
+# geom_smooth creates a line of best fit
+# lm = linear model (will be used later)
+# correlation coefficients are limited because they only measure the relationship between two variables (oversimplifies relationships between variables)
 
 matches |> 
   ggplot() +
@@ -46,8 +56,29 @@ matches |>
 ```
 
 
-
 ### Task 6: Describe the results of both the correlation calculation and the scatterplot.
+
+The correlation calculation gave us a number close to 0, showing that there was almost no relationship between the number of fouls received during matches and game results for NCAA women's soccer teams last year. The scatterplot displays an almost-straight line, showing that there was almost no correlation between the number of fouls received during matches and game results for NCAA women's soccer teams last year.
+
+
+
+### Task 7: Choose another numerical variable with (sh_att, so_g, yellow_cards, etc.) and repeat the steps in Tasks 4 - 5, then describe the result
+
+
+```{r}
+matches |> summarize(correlation = cor(yellow_cards, goal_diff, method="pearson"))
+```
+
+
+```{r}
+matches |> 
+  ggplot() +
+  geom_point(aes(x=goal_diff, y=yellow_cards)) +
+  geom_smooth(aes(x=goal_diff, y=yellow_cards), method="lm")
+```
+
+Answer: Both the correlation calculation and the scatterplot show that there was almost no correlation between the number of yellow cards received during matches and game results for NCAA women's soccer teams last year.
+
 
 
 When you are done, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.
