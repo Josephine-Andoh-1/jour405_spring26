@@ -31,24 +31,27 @@ pg_murder_temps |> summarize(correlation = cor(murders, temperature, method="pea
 pg_murder_temps |> 
   ggplot() +
   geom_point(aes(x=temperature, y=murders)) +
-  geom_smooth(aes(x=temperature, y=murders), method="lm")
+  geom_smooth(aes(x=temperature, y=murders), method="lm") + 
+  geom_text(aes(x=temperature, y=murders, label = month))
 ```
 
 
 ### Task 5: Add labels to the scatterplot using geom_text(). Inside geom_text() put the same aes() as geom_point in Task 4, then after the aes() add size = 5.
 
 ```{r}
+# gray band shows uncertainty
+
 pg_murder_temps |> 
   ggplot() +
   geom_point(aes(x=temperature, y=murders)) +
   geom_smooth(aes(x=temperature, y=murders), method="lm") +
-  geom_text(aes(x=))
+  geom_text(aes(x=temperature, y=murders, size = 5, label = month))
 ```
 
 
 ### Task 6: Describe the results of both the correlation calculation and the scatterplot.
 
-The correlation calculation and scatterplot show that an increase in temperatures in Prince George's County appears to be somewhat positively related to the number of murders that occur.
+The correlation calculation shows that an increase in temperatures in Prince George's County appears to be somewhat positively related to the number of murders that occur. However, the scatterplot challenges this theory because August, a hot month in Prince George's County, has a lower number of murders than expected.
 
 
 When you are done, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.
