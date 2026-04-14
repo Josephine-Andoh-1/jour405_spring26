@@ -46,7 +46,7 @@ matches |> summarize(correlation = cor(fouls, goal_diff, method="pearson"))
 ```{r}
 # geom_smooth creates a line of best fit
 # lm = linear model (will be used later)
-# correlation coefficients are limited because they only measure the relationship between two variables (oversimplifies relationships between variables)
+# correlation calculations are limited because they only measure the relationship between two variables (oversimplifies relationships between variables)
 
 matches |> 
   ggplot() +
