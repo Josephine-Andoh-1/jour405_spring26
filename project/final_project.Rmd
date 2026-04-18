@@ -15,18 +15,23 @@ Hypotheses:
 
 The Tests I Could Run:
 
-
+One analysis
 
 
 - calculate correlation between assault and overall crime rates
 
-- sort crime based on years
-- calculate rates per 10k
-- graph rates
-
-- calculate percentiles crimes rank on
+- calculate month-based percentiles 
 - calculate means and standard deviations to see what months have unusual rates
+- calculate monthly z-scores
+- testing to see if any decreases or increases are statistically significant
 
+
+- sort crime based on months
+- calculate rates per 10k
+- create month-based line charts of crimes (one line for PG, other for MoCo)
+
+- organize crimes chronologically
+- filter crimes by month
 
 ```{r}
 library(tidyverse)
