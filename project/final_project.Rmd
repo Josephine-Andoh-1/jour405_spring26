@@ -19,7 +19,13 @@ The Tests I Could Run:
 
 
 - calculate correlation between assault and overall crime rates
-- 
+
+- sort crime based on years
+- calculate rates per 10k
+- graph rates
+
+- calculate percentiles crimes rank on
+- calculate means and standard deviations to see what months have unusual rates
 
 
 ```{r}
