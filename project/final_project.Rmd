@@ -15,7 +15,11 @@ Hypotheses:
 
 The Tests I Could Run:
 
-a
+
+
+
+- calculate correlation between assault and overall crime rates
+- 
 
 
 ```{r}
