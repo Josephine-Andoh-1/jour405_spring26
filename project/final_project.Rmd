@@ -4,6 +4,20 @@ author: Josephine Andoh
 output: html_document
 ---
 
+
+Hypotheses:
+
+1. Montgomery County has higher rates of burglaries, automobile thefts and thefts from automobiles than Prince George's County
+2. Prince George's County has higher rates of assault, sex offenses and overall theft than Montgomery County
+3. Prince George's County has higher overall rates of these six crime categories than Montgomery County
+
+
+
+The Tests I Could Run:
+
+a
+
+
 ```{r}
 library(tidyverse)
 
