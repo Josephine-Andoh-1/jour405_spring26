@@ -15,7 +15,7 @@ Hypotheses:
 
 The Tests I Could Run:
 
-One analysis
+An analysis that I think is useful for my project would be calculating crime rates per capita. Calculating the raw 
 
 
 - calculate correlation between assault and overall crime rates
