@@ -14,13 +14,13 @@ Hypotheses:
 
 The Tests I Could Run:
 
-An analysis that I think would be useful for my project would be calculating the correlation between some of the different crime categories I am analyzing. It would be interesting to see if burglary and theft rates, for example, were correlated. However, it would be even more interesting if two crime categories that, at first glance, could be correlated (automobile thefts and thefts from automobiles, for example) actually had no relationship.
+An analysis I think would be useful for my project is calculating correlations among the different crime categories I am analyzing. It would be interesting to see if burglary and theft rates, for example, were correlated. However, it would be even more interesting if two crime categories that, at first glance, could be correlated (automobile thefts and thefts from automobiles, for example) actually had no relationship.
 
-Another analysis that I think would be useful for my project would be calculating the correlation between assault and overall crime rates for Prince George's and Montgomery counties. You mentioned once in class that assault rates can reflect overall crime rates, and it would be interesting to see if that held over a long time period.
+Another analysis I think would be useful for my project is calculating the correlation between assault and overall crime rates for Prince George's and Montgomery counties. You mentioned once in class that assault rates can reflect overall crime rates, and it would be interesting to see if that held in those counties over a long time period.
 
-A third analysis that I think would be useful for my project would be calculating the z-scores of the number of crimes committed per month and analyzing any unusual z-scores. Seeing which county has more months with unusually high z-scores could make my project more interesting, and it would prompt me to research those months to determine the reasons for those crime spikes.
+A third analysis I think would be useful for my project is calculating the z-scores of the number of crimes committed per month and analyzing any unusual z-scores. Seeing which county has more months with unusually high z-scores could make my project more interesting and would prompt me to research those months to determine the reasons for the increases in crime.
 
-A fourth analysis that I think would be useful for my project would be calculating whether any decreases or increases in crime were statistically significant. If I found that they were, I could also calculate their effect size. This would give me more information than z-scores would, and could also prompt me to do more research.
+A fourth analysis I think would be useful for my project is calculating whether any decreases or increases in crime were statistically significant. If I found that they were, I could also calculate their effect size. This would give me more information than z-scores would, and could also prompt me to do more research.
 
 
 ```{r}
