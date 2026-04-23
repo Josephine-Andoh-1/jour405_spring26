@@ -31,7 +31,9 @@ schools |> arrange(desc(`FARMS Pct`)) |> head(10)
 Are there any data quality issues like the ones you found in the Pennsylvania data? How does the distribution of FARMS percentages compare between the two counties? Note anything that concerns you or gives you confidence in the data.
 
 
-There are few, if any, quality issues like the ones I found in the Pennsylvania data. There are no schools with 
+Based on initial observation, there are few (if any) quality issues with the Montgomery County, Maryland, data. There are no schools with a 0 or 100% share of FARMS-eligible students, and the data has a realistic range (4 to 96%). 
+
+Additionally, I grew up and currently live in Montgomery County, and the shares of FARMS-eligible students seem realistic. For example, Broad Acres Elementary School is in a lower-income area of the county, so it makes sense that it has a high share of FARMS-eligible students. On the other hand, Bethesda Elementary School is in a higher-income area of the county, so it makes sense that it has a low share of FARMS-eligible students.
 
 
 ### Task 2: Create a Scatterplot and Compare (5 points)
