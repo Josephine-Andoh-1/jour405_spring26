@@ -54,9 +54,9 @@ Describe what you see. Then compare this scatterplot specifically to the Pennsyl
 
 The scatterplot appears to show that the more FARMS-eligible students an elementary school has, the lower the share of students who meet or exceed math expectations.
 
-This scatterplot and the Pennsylvania county's scatterplot are rather different. The Maryland county's scatterplot shows a strong negative relationship where most of the data is close to the line of best fit. On the other hand, the Pennsylvania county's scatterplot shows a very weak positive relationship where most of the data is extremely spread out.
+This scatterplot and the Pennsylvania county's scatterplot are rather different. The Maryland county's scatterplot shows a strong negative relationship, with most data points close to the line of best fit. On the other hand, the Pennsylvania county's scatterplot shows a very weak positive relationship, with most data points widely dispersed.
 
-Something that might explain why the two scatterplots look so different is the way that FARMS eligibility was calculated. I suspect the Pennsylvania county's calculations were incorrect in some way, because it is very unrealistic that there are eight elementary schools where 100% of students are FARMS-eligible. On the other hand, I believe the Maryland county's calculations were mostly (if not completely) accurate because they are realistic (based on personal knowledge and the data's range).
+Something that might explain why the two scatterplots look so different is how FARMS eligibility was calculated. I suspect the Pennsylvania county's calculations were incorrect in some way, because it is very unrealistic that there are eight elementary schools where 100% of students are FARMS-eligible. On the other hand, I believe the Maryland county's calculations were mostly (if not completely) accurate because they are realistic (based on personal knowledge and the data's range).
 
 
 ### Task 3: Linear Regression Model (5 points)
@@ -64,13 +64,18 @@ Something that might explain why the two scatterplots look so different is the w
 Replace the REPLACE_ME value with the correct variable name to run a linear regression model predicting math scores from FARMS percentage.
 
 ```{r}
-model <- lm(`REPLACE_ME` ~ `FARMS Pct`, data = schools)
+model <- lm(`% Met or Exceeded Math Expectations` ~ `FARMS Pct`, data = schools)
 summary(model)
 ```
 
 Report the three key statistics: the p-value, the Adjusted R-squared, and the coefficient for FARMS Pct. Then interpret them together — not separately. What does the combination of these three numbers tell you about the relationship between poverty and math scores in Montgomery County, Md.? Is this model worth using? How does it compare to the Pennsylvania model?
 
-ANSWER HERE
+
+The p-value for this data is a number less than 0.00000000000000022. The adjusted R-squared value for this data is 0.6734. The coefficient for the FARMS percentage is -0.59511. 
+
+The combination of these three numbers tells me that there is a somewhat strong, statistically significant relationship between poverty and math scores in elementary schools in Montgomery County, Maryland. More specifically, these three numbers tell me that an increase in the number of students in poverty at a given elementary school can somewhat predict lower math scores at that school.
+
+This model could be worth using, but other variables likely contribute to the apparent correlation between poverty and math scores. However, it is much more useful than the Pennsylvania model.
 
 
 ### Task 4: Identifying Schools with the Biggest Residuals (6 points)
