@@ -110,6 +110,13 @@ Something in the zip code's profile that might help explain its overperformance 
 The school with the largest negative residual is Germantown Elementary School.
 
 
+
+https://censusreporter.org/profiles/86000US20874-20874/
+
+Population more than double 20876 - larger classrooms mean less individualized instruction
+
+
+
 ### Task 5: Evaluate the Model and Write the Pitch (7 points)
 
 You've now run this analysis on two counties. Return to the school board member's claim: that elementary schools with fewer students on free and reduced-price meals do better on standardized math tests.
