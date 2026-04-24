@@ -104,7 +104,9 @@ For each of the two schools, answer:
 
 The school with the largest positive residual is Fox Chapel Elementary School.
 
-The school with the largest negative residual is 
+
+
+The school with the largest negative residual is Germantown Elementary School.
 
 
 ### Task 5: Evaluate the Model and Write the Pitch (7 points)
