@@ -119,5 +119,5 @@ You've now run this analysis on two counties. Return to the school board member'
 Write a short story pitch of 4-6 sentences that addresses all of the following: Does the Maryland data support or contradict the claim? How does it compare to what you found in Pennsylvania? What would you ask the school board member if you called them for comment? And what's the most interesting specific finding from your residuals analysis: which school would you want to visit first, and why?
 
 
-ANSWER HERE
+A school board member in Montgomery County, Pennsylvania, claimed that elementary schools with fewer FARMS-eligible students perform better on standardized math tests, and his claim was proven true - but not in his county.
 
