@@ -107,11 +107,11 @@ The school with the largest positive residual is Fox Chapel Elementary School, l
 Something in the zip code's profile that might help explain its overperformance is the education level of its residents. 88.6% have graduated from high school or obtained a higher level of education, and 52% have received a bachelor's degree or higher. The more educated parents are, the more likely they are to help their children with their schoolwork, which can improve students' academic performance. My first reporting question to the principal of that school would be: How do math teachers at your school help underperforming students?
 
 
-The school with the largest negative residual is Germantown Elementary School.
+The school with the largest negative residual is Germantown Elementary School, located in zip code 20874. 27% of people living in that zip code are Black, 26% are white, 22% are Hispanic, 18% are Asian and 6% are biracial. 51% of residents are female and 49% are male. The median age of residents is 37.6. Zip code 20874 has a per capita income of $52,219 and a median household income of $
 
 
 
-https://censusreporter.org/profiles/86000US20874-20874/
+
 
 Population more than double 20876 - larger classrooms mean less individualized instruction
 
