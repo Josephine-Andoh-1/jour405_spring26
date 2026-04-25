@@ -31,7 +31,7 @@ schools |> arrange(desc(`FARMS Pct`)) |> head(10)
 Are there any data quality issues like the ones you found in the Pennsylvania data? How does the distribution of FARMS percentages compare between the two counties? Note anything that concerns you or gives you confidence in the data.
 
 
-Based on initial observation, there are few (if any) quality issues with the Montgomery County, Maryland, data. There are no schools with a 0 or 100% share of FARMS-eligible students, and the data has a realistic range (4 to 96%). 
+Based on initial observation, there are few (if any) quality issues with the Montgomery County, Maryland, data. There are no schools with a 0% or 100% share of FARMS-eligible students, and the data have a realistic range (4% to 96%). 
 
 Additionally, I grew up and currently live in Montgomery County, and the shares of FARMS-eligible students seem realistic. For example, Broad Acres Elementary School is in a lower-income area of the county, so it makes sense that it has a high share of FARMS-eligible students. On the other hand, Bethesda Elementary School is in a higher-income area of the county, so it makes sense that it has a low share of FARMS-eligible students.
 
@@ -46,7 +46,7 @@ schools |>
   geom_point() +
   geom_smooth(method = "lm", se = FALSE, color = "red") +
   labs(x = "FARMS Percentage", y = "% Met or Exceeded Math Expectations",
-       title = "Higher share of FARMS-eligible students at Montgomery County elementary schools may predict worse student math performance, data shows")
+       title = "Higher share of FARMS-eligible students at Montgomery County, Maryland, elementary schools may predict worse student math performance, data shows")
 ```
 
 Describe what you see. Then compare this scatterplot specifically to the Pennsylvania one: what differences do you notice in the direction, strength, and spread of the relationship? The two counties share a name and are both suburban — what might explain why they look so different?
@@ -108,7 +108,7 @@ Something in the zip code’s profile that might help explain Fox Chapel Element
 
 The school with the largest negative residual is Germantown Elementary School, located in zip code 20874. 27% of people living in that zip code are Black, 26% are white, 22% are Hispanic, 18% are Asian and 6% are biracial. 51% of residents are female and 49% are male. The median age of residents is 37.6. Zip code 20874 has a per capita income of $52,219 and a median household income of $115,022. Additionally, 8.3% of residents live below the poverty line.
 
-Nothing that I see in zip code 20874's profile might help explain its underperformance in the model. Residents of the zip code have high incomes and education levels, which are often linked to higher educational performance among children. My first reporting question to the principal of Germantown Elementary School would be: Do your school's math education method differ from Montgomery County's general guidance in any way? If so, how?
+Nothing I see in the zip code’s profile helps explain why Germantown Elementary School underperformed the model. Residents of the zip code have high incomes and education levels, which are often linked to higher educational performance among children. My first reporting question to the principal of Germantown Elementary School would be: Do your school's math education methods differ from Montgomery County's general guidance in any way? If so, how?
 
 
 ### Task 5: Evaluate the Model and Write the Pitch (7 points)
