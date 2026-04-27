@@ -23,18 +23,6 @@ A third analysis I think would be useful for my project is calculating the z-sco
 A fourth analysis I think would be useful for my project is calculating whether any decreases or increases in crime were statistically significant. If I found that they were, I could also calculate their effect size. This would give me more information than z-scores would, and could also prompt me to do more research.
 
 
-```{r}
-library(tidyverse)
-
-pgcrime17_23 <- read_csv("PGCRIME17-23.csv")
-
-pgcrime23_26 <- read_csv("PGCRIME23-26.csv")
-
-mococrime <- read_csv("MOCOCRIME.zip")
-
-pgcrime <- bind_rows(pgcrime17_23, pgcrime23_26)
-```
-
 
 Notes:
 
@@ -65,3 +53,18 @@ Should I analyze my data based on days, weeks or months? I want to do months due
 How many years' worth of data should I analyze? In HW9 (Car Thefts Confidence Interval & Error), Mr. Salama said that five years' worth of data was too long a period to analyze.
 
 Is there any way I can combine the Prince George's County crime datasets to facilitate my analysis? 
+
+
+```{r}
+library(tidyverse)
+
+pgcrime17_23 <- read_csv("PGCRIME17-23.csv")
+
+pgcrime23_26 <- read_csv("PGCRIME23-26.csv")
+
+mococrime <- read_csv("MOCOCRIME.zip")
+
+pgcrime <- bind_rows(pgcrime17_23, pgcrime23_26)
+```
+
+
