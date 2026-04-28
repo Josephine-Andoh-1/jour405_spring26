@@ -8,6 +8,8 @@ output: html_document
 Though I was not able to start the analysis, I am starting to believe that Montgomery County may have higher crime rates due to the high level of crime reporting in the county.
 
 
+## Step 1: Loading datasets 
+
 ```{r}
 library(tidyverse)
 
@@ -26,6 +28,8 @@ mococrime <- read_csv("MOCOCRIME.zip")
 pgcrime <- bind_rows(pgcrime17_23, pgcrime23_26)
 ```
 
+
+## Step 2: Organizing crime types
 ```{r}
 pgcrime <- pgcrime |> 
   mutate(category = case_when(
@@ -50,9 +54,8 @@ pgcrime <- pgcrime |>
     .default = NA
   )
 )
-```
 
-```{r}
+
 mococrime <- mococrime |>
   mutate(category = case_when(
     str_detect(`Crime Name3`, "ASSAULT - 2ND DEGREE") ~ "assault",
@@ -71,12 +74,11 @@ mococrime <- mococrime |>
     str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - POL OFF-GUN") ~ "assault",
     str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - PUB OFF-STRONG-ARM") ~ "assault",
     str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - PUB OFF-GUN") ~ "assault",
+    
     .default = NA
   )
 )
-```
 
-```{r}
 mococrime <- mococrime |>
   mutate(category = case_when(
     str_detect(`Crime Name3`, "SEX OFFENSE - AGAINST CHILD-FONDLING") ~ "sex offense",
@@ -101,9 +103,7 @@ mococrime <- mococrime |>
     .default = NA
   )
 )
-```
 
-```{r}
 mococrime <- mococrime |>
   mutate(category = case_when(
     str_detect(`Crime Name3`, "ROBBERY - STREET-GUN") ~ "robbery",
@@ -121,9 +121,7 @@ mococrime <- mococrime |>
     .default = NA
   )
 )
-```
 
-```{r}
 mococrime <- mococrime |>
   mutate(category = case_when(
     str_detect(`Crime Name3`, "BURGLARY - SAFE-VAULT") ~ "burglary",
@@ -136,9 +134,7 @@ mococrime <- mococrime |>
     .default = NA
   )
 )
-```
 
-```{r}
 mococrime <- mococrime |>
   mutate(category = case_when(
     str_detect(`Crime Name3`, "STOLEN VEHICLE (DESCRIBE OFFENSE)") ~ "auto theft",
@@ -151,9 +147,7 @@ mococrime <- mococrime |>
     .default = NA
   )
 )
-```
 
-```{r}
 mococrime <- mococrime |>
   mutate(category = case_when(
     str_detect(`Crime Name3`, "LARCENY - FROM AUTO") ~ "theft from auto",
@@ -161,9 +155,7 @@ mococrime <- mococrime |>
     .default = NA
   )
 )
-```
 
-```{r}
 mococrime <- mococrime |>
   mutate(category = case_when(
     str_detect(`Crime Name3`, "HOMICIDE - WILLFUL KILL-GUN") ~ "homicide",
@@ -180,9 +172,7 @@ mococrime <- mococrime |>
     .default = NA
   )
 )
-```
 
-```{r}
 mococrime <- mococrime |>
   mutate(category = case_when(
     str_detect(`Crime Name3`, "LARCENY (DESCRIBE OFFENSE)") ~ "theft",
@@ -205,7 +195,7 @@ mococrime <- mococrime |>
 ```
 
 
-
+## Step 3: Organizing data by month 
 
 ```{r}
 pgcrime <- pgcrime |>
@@ -218,7 +208,11 @@ pgcrime <- pgcrime |>
 
 ```{r}
 pgcrime <- pgcrime |>
-  mutate(month_of_year = month(date, label = TRUE))
+  mutate(
+    day_of_week = wday(date, label = TRUE),
+    month = floor_date(date, "month"),
+    year = year(date)
+  )
 
 # didn't work
 ```
