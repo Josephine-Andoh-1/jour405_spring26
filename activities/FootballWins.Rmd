@@ -40,7 +40,7 @@ Next, we construct a linear model to analyze how different factors like `Yards G
 
 # in multiple regression, we're looking for the right combination of factors (yards gained could be abandoned)
 
-model <- lm(Wins ~ `Yards Gained` + Takeaways + `Points Scored`, data = teams)
+model <- lm(Wins ~ Takeaways + Giveaways + `Yards Allowed` + `Points Scored`, data = teams)
 summary(model)
 ```
 
@@ -77,6 +77,15 @@ Based on what I've seen, this is a relatively useful model. Though its p-value i
 After building the model, we calculate the correlation matrix for our variables of interest. This matrix helps visualize the strength and direction of the relationships between each pair of variables.
 
 ```{r}
+
+# helps you decide if variables you're analyzing are useful
+
+# analyzing variables that are too similar messes up the model (first downs and passing first downs, etc.)
+
+# lower numbers are good indicators that both variables can be analyzed in model together
+
+# above 0.5 can be a warning sign
+
 selected_vars <- teams |>  select(`Yards Gained`, Takeaways, `Points Scored`, Wins)
 cor(selected_vars)
 ```
@@ -96,8 +105,14 @@ The results from our correlation analysis show the strength of the relationships
 
 Which of these three factors - Yards Gained, Takeaways and Points Scored - have the most impact on wins? Are there any that do not seem impactful at all?
 
-ANSWER HERE
+
+When my model incorporated takeaways, giveaways, yards allowed and points scored, it became much more accurate. It had an adjusted R-squared value of 0.8236 and a statistically significant p-value. When my model incorporated giveaways, takeaways and points scored, it also became more accurate. It had an adjusted R-squared value of 0.772 and a statistically significant p-value. Consequently, it appears that giveaways, yards allowed and points scored have the most impact on wins, and that yards gained do not seem very impactful.
+
 
 ## Using the Model (3 points)
 
 Without using the words "multiple regression model", describe how you could use this model to cover a team or game.
+
+
+ANSWER HERE
+
