@@ -74,15 +74,42 @@ pgcrime <- bind_rows(pgcrime17_23, pgcrime23_26)
 ```
 
 ```{r}
-pgcrime <- pgcrime |>
-  mutate(month_of_year = month(date, label = TRUE))
+pgcrime <- pgcrime |> 
+  mutate(category = case_when(
+    str_detect(`Clearance Code Inc Type`, "ASSAULT") ~ "assault",
+    str_detect(`Clearance Code Inc Type`, "ASSAULT, WEAPON") ~ "assault",
+    str_detect(`Clearance Code Inc Type`, "ASSAULT, SHOOTING") ~ "assault",
+    str_detect(`Clearance Code Inc Type`, "B & E, RESIDENTIAL") ~ "burglary",
+    str_detect(`Clearance Code Inc Type`, "B & E, RESIDENTIAL (VACANT)") ~ "burglary",
+    str_detect(`Clearance Code Inc Type`, "B & E, COMMERCIAL") ~ "burglary",
+    str_detect(`Clearance Code Inc Type`, "B & E, OTHER") ~ "burglary",
+    str_detect(`Clearance Code Inc Type`, "AUTO, STOLEN") ~ "auto theft",
+    str_detect(`Clearance Code Inc Type`, "AUTO, STOLEN & RECOVERED") ~ "auto theft",
+    str_detect(`Clearance Code Inc Type`, "ROBBERY, OTHER") ~ "robbery",
+    str_detect(`Clearance Code Inc Type`, "ROBBERY, COMMERCIAL") ~ "robbery",
+    str_detect(`Clearance Code Inc Type`, "ROBBERY, RESIDENTIAL") ~ "robbery",
+    str_detect(`Clearance Code Inc Type`, "ROBBERY, VEHICLE") ~ "robbery",
+    str_detect(`Clearance Code Inc Type`, "ROBBERY, VEHICLE") ~ "robbery",
+    str_detect(`Clearance Code Inc Type`, "THEFT") ~ "robbery",
+    .default = NA
+  )
+)
 ```
-
 
 
 
 ```{r}
-pgcrime <- pgcrime |> 
-  mutate(assault = `ASSAULT, WEAPON` + `ASSAULT, SHOOTING` +`ASSAULT`)
+pgcrime <- pgcrime |>
+  mutate(
+    month = floor_date(date, "month")
+  )
+
+#attempt this next
 ```
 
+```{r}
+pgcrime <- pgcrime |>
+  mutate(month_of_year = month(date, label = TRUE))
+
+#didn't work
+```
