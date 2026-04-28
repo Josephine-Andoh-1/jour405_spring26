@@ -60,6 +60,10 @@ library(tidyverse)
 
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 
+library(knitr) 
+
+library(lubridate)
+
 pgcrime17_23 <- read_csv("PGCRIME17-23.csv")
 
 pgcrime23_26 <- read_csv("PGCRIME23-26.csv")
