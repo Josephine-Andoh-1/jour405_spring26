@@ -163,6 +163,45 @@ mococrime <- mococrime |>
 )
 ```
 
+```{r}
+mococrime <- mococrime |>
+  mutate(category = case_when(
+    str_detect(`Crime Name3`, "HOMICIDE - WILLFUL KILL-GUN") ~ "homicide",
+    str_detect(`Crime Name3`, "HOMICIDE (DESCRIBE OFFENSE)") ~ "homicide",
+    str_detect(`Crime Name3`, "HOMICIDE - WILLFUL KILL") ~ "homicide",
+    str_detect(`Crime Name3`, "HOMICIDE - WILLFUL KILL-FAMILY") ~ "homicide",
+    str_detect(`Crime Name3`, "HOMICIDE - JUSTIFIABLE") ~ "homicide",
+    str_detect(`Crime Name3`, "HOMICIDE - WILLFUL KILL-FAMILY-GUN") ~ "homicide",
+    str_detect(`Crime Name3`, "HOMICIDE - WILLFUL KILL-NON-FAMILY-GUN") ~ "homicide",
+    str_detect(`Crime Name3`, "HOMICIDE - WILLFUL KILL-NON-FAMILY") ~ "homicide",
+    str_detect(`Crime Name3`, "HOMICIDE - NEGLIGENT MANSLAUGHTER") ~ "homicide",
+    str_detect(`Crime Name3`, "HOMICIDE - BY NON-POLICE - JUSTIFIABLE") ~ "homicide",
+    str_detect(`Crime Name3`, "HOMICIDE - JOHN OR JANE DOE - NO WARRANT") ~ "homicide",
+    .default = NA
+  )
+)
+```
+
+```{r}
+mococrime <- mococrime |>
+  mutate(category = case_when(
+    str_detect(`Crime Name3`, "LARCENY (DESCRIBE OFFENSE)") ~ "theft",
+    str_detect(`Crime Name3`, "LARCENY - POCKET PICKING") ~ "theft",
+    str_detect(`Crime Name3`, "LARCENY - FROM INTERSTATE SHIPMENT") ~ "theft",
+    str_detect(`Crime Name3`, "LARCENY - THEFT OF US GOVERNMENT PROPERTY") ~ "theft",
+    str_detect(`Crime Name3`, "LARCENY - FROM COIN MACHINE") ~ "theft",
+    str_detect(`Crime Name3`, "LARCENY - FROM SHIPMENT") ~ "theft",
+    str_detect(`Crime Name3`, "LARCENY - FROM BANKING-TYPE INST") ~ "theft",
+    str_detect(`Crime Name3`, "LARCENY - FROM MALLS") ~ "theft",
+    str_detect(`Crime Name3`, "LARCENY - FROM YARDS") ~ "theft",
+    str_detect(`Crime Name3`, "LARCENY - PURSE SNATCHING - NO FORCE") ~ "theft",
+    str_detect(`Crime Name3`, "LARCENY - POCKET PICKING") ~ "theft",
+    .default = NA
+  )
+)
+```
+
+
 
 
 ```{r}
