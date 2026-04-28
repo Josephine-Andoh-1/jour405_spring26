@@ -1,4 +1,3 @@
-
 ---
 title: "Multiple Regression Analysis in R"
 ---
@@ -18,6 +17,11 @@ library(corrplot)
 The first step in our analysis is to load the data. Here we read the data from a CSV file, which contains various statistics for NFL teams from the 2019 season. This dataset will be used to build our model.
 
 ```{r}
+
+# giveaways = fumbles, interceptions, etc. (bad things)
+
+# takeaways = good things
+
 teams <- read_csv("https://raw.githubusercontent.com/dwillis/jour405_files/main/nfl_2019.csv")
 ```
 
@@ -26,6 +30,16 @@ teams <- read_csv("https://raw.githubusercontent.com/dwillis/jour405_files/main/
 Next, we construct a linear model to analyze how different factors like `Yards Gained`, `Takeaways`, and `Points Scored` influence the number of wins. This model helps us quantify the relationships and assess which factors are significant predictors of success.
 
 ```{r}
+# regression models must analyze numbers, not text blocks
+
+# residual standard error - the lower the number, the better (how much error built into model) [single digits are best]
+
+# this model basically shows a coin flip (ranges from 4 losses to 4 wins)
+
+# in this model, only points scored had a significant p-value
+
+# in multiple regression, we're looking for the right combination of factors (yards gained could be abandoned)
+
 model <- lm(Wins ~ `Yards Gained` + Takeaways + `Points Scored`, data = teams)
 summary(model)
 ```
@@ -54,7 +68,9 @@ The coefficients tell us the estimated effect of each independent variable on th
 
 Is this a useful model, based on what you've seen? Why?
 
-ANSWER HERE
+
+Based on what I've seen, this is a relatively useful model. Though its p-value is statistically significant and its F-statistic is good, its adjusted R-squared value isn't high enough in its real-world context. A model being able to explain almost 60% of the variance is good in general, but in terms of football games, it is more or less like a coin toss. Since football games have binary results (wins or losses), a model would have to be even more accurate than this to be useful for them.
+
 
 ## Correlation Analysis
 
