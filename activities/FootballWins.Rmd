@@ -114,5 +114,5 @@ When my model incorporated takeaways, giveaways, yards allowed and points scored
 Without using the words "multiple regression model", describe how you could use this model to cover a team or game.
 
 
-ANSWER HERE
+I could use this analysis method to cover a team or game in different ways. I could plug the team's statistics into this analysis method to predict what factors are making the team win or lose, or if they will win or lose their next game. I could also use these statistics to predict what types of players the team will need to improve their performance (more defense or offense players, for example).
 
