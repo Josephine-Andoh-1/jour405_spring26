@@ -99,6 +99,19 @@ pgcrime <- pgcrime |>
 )
 ```
 
+```{r}
+mococrime <- mococrime |>
+  mutate(category = case_when(
+    str_detect(`Crime Name3`, "ASSAULT - 2ND DEGREE") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - INTIMIDATION (INCLUDES STALKING)") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - PUB OFF-OTHER WEAPON") ~ "assault",
+    .default = NA
+  )
+)
+```
+
+
+
 
 
 ```{r}
