@@ -58,6 +58,8 @@ Is there any way I can combine the Prince George's County crime datasets to faci
 ```{r}
 library(tidyverse)
 
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+
 pgcrime17_23 <- read_csv("PGCRIME17-23.csv")
 
 pgcrime23_26 <- read_csv("PGCRIME23-26.csv")
@@ -66,6 +68,14 @@ mococrime <- read_csv("MOCOCRIME.zip")
 
 pgcrime <- bind_rows(pgcrime17_23, pgcrime23_26)
 ```
+
+```{r}
+pgcrime <- pgcrime |>
+  mutate(month_of_year = month(date, label = TRUE))
+```
+
+
+
 
 ```{r}
 pgcrime <- pgcrime |> 
