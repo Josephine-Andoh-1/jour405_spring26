@@ -44,8 +44,8 @@ pgcrime <- pgcrime |>
     str_detect(`Clearance Code Inc Type`, "ROBBERY, VEHICLE") ~ "robbery",
     str_detect(`Clearance Code Inc Type`, "ROBBERY, VEHICLE") ~ "robbery",
     str_detect(`Clearance Code Inc Type`, "THEFT") ~ "theft",
-    str_detect(`Clearance Code Inc Type`, "SEX OFFENSE") ~ "sex offense",
     str_detect(`Clearance Code Inc Type`, "THEFT FROM AUTO") ~ "theft from auto",
+    str_detect(`Clearance Code Inc Type`, "SEX OFFENSE") ~ "sex offense",
     str_detect(`Clearance Code Inc Type`, "HOMICIDE") ~ "homicide",
     .default = NA
   )
@@ -144,11 +144,24 @@ mococrime <- mococrime |>
     str_detect(`Crime Name3`, "STOLEN VEHICLE (DESCRIBE OFFENSE)") ~ "auto theft",
     str_detect(`Crime Name3`, "AUTO THEFT - VEHICLE THEFT") ~ "auto theft",
     str_detect(`Crime Name3`, "AUTO THEFT - THEFT VEHICLE BY BAILEE") ~ "auto theft",
+    str_detect(`Crime Name3`, "AUTO THEFT - STRIP STOLEN VEHICLE") ~ "auto theft",
+    str_detect(`Crime Name3`, "AUTO THEFT - THEFT AND STRIP VEHICLE") ~ "auto theft",
+    str_detect(`Crime Name3`, "AUTO THEFT - THEFT AND SALE VEHICLE") ~ "auto theft",
+    str_detect(`Crime Name3`, "AUTO THEFT - THEFT AND USE VEHICLE OTHER CRIME") ~ "auto theft",
     .default = NA
   )
 )
 ```
 
+```{r}
+mococrime <- mococrime |>
+  mutate(category = case_when(
+    str_detect(`Crime Name3`, "LARCENY - FROM AUTO") ~ "theft from auto",
+    str_detect(`Crime Name3`, "LARCENY - AUTO PARTS") ~ "theft from auto",
+    .default = NA
+  )
+)
+```
 
 
 
