@@ -196,6 +196,9 @@ mococrime <- mococrime |>
     str_detect(`Crime Name3`, "LARCENY - FROM YARDS") ~ "theft",
     str_detect(`Crime Name3`, "LARCENY - PURSE SNATCHING - NO FORCE") ~ "theft",
     str_detect(`Crime Name3`, "LARCENY - POCKET PICKING") ~ "theft",
+    str_detect(`Crime Name3`, "LARCENY - POSTAL") ~ "theft",
+    str_detect(`Crime Name3`, "LARCENY - FROM BLDG") ~ "theft",
+    str_detect(`Crime Name3`, "LARCENY - SHOPLIFTING") ~ "theft",
     .default = NA
   )
 )
