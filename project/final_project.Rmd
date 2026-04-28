@@ -105,6 +105,19 @@ mococrime <- mococrime |>
     str_detect(`Crime Name3`, "ASSAULT - 2ND DEGREE") ~ "assault",
     str_detect(`Crime Name3`, "ASSAULT - INTIMIDATION (INCLUDES STALKING)") ~ "assault",
     str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - PUB OFF-OTHER WEAPON") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - POL OFF-OTHER WEAPON") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - FAMILY-GUN") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - SIMPLE") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - GUN") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - NON-FAMILY-OTHER WEAPON") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - FAMILY-STRONG-ARM") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - NON-FAMILY-GUN") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - NON-FAMILY-STRONG-ARM") ~ "assault",
+    str_detect(`Crime Name3`, "ATTEMPTED ASSAULT AGGRAVATED POL OFF KNIFE") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - POL OFF-STRONG-ARM") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - POL OFF-GUN") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - PUB OFF-STRONG-ARM") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - PUB OFF-GUN") ~ "assault",
     .default = NA
   )
 )
