@@ -213,14 +213,14 @@ pgcrime <- pgcrime |>
     month = floor_date(date, "month")
   )
 
-#attempt this next
+# didn't work
 ```
 
 ```{r}
 pgcrime <- pgcrime |>
   mutate(month_of_year = month(date, label = TRUE))
 
-#didn't work
+# didn't work
 ```
 
 
