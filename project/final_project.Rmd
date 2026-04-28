@@ -5,56 +5,6 @@ output: html_document
 ---
 
 
-Hypotheses:
-
-1. Montgomery County has higher rates of burglaries, automobile thefts and thefts from automobiles than Prince George's County
-2. Prince George's County has higher rates of assault, sex offenses and overall theft than Montgomery County
-3. Prince George's County has higher overall rates of these six crime categories than Montgomery County
-
-
-The Tests I Could Run:
-
-An analysis I think would be useful for my project is calculating correlations among the different crime categories I am analyzing. It would be interesting to see if burglary and theft rates, for example, were correlated. However, it would be even more interesting if two crime categories that, at first glance, could be correlated (automobile thefts and thefts from automobiles, for example) actually had no relationship.
-
-Another analysis I think would be useful for my project is calculating the correlation between assault and overall crime rates for Prince George's and Montgomery counties. You mentioned once in class that assault rates can reflect overall crime rates, and it would be interesting to see if that held in those counties over a long time period.
-
-A third analysis I think would be useful for my project is calculating the z-scores of the number of crimes committed per month and analyzing any unusual z-scores. Seeing which county has more months with unusually high z-scores could make my project more interesting and would prompt me to research those months to determine the reasons for the increases in crime.
-
-A fourth analysis I think would be useful for my project is calculating whether any decreases or increases in crime were statistically significant. If I found that they were, I could also calculate their effect size. This would give me more information than z-scores would, and could also prompt me to do more research.
-
-
-
-Notes:
-
-Prince George's County crime data from February 2, 2017, to July 5, 2023, can be found at this link (https://data.princegeorgescountymd.gov/Public-Safety/Crime-Incidents-February-2017-to-5th-July-2023/wb4e-w4nf/about_data). 
-
-The county's crime data from July 1, 2023, to April 2, 2026, can be found at this link (https://data.princegeorgescountymd.gov/Public-Safety/Crime-Incidents-July-2023-to-Present/xjru-idbe/about_data).
-
-Montgomery County's crime data from July 1, 2016, to April 10, 2026, can be found at this link (https://data.montgomerycountymd.gov/Public-Safety/Crime/icn6-v9z3/about_data).
-
-
-Prince George's County's datasets contain information on 18 crime categories, including accidents, assaults, theft, sex offenses, homicides, stolen automobiles, commercial and residential breaking and entering and commercial and vehicle robbery. They also include the addresses where the crimes occurred, the case IDs for each incident and the police department sectors where the crimes occurred. The columns that will be the most important for my analysis are date and clearance code inc type. I am missing definitions for the county's crime categorizations - What classifies as a weapon in "assault with a weapon?" What classifies as a sex offense? I am also missing data on incidents of driving under the influence, drug abuse incidents and financial crimes.
-
-Montgomery County's dataset contains information on over 350 crime categories, including incest with a minor, fraud, unauthorized use of a vehicle, possession of hallucinogens and robbery with a knife. It also includes more general categories for each crime, including crimes against society, crimes against property, shoplifting, motor vehicle theft and burglary/breaking and entering. Montgomery County's dataset also contains information on the number of victims, the exact times of dispatches, the type of place where an incident occurred and the zip code where an incident occurred. The columns that will be the most important for my analysis are start date time, crime name 2 and crime name 3. I am missing justifications for the county's crime categorizations - Why are abortion, mental illness and suicide included in the database if they are not crimes under Maryland law? Why is "liquor" classified as a crime when the specific offense has not been described?
-
-Now that I have looked at the datasets again, I am a bit concerned about my plan to group certain crimes. If I cannot find definitions for certain crimes, I will not be sure what category I can put them in. 
-
-
-My questions:
-
-Why isn't there a centralized system for categorizing crimes across Maryland? Why is Prince George's County allowed to generalize while Montgomery County is extremely specific?
-
-How can I change the date-month-year format so that I can filter the crimes in chronological order?
-
-How can I exclude the dates and years I am not analyzing? Are there filters I can apply?
-
-Should I analyze my data based on days, weeks or months? I want to do months due to the sheer volume of my data. Is that a good idea?
-
-How many years' worth of data should I analyze? In HW9 (Car Thefts Confidence Interval & Error), Mr. Salama said that five years' worth of data was too long a period to analyze.
-
-Is there any way I can combine the Prince George's County crime datasets to facilitate my analysis? 
-
-
 ```{r}
 library(tidyverse)
 
@@ -125,8 +75,6 @@ mococrime <- mococrime |>
 
 
 
-
-
 ```{r}
 pgcrime <- pgcrime |>
   mutate(
@@ -142,3 +90,54 @@ pgcrime <- pgcrime |>
 
 #didn't work
 ```
+
+
+
+Hypotheses:
+
+1. Montgomery County has higher rates of burglaries, automobile thefts and thefts from automobiles than Prince George's County
+2. Prince George's County has higher rates of assault, sex offenses and overall theft than Montgomery County
+3. Prince George's County has higher overall rates of these six crime categories than Montgomery County
+
+
+The Tests I Could Run:
+
+An analysis I think would be useful for my project is calculating correlations among the different crime categories I am analyzing. It would be interesting to see if burglary and theft rates, for example, were correlated. However, it would be even more interesting if two crime categories that, at first glance, could be correlated (automobile thefts and thefts from automobiles, for example) actually had no relationship.
+
+Another analysis I think would be useful for my project is calculating the correlation between assault and overall crime rates for Prince George's and Montgomery counties. You mentioned once in class that assault rates can reflect overall crime rates, and it would be interesting to see if that held in those counties over a long time period.
+
+A third analysis I think would be useful for my project is calculating the z-scores of the number of crimes committed per month and analyzing any unusual z-scores. Seeing which county has more months with unusually high z-scores could make my project more interesting and would prompt me to research those months to determine the reasons for the increases in crime.
+
+A fourth analysis I think would be useful for my project is calculating whether any decreases or increases in crime were statistically significant. If I found that they were, I could also calculate their effect size. This would give me more information than z-scores would, and could also prompt me to do more research.
+
+
+
+Notes:
+
+Prince George's County crime data from February 2, 2017, to July 5, 2023, can be found at this link (https://data.princegeorgescountymd.gov/Public-Safety/Crime-Incidents-February-2017-to-5th-July-2023/wb4e-w4nf/about_data). 
+
+The county's crime data from July 1, 2023, to April 2, 2026, can be found at this link (https://data.princegeorgescountymd.gov/Public-Safety/Crime-Incidents-July-2023-to-Present/xjru-idbe/about_data).
+
+Montgomery County's crime data from July 1, 2016, to April 10, 2026, can be found at this link (https://data.montgomerycountymd.gov/Public-Safety/Crime/icn6-v9z3/about_data).
+
+
+Prince George's County's datasets contain information on 18 crime categories, including accidents, assaults, theft, sex offenses, homicides, stolen automobiles, commercial and residential breaking and entering and commercial and vehicle robbery. They also include the addresses where the crimes occurred, the case IDs for each incident and the police department sectors where the crimes occurred. The columns that will be the most important for my analysis are date and clearance code inc type. I am missing definitions for the county's crime categorizations - What classifies as a weapon in "assault with a weapon?" What classifies as a sex offense? I am also missing data on incidents of driving under the influence, drug abuse incidents and financial crimes.
+
+Montgomery County's dataset contains information on over 350 crime categories, including incest with a minor, fraud, unauthorized use of a vehicle, possession of hallucinogens and robbery with a knife. It also includes more general categories for each crime, including crimes against society, crimes against property, shoplifting, motor vehicle theft and burglary/breaking and entering. Montgomery County's dataset also contains information on the number of victims, the exact times of dispatches, the type of place where an incident occurred and the zip code where an incident occurred. The columns that will be the most important for my analysis are start date time, crime name 2 and crime name 3. I am missing justifications for the county's crime categorizations - Why are abortion, mental illness and suicide included in the database if they are not crimes under Maryland law? Why is "liquor" classified as a crime when the specific offense has not been described?
+
+Now that I have looked at the datasets again, I am a bit concerned about my plan to group certain crimes. If I cannot find definitions for certain crimes, I will not be sure what category I can put them in. 
+
+
+My questions:
+
+Why isn't there a centralized system for categorizing crimes across Maryland? Why is Prince George's County allowed to generalize while Montgomery County is extremely specific?
+
+How can I change the date-month-year format so that I can filter the crimes in chronological order?
+
+How can I exclude the dates and years I am not analyzing? Are there filters I can apply?
+
+Should I analyze my data based on days, weeks or months? I want to do months due to the sheer volume of my data. Is that a good idea?
+
+How many years' worth of data should I analyze? In HW9 (Car Thefts Confidence Interval & Error), Mr. Salama said that five years' worth of data was too long a period to analyze.
+
+Is there any way I can combine the Prince George's County crime datasets to facilitate my analysis? 
