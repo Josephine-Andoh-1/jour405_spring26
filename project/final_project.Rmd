@@ -138,6 +138,16 @@ mococrime <- mococrime |>
 )
 ```
 
+```{r}
+mococrime <- mococrime |>
+  mutate(category = case_when(
+    str_detect(`Crime Name3`, "STOLEN VEHICLE (DESCRIBE OFFENSE)") ~ "auto theft",
+    str_detect(`Crime Name3`, "AUTO THEFT - VEHICLE THEFT") ~ "auto theft",
+    str_detect(`Crime Name3`, "AUTO THEFT - THEFT VEHICLE BY BAILEE") ~ "auto theft",
+    .default = NA
+  )
+)
+```
 
 
 
