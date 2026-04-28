@@ -90,7 +90,10 @@ pgcrime <- pgcrime |>
     str_detect(`Clearance Code Inc Type`, "ROBBERY, RESIDENTIAL") ~ "robbery",
     str_detect(`Clearance Code Inc Type`, "ROBBERY, VEHICLE") ~ "robbery",
     str_detect(`Clearance Code Inc Type`, "ROBBERY, VEHICLE") ~ "robbery",
-    str_detect(`Clearance Code Inc Type`, "THEFT") ~ "robbery",
+    str_detect(`Clearance Code Inc Type`, "THEFT") ~ "theft",
+    str_detect(`Clearance Code Inc Type`, "SEX OFFENSE") ~ "sex offense",
+    str_detect(`Clearance Code Inc Type`, "THEFT FROM AUTO") ~ "theft from auto",
+    str_detect(`Clearance Code Inc Type`, "HOMICIDE") ~ "homicide",
     .default = NA
   )
 )
