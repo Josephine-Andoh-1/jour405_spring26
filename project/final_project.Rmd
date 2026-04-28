@@ -5,6 +5,9 @@ output: html_document
 ---
 
 
+Though I was not able to start the analysis, I am starting to believe that Montgomery County may have higher crime rates due to the high level of crime reporting in the county.
+
+
 ```{r}
 library(tidyverse)
 
@@ -99,6 +102,42 @@ mococrime <- mococrime |>
   )
 )
 ```
+
+```{r}
+mococrime <- mococrime |>
+  mutate(category = case_when(
+    str_detect(`Crime Name3`, "ROBBERY - STREET-GUN") ~ "robbery",
+    str_detect(`Crime Name3`, "ROBBERY - RESIDENTIAL-STRONG-ARM") ~ "robbery",
+    str_detect(`Crime Name3`, "ROBBERY - STREET-STRONG-ARM") ~ "robbery",
+    str_detect(`Crime Name3`, "ROBBERY - STREET-OTHER WEAPON") ~ "robbery",
+    str_detect(`Crime Name3`, "ROBBERY - BUSINESS-GUN") ~ "robbery",
+    str_detect(`Crime Name3`, "ROBBERY - FORCIBLE PURSE SNATCHING") ~ "robbery",
+    str_detect(`Crime Name3`, "ROBBERY (DESCRIBE OFFENSE)") ~ "robbery",
+    str_detect(`Crime Name3`, "ROBBERY - RESIDENTIAL-GUN") ~ "robbery",
+    str_detect(`Crime Name3`, "ROBBERY - BUSINESS-OTHER WEAPON") ~ "robbery",
+    str_detect(`Crime Name3`, "ROBBERY - CARJACKING - ARMED") ~ "robbery",
+    str_detect(`Crime Name3`, "ROBBERY - RESIDENTIAL-OTHER WEAPON") ~ "robbery",
+    str_detect(`Crime Name3`, "ROBBERY - BANKING-TYPE INST") ~ "robbery",
+    .default = NA
+  )
+)
+```
+
+```{r}
+mococrime <- mococrime |>
+  mutate(category = case_when(
+    str_detect(`Crime Name3`, "BURGLARY - SAFE-VAULT") ~ "burglary",
+    str_detect(`Crime Name3`, "BURGLARY - BANKING-TYPE INST") ~ "burglary",
+    str_detect(`Crime Name3`, "BURGLARY (DESCRIBE OFFENSE)") ~ "burglary",
+    str_detect(`Crime Name3`, "BURGLARY - NO FORCED ENTRY-NONRESIDENTIAL") ~ "burglary",
+    str_detect(`Crime Name3`, "BURGLARY - FORCED ENTRY-RESIDENTIAL") ~ "burglary",
+    str_detect(`Crime Name3`, "BURGLARY - FORCED ENTRY-NONRESIDENTIAL") ~ "burglary",
+    str_detect(`Crime Name3`, "BURGLARY - NO FORCED ENTRY-RESIDENTIAL") ~ "burglary",
+    .default = NA
+  )
+)
+```
+
 
 
 
