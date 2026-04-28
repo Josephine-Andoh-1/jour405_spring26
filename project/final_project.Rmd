@@ -73,6 +73,34 @@ mococrime <- mococrime |>
 )
 ```
 
+```{r}
+mococrime <- mococrime |>
+  mutate(category = case_when(
+    str_detect(`Crime Name3`, "SEX OFFENSE - AGAINST CHILD-FONDLING") ~ "sex offense",
+    str_detect(`Crime Name3`, "SEX ASSAULT - FONDLING") ~ "sex offense",
+    str_detect(`Crime Name3`, "SEX OFFENSE - PEEPING TOM") ~ "sex offense",
+    str_detect(`Crime Name3`, "SEX OFFENSE - INDECENT EXPOSURE") ~ "sex offense",
+    str_detect(`Crime Name3`, "COMM SEX OFF - KEEPING HOUSE ILL FAME") ~ "sex offense",
+    str_detect(`Crime Name3`, "SEX OFFENSE - INCEST WITH ADULT") ~ "sex offense",
+    str_detect(`Crime Name3`, "SEX ASSAULT - SODOMY-GIRL-GUN") ~ "sex offense",
+    str_detect(`Crime Name3`, "SEX ASSAULT - SODOMY-GIRL-WEAPON") ~ "sex offense",
+    str_detect(`Crime Name3`, "COMM SEX OFF - PROCURE FOR PROSTITUTE (PIMPING)") ~ "sex offense",
+    str_detect(`Crime Name3`, "COMM SEX OFF - PROCURE PROSTITUTE - MINOR") ~ "sex offense",
+    str_detect(`Crime Name3`, "SEX ASSAULT - SODOMY-WOMAN-GUN") ~ "sex offense",
+    str_detect(`Crime Name3`, "COMM SEX OFF - PROSTITUTION") ~ "sex offense",
+    str_detect(`Crime Name3`, "HOMOSEXUAL ACT WITH BOY") ~ "sex offense",
+    str_detect(`Crime Name3`, "SEX OFFENSE - INCEST WITH MINOR") ~ "sex offense",
+    str_detect(`Crime Name3`, "SEX ASSAULT - SODOMY-MAN-WEAPON") ~ "sex offense",
+    str_detect(`Crime Name3`, "COMM SEX OFF - HOMOSEXUAL PROSTITUTION") ~ "sex offense",
+    str_detect(`Crime Name3`, "SEX ASSAULT - SODOMY-WOMAN-WEAPON") ~ "sex offense",
+    str_detect(`Crime Name3`, "SEX ASSAULT - SODOMY-MAN-GUN") ~ "sex offense",
+    str_detect(`Crime Name3`, "COMM SEX OFF - TRANSPORT FEMALE INTERSTATE FOR IMM") ~ "sex offense",
+    .default = NA
+  )
+)
+```
+
+
 
 
 ```{r}
