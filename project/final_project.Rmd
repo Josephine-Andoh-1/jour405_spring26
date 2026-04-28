@@ -67,4 +67,8 @@ mococrime <- read_csv("MOCOCRIME.zip")
 pgcrime <- bind_rows(pgcrime17_23, pgcrime23_26)
 ```
 
+```{r}
+pgcrime <- pgcrime |> 
+  mutate(assault = `ASSAULT, WEAPON` + `ASSAULT, SHOOTING` +`ASSAULT`)
+```
 
