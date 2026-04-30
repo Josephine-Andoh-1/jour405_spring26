@@ -199,24 +199,11 @@ mococrime <- mococrime |>
 
 ```{r}
 pgcrime <- pgcrime |>
+  mutate(Date = mdy(Date)) |> 
   mutate(
-    month = floor_date(date, "month")
+    month = floor_date(Date, "month")
   )
-
-# didn't work
 ```
-
-```{r}
-pgcrime <- pgcrime |>
-  mutate(
-    day_of_week = wday(date, label = TRUE),
-    month = floor_date(date, "month"),
-    year = year(date)
-  )
-
-# didn't work
-```
-
 
 
 Hypotheses:
