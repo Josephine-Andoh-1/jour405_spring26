@@ -206,6 +206,12 @@ pgcrime <- pgcrime |>
 ```
 
 
+```{r}
+mococrime <- mococrime |> 
+  mutate(Date = date(mdy_hm(Start_Date_Time)))
+```
+
+
 Hypotheses:
 
 1. Montgomery County has higher rates of burglaries, automobile thefts and thefts from automobiles than Prince George's County
