@@ -31,6 +31,24 @@ Before building our model, let's explore the data to understand the variables an
 ANSWER HERE
 
 
+
+
+
+
+
+percentage of white and voter turnout (+)
+
+unemployment and vote turn (-)
+
+income and vote turn (+)
+
+median age and vote turn (+)
+
+bach and higher and vote turn (+)
+
+pop and vote turn (-)
+
+
 ```{r}
 # Summary statistics
 summary(md_turnout)
