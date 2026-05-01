@@ -22,6 +22,7 @@ md_turnout <- read_csv("https://raw.githubusercontent.com/dwillis/jour405/refs/h
 head(md_turnout)
 ```
 
+
 ## Task 1: Exploratory Data Analysis (5 points)
 
 Before building our model, let's explore the data to understand the variables and their relationships. Examine the correlation matrix to see how the independent variables relate to each other and to the dependent variable (voter turnout). Which variables seem to be correlated? Are there any that are not correlated at all? Also look at the multiple scatterplots. Which variables seem to have a linear relationship with the dependent variable? Which do not?
@@ -57,6 +58,7 @@ md_turnout |>
   labs(title = "Relationship between predictors and voter turnout",
        y = "Voter turnout (%)")
 ```
+
 
 ## Task 2: Initial Model Evaluation (5 points)
 
@@ -101,6 +103,7 @@ initial_model <- lm(turnout ~ population + income + pct_bachelors_higher +
 summary(initial_model)
 
 ```
+
 
 ## Task 3: Model Refinement (5 points)
 
