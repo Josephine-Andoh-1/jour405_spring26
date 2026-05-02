@@ -28,12 +28,9 @@ head(md_turnout)
 Before building our model, let's explore the data to understand the variables and their relationships. Examine the correlation matrix to see how the independent variables relate to each other and to the dependent variable (voter turnout). Which variables seem to be correlated? Are there any that are not correlated at all? Also look at the multiple scatterplots. Which variables seem to have a linear relationship with the dependent variable? Which do not?
 
 
-The correlation matrix shows that a handful of the independent variables are correlated. The percentage of voters with a bachelor's degree or higher and income have a relatively strong correlational relationship. 
-
-The percentage of white 
+The correlation matrix shows that a handful of the independent variables are correlated. The percentage of people with a bachelor's degree or higher and income have a positive correlational relationship. On the other hand, the percentage of white people and population have a negative correlational relationship.
 
 
-bach and higher and income (+)
 
 median age and bach and higher (0)
 
@@ -41,7 +38,6 @@ income and pct white (0)
 
 bach and higher and median age (0)
 
-pct white and pop (-)
 
 
 
