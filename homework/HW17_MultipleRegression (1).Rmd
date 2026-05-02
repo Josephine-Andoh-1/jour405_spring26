@@ -31,9 +31,11 @@ Before building our model, let's explore the data to understand the variables an
 ANSWER HERE
 
 
+bach and higher and income (+)
 
+unemploy and turnout (-)
 
-
+median age and bach and higher (0)
 
 
 percentage of white and voter turnout (+)
