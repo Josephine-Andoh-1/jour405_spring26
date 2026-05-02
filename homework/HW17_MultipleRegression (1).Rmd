@@ -28,9 +28,9 @@ head(md_turnout)
 Before building our model, let's explore the data to understand the variables and their relationships. Examine the correlation matrix to see how the independent variables relate to each other and to the dependent variable (voter turnout). Which variables seem to be correlated? Are there any that are not correlated at all? Also look at the multiple scatterplots. Which variables seem to have a linear relationship with the dependent variable? Which do not?
 
 
-The correlation matrix shows that a handful of the variables are correlated. The percentage of people with a bachelor's degree or higher and income have a relatively positive correlational relationship. The percentage of people with a bachelor's degree or higher and voter turnout are also relatively positively correlated. On the other hand, the percentage of white people and population have a relatively negative correlational relationship. Unemployment and voter turnout are also relatively negatively correlated. The percentage of white people and income are almost completely uncorrelated, and so are the percentage of people with a bachelor's degree or higher and median age.
+The correlation matrix shows that a handful of the variables are correlated. The percentage of people with a bachelor's degree or higher and income has a relatively positive correlation. The percentage of people with a bachelor's degree or higher and voter turnout are also relatively positively correlated. On the other hand, the percentage of white people and population have a relatively negative correlation. Unemployment and voter turnout are also relatively negatively correlated. The percentage of white people and income are almost completely uncorrelated, and so are the percentage of people with a bachelor's degree or higher and median age.
 
-The scatterplots show that all of the independent variables seem to have a relationship with the dependent variable, but some of those relationships are stronger than others. Income, unemployment, the percentage of people with a bachelor's degree or higher and the percentage of white people seem to have a relatively strong relationship with voter turnout. On the other hand, median age and population seem to have a relatively weaker relationship with voter turnout.
+The scatterplots show that all the independent variables seem to have a linear relationship with the dependent variable, but some relationships are stronger than others. Income, unemployment, the percentage of people with a bachelor's degree or higher and the percentage of white people seem to have a relatively strong relationship with voter turnout. On the other hand, median age and population seem to have a relatively weaker relationship with voter turnout.
 
 
 ```{r}
@@ -95,10 +95,18 @@ The coefficients tell us the estimated effect of each independent variable on th
 Examine the output of the model, checking the coefficients, residuals, and overall model fit. How well does this multiple variable model predict turnout? Do any of the variables seem to be insignificant? Is this a useful model, based on what you've seen? Why?
 
 
+This multiple variable model predicts voter turnout rather accurately, according to its output. The model overall is statistically significant, and so are the coefficients of all the independent variables. The range of the model's residuals is very small, and its median is almost zero.
+
+
+However, according to the model, unemployment and higher education levels are not statistically significant.
+
+
 - statistically significant
 - high multiple and adjusted r-squared
-- 
-
+- very low residual standard error 
+- min and max are very low
+- median is almost 0 (implies accuracy)
+- all variables have statistically significant coefficients 
 
 ```{r}
 # Build initial model with all predictors
