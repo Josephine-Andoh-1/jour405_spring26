@@ -37,6 +37,13 @@ unemploy and turnout (-)
 
 median age and bach and higher (0)
 
+income and pct white (0)
+
+pct white and turnout (+)
+
+bach and higher and median age (0)
+
+
 
 percentage of white and voter turnout (+)
 
