@@ -157,5 +157,5 @@ ggplot(model_comparison, aes(x = reorder(Model, Adjusted_R_squared), y = Adjuste
 Without using the words "multiple regression model", describe how you could use this analysis to cover an election or voter participation story.
 
 
-A
+I could use this analysis method to cover an election or voter participation story in different ways. I could plug a Maryland county's demographic information into this analysis method to predict voter turnout in that county. I could also update this analysis method based on new demographic information from a given Maryland county (updated Census information, for example) to ensure its continued accuracy.
 
