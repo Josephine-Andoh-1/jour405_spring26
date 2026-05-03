@@ -113,7 +113,9 @@ summary(initial_model)
 Create three alternative models by adding or removing variables to see if we can improve the model's performance. Turnout will always be the dependent variable, but you should alter the independent variables by removing or adding some. Then compare the models using adjusted R-squared values. Are any of the models significantly better than the others?
 
 
-ANSWER HERE
+When I adjusted the model to incorporate only income, unemployment, median age and racial composition, it had an adjusted R-squared value of approximately 0.82, the highest I found. Though that is not much higher than the initial model, it is still an increase in accuracy.
+
+When I adjusted the model to incorporate only population, unemployment, median age and racial composition, it had an adjusted R-squared value of approximately 0.63, the lowest I found. When I adjusted the model to incorporate only income, median age and racial composition, it had an adjusted R-squared value of approximately 0.8024, only slightly more accurate than the initial model.
 
 
 ```{r}
@@ -155,5 +157,5 @@ ggplot(model_comparison, aes(x = reorder(Model, Adjusted_R_squared), y = Adjuste
 Without using the words "multiple regression model", describe how you could use this analysis to cover an election or voter participation story.
 
 
-ANSWER HERE
+A
 
