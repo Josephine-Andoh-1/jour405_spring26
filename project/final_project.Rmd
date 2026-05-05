@@ -5,8 +5,7 @@ output: html_document
 ---
 
 
-
-## Step 1: Loading datasets 
+## I loaded the tidyverse, knitr and lubridate so I can analyze my datasets.
 
 ```{r}
 library(tidyverse)
@@ -16,7 +15,12 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 library(knitr) 
 
 library(lubridate)
+```
 
+
+## I loaded crime data from Prince George's County from 2017 to 2023 and 2023 to 2026, then combined those datasets to facilitate my analysis. I then loaded crime data from Montgomery County from 2017 to 2026.
+
+```{r}
 pgcrime17_23 <- read_csv("PGCRIME17-23.csv")
 
 pgcrime23_26 <- read_csv("PGCRIME23-26.csv")
@@ -27,7 +31,8 @@ pgcrime <- bind_rows(pgcrime17_23, pgcrime23_26)
 ```
 
 
-## Step 2: Organizing crime types
+## I sorted all the crimes into seven categories (assault, burglary, auto theft, theft from auto, robbery, sex offenses and homicide) to facilitate my analysis.
+
 ```{r}
 pgcrime <- pgcrime |> 
   mutate(category = case_when(
@@ -193,7 +198,7 @@ mococrime <- mococrime |>
 ```
 
 
-## Step 3: Organizing data by month 
+## I filtered my data (to the best of my ability) on a monthly basis so that I was not comparing too many individual data points.
 
 ```{r}
 pgcrime <- pgcrime |>
@@ -209,7 +214,7 @@ mococrime <- mococrime |>
 ```
 
 
-## Step 4: Filtering the data by year
+## I filtered my data (to the best of my ability) from April 1, 2017, to April 1, 2026, so that I could compare crime rates over the same time period.
 
 ```{r}
 new_pgcrime <- pgcrime |> filter(Date < '2026-04-02')
@@ -222,6 +227,19 @@ new_mococrime <- mococrime |> filter(Start_Date_Time > '3/31/2017 23:59')
 
 new_mococrime <- mococrime |> filter(Start_Date_Time < '4/1/2026 0:00')
 ```
+
+
+## Step 5: Calculating crime rates
+
+```{r}
+
+```
+
+
+New questions:
+
+Do I have to upload population data so I can calculate crime rates?
+
 
 
 
