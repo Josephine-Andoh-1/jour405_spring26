@@ -246,16 +246,18 @@ Do I have to upload population data so I can calculate crime rates?
 Hypotheses:
 
 1. Montgomery County has higher rates of burglaries, automobile thefts and thefts from automobiles than Prince George's County
+
 2. Prince George's County has higher rates of assault, sex offenses and overall theft than Montgomery County
+
 3. Prince George's County has higher overall rates of these six crime categories than Montgomery County
 
 
-The Tests I Could Run:
+Possible tests:
 
-An analysis I think would be useful for my project is calculating correlations among the different crime categories I am analyzing. It would be interesting to see if burglary and theft rates, for example, were correlated. However, it would be even more interesting if two crime categories that, at first glance, could be correlated (automobile thefts and thefts from automobiles, for example) actually had no relationship.
+1. Calculating correlations among the different crime categories I am analyzing.
 
-Another analysis I think would be useful for my project is calculating the correlation between assault and overall crime rates for Prince George's and Montgomery counties. You mentioned once in class that assault rates can reflect overall crime rates, and it would be interesting to see if that held in those counties over a long time period.
+2. Calculating the correlation between assault and overall crime rates for Prince George's and Montgomery counties
 
-A third analysis I think would be useful for my project is calculating the z-scores of the number of crimes committed per month and analyzing any unusual z-scores. Seeing which county has more months with unusually high z-scores could make my project more interesting and would prompt me to research those months to determine the reasons for the increases in crime.
+3. Calculating the z-scores of the number of crimes committed per month and analyzing any unusual z-scores.
 
-A fourth analysis I think would be useful for my project is calculating whether any decreases or increases in crime were statistically significant. If I found that they were, I could also calculate their effect size. This would give me more information than z-scores would, and could also prompt me to do more research.
+4. Calculating whether any decreases or increases in crime were statistically significant. If I found that they were, I could also calculate their effect size. 
