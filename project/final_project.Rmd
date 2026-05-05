@@ -218,7 +218,9 @@ new_pgcrime <- pgcrime |> filter(Date > '2017-03-31')
 ```
 
 ```{r}
-new_mococrime <- mococrime |> filter(Date > '2/1/2017 23:56')
+new_mococrime <- mococrime |> filter(Start_Date_Time > '3/31/2017 23:59')
+
+new_mococrime <- mococrime |> filter(Start_Date_Time < '4/1/2026 0:00')
 ```
 
 
