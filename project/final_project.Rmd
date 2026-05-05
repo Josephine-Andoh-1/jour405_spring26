@@ -212,9 +212,14 @@ mococrime <- mococrime |>
 ## Step 4: Filtering the data by year
 
 ```{r}
-crime_2018_to_now <- crime |> filter(date > '2017-12-31')
+new_pgcrime <- pgcrime |> filter(Date < '2026-04-02')
+
+new_pgcrime <- pgcrime |> filter(Date > '2017-03-31')
 ```
 
+```{r}
+new_mococrime <- mococrime |> filter(Date > '2/1/2017 23:56')
+```
 
 
 
