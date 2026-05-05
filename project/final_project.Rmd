@@ -198,7 +198,7 @@ mococrime <- mococrime |>
 ```
 
 
-## I filtered my data (to the best of my ability) on a monthly basis so that I was not comparing too many individual data points.
+## I filtered my data on a monthly basis so that I was not comparing too many individual data points.
 
 ```{r}
 pgcrime <- pgcrime |>
@@ -210,16 +210,16 @@ pgcrime <- pgcrime |>
 
 ```{r}
 mococrime <- mococrime |> 
-  mutate(Date = date(mdy_hm(Start_Date_Time)))
+  mutate(Date = date(mdy_hm(Start_Date_Time)))|>
+      mutate(month = floor_date(Date, "month"))
 ```
 
 
-## I filtered my data (to the best of my ability) from April 1, 2017, to April 1, 2026, so that I could compare crime rates over the same time period.
+## I filtered my data from April 1, 2017, to April 1, 2026, so that I could compare crime rates over the same time period.
 
 ```{r}
-new_pgcrime <- pgcrime |> filter(Date < '2026-04-02')
+new_pgcrime <- pgcrime |> filter(Date < '2026-04-02', Date > '2017-03-31')
 
-new_pgcrime <- pgcrime |> filter(Date > '2017-03-31')
 ```
 
 ```{r}
@@ -229,7 +229,7 @@ new_mococrime <- mococrime |> filter(Start_Date_Time < '4/1/2026 0:00')
 ```
 
 
-## Step 5: Calculating crime rates
+## Step 5: Incorporating population data
 
 ```{r}
 
