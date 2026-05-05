@@ -5,8 +5,6 @@ output: html_document
 ---
 
 
-Though I was not able to start the analysis, I am starting to believe that Montgomery County may have higher crime rates due to the high level of crime reporting in the county.
-
 
 ## Step 1: Loading datasets 
 
@@ -205,11 +203,19 @@ pgcrime <- pgcrime |>
   )
 ```
 
-
 ```{r}
 mococrime <- mococrime |> 
   mutate(Date = date(mdy_hm(Start_Date_Time)))
 ```
+
+
+## Step 4: Filtering the data by year
+
+```{r}
+crime_2018_to_now <- crime |> filter(date > '2017-12-31')
+```
+
+
 
 
 Hypotheses:
@@ -260,3 +266,8 @@ Should I analyze my data based on days, weeks or months? I want to do months due
 How many years' worth of data should I analyze? In HW9 (Car Thefts Confidence Interval & Error), Mr. Salama said that five years' worth of data was too long a period to analyze.
 
 Is there any way I can combine the Prince George's County crime datasets to facilitate my analysis? 
+
+
+Trials, Errors and Lessons:
+
+Though I was not able to start the analysis, I am starting to believe that Montgomery County may have higher crime rates due to the high level of crime reporting in the county.
