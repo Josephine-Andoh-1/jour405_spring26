@@ -219,7 +219,6 @@ mococrime <- mococrime |>
 
 ```{r}
 new_pgcrime <- pgcrime |> filter(Date < '2026-04-02', Date > '2017-03-31')
-
 ```
 
 ```{r}
@@ -227,6 +226,8 @@ new_mococrime <- mococrime |> filter(Start_Date_Time < '4/1/2026 0:00', Start_Da
 
 # code still isn't sorting properly
 ```
+
+3/31/2017 9:48
 
 
 ## Step 5: Incorporating population data
