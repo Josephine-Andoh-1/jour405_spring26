@@ -5,7 +5,7 @@ output: html_document
 ---
 
 
-## I loaded the tidyverse, knitr, lubridate and dplyr so I could analyze my datasets.
+## I loaded the tidyverse, knitr, lubridate, dplyr and scales so I could analyze and graph my datasets.
 
 ```{r}
 library(tidyverse)
@@ -17,6 +17,8 @@ library(knitr)
 library(lubridate)
 
 library(dplyr)
+
+library(scales)
 ```
 
 
