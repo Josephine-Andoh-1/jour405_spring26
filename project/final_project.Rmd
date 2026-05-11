@@ -54,8 +54,8 @@ pgcrime <- pgcrime |>
     str_detect(`Clearance Code Inc Type`, "ROBBERY, RESIDENTIAL") ~ "robbery",
     str_detect(`Clearance Code Inc Type`, "ROBBERY, VEHICLE") ~ "robbery",
     str_detect(`Clearance Code Inc Type`, "ROBBERY, VEHICLE") ~ "robbery",
-    str_detect(`Clearance Code Inc Type`, "THEFT") ~ "theft",
     str_detect(`Clearance Code Inc Type`, "THEFT FROM AUTO") ~ "theft from auto",
+    str_detect(`Clearance Code Inc Type`, "THEFT") ~ "theft",
     str_detect(`Clearance Code Inc Type`, "SEX OFFENSE") ~ "sex offense",
     str_detect(`Clearance Code Inc Type`, "HOMICIDE") ~ "homicide",
     .default = NA
@@ -331,7 +331,6 @@ moco_autotheft <- new_mococrime |>
 
 combined_autotheft <- pg_autotheft |> 
   inner_join(moco_autotheft, join_by(category, month))
-```
 
 
 
@@ -349,6 +348,7 @@ moco_theftfromauto <- new_mococrime |>
 
 combined_theftfromauto <- pg_theftfromauto |> 
   inner_join(moco_theftfromauto, join_by(category, month))
+
 
 
 pg_homicide <- new_pgcrime |> 
@@ -380,11 +380,19 @@ moco_theft <- new_mococrime |>
   summarise(moco_total = n()) |> 
   mutate(moco_theft_rate = moco_total/population * 100000)
 
-combined_homicide <- pg_theft |> 
+combined_theft <- pg_theft |> 
   inner_join(moco_theft, join_by(category, month))
+```
+
 
 
 ## Graphing rates between counties
+
+```{r}
+
+```
+
+
 
 
 1. Calculate the correlations between assault and sex offenses, etc.
