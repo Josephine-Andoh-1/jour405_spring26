@@ -231,7 +231,11 @@ new_mococrime <- mococrime |> filter(Start_Date_Time < '4/1/2026 23:48', Start_D
 ## Step 5: Incorporating population data
 
 ```{r}
+new_mococrime <- mococrime |> 
+  mutate(Date = date(mdy_hm(Start_Date_Time)))|>
+      mutate(month = floor_date(Date, "month"))
 
+# DO NOT RUN YET 
 ```
 
 
