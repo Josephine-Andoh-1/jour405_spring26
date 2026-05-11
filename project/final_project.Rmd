@@ -243,16 +243,41 @@ new_pgcrime <- new_pgcrime %>%
 ```
 
 
+## Adding up the crime totals (for this step, I want to add up all the assaults for April 2026, all the sex offenses for April 2026, etc.)
 
-Next steps:
+```{r}
 
-1. Adding up total numbers of crimes per month
+```
 
-2. Calculating monthly crime rates
 
-3. Graphing monthly crime rates
+## Next, I want to calculate the per capita rate (assaults in April 2017 / population * 10000)
 
-4. Analysis
+```{r}
+
+```
+
+
+## Then, I want to graph the rates between the counties (assaults in PG vs. MoCo from April 2017 to April 2026)
+
+```{r}
+
+```
+
+
+## Should I do any analysis after that, like the ones I described in "The Tests You Can Run"? If so, I'd have to:
+
+## 1. Calculate the correlations between assault and sex offenses, etc.
+
+## 2. Calculate the monthly means for each crime and analyze for any unusual z-scores.
+
+## 3. Analyze any increases or decreases in crime rates and evaluate for statistical significance.
+
+```{r}
+
+```
+
+## Then I can analyze my results and pitch my story.
+
 
 
 Hypotheses:
