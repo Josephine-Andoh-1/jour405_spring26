@@ -388,7 +388,7 @@ combined_theft <- pg_theft |>
 
 
 
-## Graphing rates between counties
+## I compared the rates for each crime between the two counties in a graph so I could more easily analyze the data. Additionally, I color-coded the data to make it easier to differentiate and added titles, labels and captions.
 
 ```{r}
 combined_assault |> 
