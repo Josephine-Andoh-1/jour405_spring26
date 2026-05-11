@@ -391,50 +391,50 @@ combined_theft <- pg_theft |>
 ```{r}
 combined_assault |> 
   ggplot() +
-  geom_line(aes(x=month, y=pg_assault_rate)) +
-  geom_line(aes(x=month, y=moco_assault_rate))
+  geom_line((aes(x=month, y=pg_assault_rate)), color = "red", linewidth = 1) +
+  geom_line(aes(x=month, y=moco_assault_rate), color = "blue", linewidth = 1)
 
 
 combined_autotheft |> 
   ggplot() +
-  geom_line(aes(x=month, y=pg_autotheft_rate)) +
-  geom_line(aes(x=month, y=moco_autotheft_rate))
+  geom_line((aes(x=month, y=pg_autotheft_rate)), color = "red", linewidth = 1) +
+  geom_line(aes(x=month, y=moco_autotheft_rate), color = "blue", linewidth = 1)
 
 
 combined_burglary |> 
   ggplot() +
-  geom_line(aes(x=month, y=pg_burglary_rate)) +
-  geom_line(aes(x=month, y=moco_burglary_rate))
+  geom_line((aes(x=month, y=pg_burglary_rate)), color = "red", linewidth = 1) +
+  geom_line(aes(x=month, y=moco_burglary_rate), color = "blue", linewidth = 1)
 
 
 combined_homicide |> 
   ggplot() +
-  geom_line(aes(x=month, y=pg_homicide_rate)) +
-  geom_line(aes(x=month, y=moco_homicide_rate))
+  geom_line((aes(x=month, y=pg_homicide_rate)), color = "red", linewidth = 1) +
+  geom_line(aes(x=month, y=moco_homicide_rate), color = "blue", linewidth = 1)
 
 
 combined_robbery |> 
   ggplot() +
-  geom_line(aes(x=month, y=pg_robbery_rate)) +
-  geom_line(aes(x=month, y=moco_robbery_rate))
+  geom_line((aes(x=month, y=pg_robbery_rate)), color = "red", linewidth = 1) +
+  geom_line(aes(x=month, y=moco_robbery_rate), color = "blue", linewidth = 1)
 
 
 combined_sexoffense |> 
   ggplot() +
-  geom_line(aes(x=month, y=pg_sexoffense_rate)) +
-  geom_line(aes(x=month, y=moco_sexoffense_rate))
+  geom_line((aes(x=month, y=pg_sexoffense_rate)), color = "red", linewidth = 1) +
+  geom_line(aes(x=month, y=moco_sexoffense_rate), color = "blue", linewidth = 1)
 
 
 combined_theft |> 
   ggplot() +
-  geom_line(aes(x=month, y=pg_theft_rate)) +
-  geom_line(aes(x=month, y=moco_theft_rate))
+  geom_line((aes(x=month, y=pg_theft_rate)), color = "red", linewidth = 1) +
+  geom_line(aes(x=month, y=moco_theft_rate), color = "blue", linewidth = 1)
 
 
 combined_theftfromauto |> 
   ggplot() +
-  geom_line(aes(x=month, y=pg_theftfromauto_rate)) +
-  geom_line(aes(x=month, y=moco_theftfromauto_rate))
+  geom_line((aes(x=month, y=pg_theftfromauto_rate)), color = "red", linewidth = 1) +
+  geom_line(aes(x=month, y=moco_theftfromauto_rate), color = "blue", linewidth = 1)
 ```
 
 
