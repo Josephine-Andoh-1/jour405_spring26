@@ -291,13 +291,12 @@ pg_robbery <- new_pgcrime |>
   mutate(pg_robbery_rate = pg_total/population * 100000)
 
 moco_robbery <- new_mococrime |> 
-  filter(category == "sex offense") |> 
+  filter(category == "robbery") |> 
   group_by(category, month, population) |> 
   summarise(moco_total = n()) |> 
   mutate(moco_robbery_rate = moco_total/population * 100000)
 
-combined_robbery <- pg_robbery |> 
-  inner_join(moco_robbery, join_by(category, month))
+combined_robbery <- pg_robbery |> inner_join(moco_robbery, join_by(category, month))
 
 
 
@@ -308,7 +307,7 @@ pg_burglary <- new_pgcrime |>
   mutate(pg_burglary_rate = pg_total/population * 100000)
 
 moco_burglary <- new_mococrime |> 
-  filter(category == "sex offense") |> 
+  filter(category == "burglary") |> 
   group_by(category, month, population) |> 
   summarise(moco_total = n()) |> 
   mutate(moco_burglary_rate = moco_total/population * 100000)
@@ -332,6 +331,7 @@ moco_autotheft <- new_mococrime |>
 
 combined_autotheft <- pg_autotheft |> 
   inner_join(moco_autotheft, join_by(category, month))
+```
 
 
 
@@ -347,17 +347,44 @@ moco_theftfromauto <- new_mococrime |>
   summarise(moco_total = n()) |> 
   mutate(moco_theftfromauto_rate = moco_total/population * 100000)
 
-combined_autotheft <- pg_theftfromauto |> 
+combined_theftfromauto <- pg_theftfromauto |> 
   inner_join(moco_theftfromauto, join_by(category, month))
-```
 
+
+pg_homicide <- new_pgcrime |> 
+  filter(category == "homicide") |> 
+  group_by(category, month, population) |> 
+  summarise(pg_total = n()) |> 
+  mutate(pg_homicide_rate = pg_total/population * 100000)
+
+moco_homicide <- new_mococrime |> 
+  filter(category == "homicide") |> 
+  group_by(category, month, population) |> 
+  summarise(moco_total = n()) |> 
+  mutate(moco_homicide_rate = moco_total/population * 100000)
+
+combined_homicide <- pg_homicide |> 
+  inner_join(moco_homicide, join_by(category, month))
+
+
+
+pg_theft <- new_pgcrime |> 
+  filter(category == "theft") |> 
+  group_by(category, month, population) |> 
+  summarise(pg_total = n()) |> 
+  mutate(pg_theft_rate = pg_total/population * 100000)
+
+moco_theft <- new_mococrime |> 
+  filter(category == "theft") |> 
+  group_by(category, month, population) |> 
+  summarise(moco_total = n()) |> 
+  mutate(moco_theft_rate = moco_total/population * 100000)
+
+combined_homicide <- pg_theft |> 
+  inner_join(moco_theft, join_by(category, month))
 
 
 ## Graphing rates between counties
-
-```{r}
-
-```
 
 
 1. Calculate the correlations between assault and sex offenses, etc.
