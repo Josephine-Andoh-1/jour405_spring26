@@ -233,14 +233,11 @@ new_mococrime <- mococrime |> filter(Start_Date_Time < '4/1/2026 23:48', Start_D
 ## I incorporated 2022 population data from both counties so that I could calculate per capita rates. I chose 2022 because it was close to the center of my range (2017 to 2026) and would most accurately reflect the population despite the COVID-19 pandemic.
 
 ```{r}
-new_mococrime <- new_mococrime %>%
-  mutate(pop_2017 = if_else(Start_Date_Time > 'xx', 100, NA_real_))
+
 ```
 
-
-
-# DO NOT RUN YET 
-
+new_mococrime <- new_mococrime %>%
+  mutate(population = 1053067)
 
 Next steps:
 
