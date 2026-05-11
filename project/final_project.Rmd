@@ -223,9 +223,9 @@ new_pgcrime <- pgcrime |> filter(Date < '2026-04-02', Date > '2017-03-31')
 ```
 
 ```{r}
-new_mococrime <- mococrime |> filter(Start_Date_Time > '3/31/2017 23:59')
+new_mococrime <- mococrime |> filter(Start_Date_Time < '4/1/2026 0:00', Start_Date_Time > '3/31/2017 23:59')
 
-new_mococrime <- mococrime |> filter(Start_Date_Time < '4/1/2026 0:00')
+# code still isn't sorting properly
 ```
 
 
@@ -236,11 +236,15 @@ new_mococrime <- mococrime |> filter(Start_Date_Time < '4/1/2026 0:00')
 ```
 
 
-New questions:
+Next steps:
 
-Do I have to upload population data so I can calculate crime rates?
+1. Adding up total numbers of crimes per month
 
+2. Calculating monthly crime rates
 
+3. Graphing monthly crime rates
+
+4. Analysis
 
 
 Hypotheses:
