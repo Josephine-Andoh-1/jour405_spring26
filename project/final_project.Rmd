@@ -224,11 +224,11 @@ mococrime <- mococrime |>
 ## I filtered my data from April 1, 2017, to April 1, 2026, so that I could compare crime rates over the same time period.
 
 ```{r}
-new_pgcrime <- pgcrime |> filter(Date < '2026-04-02', Date > '2017-03-31')
+new_pgcrime <- pgcrime |> filter(Date < '2026-04-01', Date > '2017-03-31')
 ```
 
 ```{r}
-new_mococrime <- mococrime |> filter(Date < '2026-04-02', Date > '2017-03-31')
+new_mococrime <- mococrime |> filter(Date < '2026-04-01', Date > '2017-03-31')
 ```
 
 
