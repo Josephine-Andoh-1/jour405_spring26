@@ -20,6 +20,7 @@ library(dplyr)
 ```
 
 
+
 ## I loaded crime data from Prince George's County from 2017 to 2023 and 2023 to 2026, then combined those datasets to facilitate my analysis. I then loaded crime data from Montgomery County from 2017 to 2026.
 
 ```{r}
@@ -31,6 +32,7 @@ mococrime <- read_csv("MOCOCRIME.zip")
 
 pgcrime <- bind_rows(pgcrime17_23, pgcrime23_26)
 ```
+
 
 
 ## I sorted all the crimes into seven categories (assault, burglary, auto theft, theft from auto, robbery, sex offenses and homicide) to facilitate my analysis.
@@ -200,6 +202,7 @@ mococrime <- mococrime |>
 ```
 
 
+
 ## I filtered my data on a monthly basis so that I was not comparing too many individual data points.
 
 ```{r}
@@ -217,6 +220,7 @@ mococrime <- mococrime |>
 ```
 
 
+
 ## I filtered my data from April 1, 2017, to April 1, 2026, so that I could compare crime rates over the same time period.
 
 ```{r}
@@ -226,6 +230,7 @@ new_pgcrime <- pgcrime |> filter(Date < '2026-04-02', Date > '2017-03-31')
 ```{r}
 new_mococrime <- mococrime |> filter(Date < '2026-04-02', Date > '2017-03-31')
 ```
+
 
 
 ## I incorporated 2022 population data from both counties so that I could calculate per capita rates. I chose 2022 because it was close to the center of my range (2017 to 2026) and would most accurately reflect the population despite the COVID-19 pandemic. 
@@ -241,11 +246,111 @@ new_pgcrime <- new_pgcrime %>%
 ```
 
 
-## a
+
+## I calculated the number of specific crimes that occured in both counties per month, then calcuated the rate of said crimes per month per capita. I then combined the Prince George's and Montgomery counties' crime data to facilitate my comparison. 
 
 ```{r}
+pg_assault <- new_pgcrime |> 
+  filter(category == "assault") |> 
+  group_by(category, month, population) |> 
+  summarise(pg_total = n()) |> 
+  mutate(pg_assault_rate = pg_total/population * 100000)
 
+moco_assault <- new_mococrime |> 
+  filter(category == "assault") |> 
+  group_by(category, month, population) |> 
+  summarise(moco_total = n()) |> 
+  mutate(moco_assault_rate = moco_total/population * 100000)
+
+combined_assault <- pg_assault |> 
+  inner_join(moco_assault, join_by(category, month))
+
+
+
+pg_sexoffense <- new_pgcrime |> 
+  filter(category == "sex offense") |> 
+  group_by(category, month, population) |> 
+  summarise(pg_total = n()) |> 
+  mutate(pg_sexoffense_rate = pg_total/population * 100000)
+
+moco_sexoffense <- new_mococrime |> 
+  filter(category == "sex offense") |> 
+  group_by(category, month, population) |> 
+  summarise(moco_total = n()) |> 
+  mutate(moco_sexoffense_rate = moco_total/population * 100000)
+
+combined_sexoffense <- pg_sexoffense |> 
+  inner_join(moco_sexoffense, join_by(category, month))
+
+
+
+pg_robbery <- new_pgcrime |> 
+  filter(category == "robbery") |> 
+  group_by(category, month, population) |> 
+  summarise(pg_total = n()) |> 
+  mutate(pg_robbery_rate = pg_total/population * 100000)
+
+moco_robbery <- new_mococrime |> 
+  filter(category == "sex offense") |> 
+  group_by(category, month, population) |> 
+  summarise(moco_total = n()) |> 
+  mutate(moco_robbery_rate = moco_total/population * 100000)
+
+combined_robbery <- pg_robbery |> 
+  inner_join(moco_robbery, join_by(category, month))
+
+
+
+pg_burglary <- new_pgcrime |> 
+  filter(category == "burglary") |> 
+  group_by(category, month, population) |> 
+  summarise(pg_total = n()) |> 
+  mutate(pg_burglary_rate = pg_total/population * 100000)
+
+moco_burglary <- new_mococrime |> 
+  filter(category == "sex offense") |> 
+  group_by(category, month, population) |> 
+  summarise(moco_total = n()) |> 
+  mutate(moco_burglary_rate = moco_total/population * 100000)
+
+combined_burglary <- pg_burglary |> 
+  inner_join(moco_burglary, join_by(category, month))
+
+
+
+pg_autotheft <- new_pgcrime |> 
+  filter(category == "auto theft") |> 
+  group_by(category, month, population) |> 
+  summarise(pg_total = n()) |> 
+  mutate(pg_autotheft_rate = pg_total/population * 100000)
+
+moco_autotheft <- new_mococrime |> 
+  filter(category == "auto theft") |> 
+  group_by(category, month, population) |> 
+  summarise(moco_total = n()) |> 
+  mutate(moco_autotheft_rate = moco_total/population * 100000)
+
+combined_autotheft <- pg_autotheft |> 
+  inner_join(moco_autotheft, join_by(category, month))
+
+
+
+pg_theftfromauto <- new_pgcrime |> 
+  filter(category == "theft from auto") |> 
+  group_by(category, month, population) |> 
+  summarise(pg_total = n()) |> 
+  mutate(pg_theftfromauto_rate = pg_total/population * 100000)
+
+moco_theftfromauto <- new_mococrime |> 
+  filter(category == "theft from auto") |> 
+  group_by(category, month, population) |> 
+  summarise(moco_total = n()) |> 
+  mutate(moco_theftfromauto_rate = moco_total/population * 100000)
+
+combined_autotheft <- pg_theftfromauto |> 
+  inner_join(moco_theftfromauto, join_by(category, month))
 ```
+
 
 
 ## Graphing rates between counties
