@@ -702,7 +702,13 @@ unusual_moco_theftfromauto <- combined_theftfromauto |>
 
 ## I graphed out the z-scores, highlighting the unusual ones in red. I also added titles, labels and captions to make my graphs easier to read. More specifically, my graph titles summarize my findings.
 
-## a
+## The spike in auto thefts in both counties that I noticed in the graph was corroborated by my z-score analysis, further proving that said spike was unusual and underlining the need for additional research. 
+
+## The anomalies in burglargy rates in Prince George's County caught my eye because the graphs appeared to show an overall decrease. I will need to research this further to detect the causes of these anomalies.
+
+## The spike in homicide rates in Prince George's County that I noticed in the graph are corroborated by my z-score analysis, further proving that said spike was unusual and underlining the need for additional research. 
+
+(MoCo homicide and onward)
 
 ```{r}
 ggplot(combined_assault, aes(x = month, y = pg_total, color = abs(z_pg_assault) > 2)) +

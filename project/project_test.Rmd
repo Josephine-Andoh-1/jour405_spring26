@@ -377,4 +377,11 @@ combined_theft <- pg_theft |>
 
 
 
+## It appears that robbery rates in Prince George's County spiked in late 2023 and have steadily decreased since then. This change warrants further research.
+
+## Since 2017, both counties have had sex offense rates of less than five per 10,000 residents. However, to determine whether this number is high or low, I will have to compare it to the national average.
+
+## It appears that theft rates in both counties had a spike in late 2024. This spike warrants further research.
+
+## Theft from automobile rates in both counties appear to zigzag without a consistent pattern. This lack of a pattern warrants further research.
 
