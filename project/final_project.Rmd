@@ -747,7 +747,10 @@ combined_all |>
   mutate(
     mean_pg = mean(pg_total),
     sd_pg = sd(pg_total),
-    z_pg = (pg_total - mean_pg) / sd_pg
+    z_pg = (pg_total - mean_pg) / sd_pg, 
+    mean_moco = mean(moco_total),
+    sd_moco = sd(moco_total),
+    z_moco = (moco_total - mean_moco) / sd_moco,
   ) |>
   ungroup()
 ```
