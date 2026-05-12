@@ -47,7 +47,7 @@ pgcrime <- bind_rows(pgcrime17_23, pgcrime23_26)
 
 
 
-## I sorted all the crimes into seven categories (assault, burglary, auto theft, theft from auto, robbery, sex offenses and homicide) to facilitate my analysis. Through this sorting, I noticed that Montgomery County has much more specific categories for crime that Prince George's County. I predicted that because of this, Montgomery County would appear to have higher crime rates per capita in certain categories, specifically assault.
+## I sorted all the crimes into eight categories (assault, burglary, auto theft, theft from auto, robbery, sex offenses, theft and homicide) to facilitate my analysis. Through this sorting, I noticed that Montgomery County has much more specific categories for crime that Prince George's County. I predicted that because of this, Montgomery County would appear to have higher crime rates per capita in certain categories, specifically assault.
 
 ```{r}
 pgcrime <- pgcrime |> 
@@ -215,7 +215,7 @@ mococrime <- mococrime |>
 
 
 
-## I filtered my data so that I would be comparing crime rates month-to-month. Any other increment would be too small or too large.
+## I filtered my data so that I would be comparing crime rates month-to-month. Any other increment would be too small or too large. After filtering, I realized that Montgomery County had data from 2016, while Prince George's County did not.
 
 ```{r}
 pgcrime <- pgcrime |>
@@ -245,7 +245,7 @@ new_mococrime <- mococrime |> filter(Date < '2026-04-01', Date > '2017-03-31')
 
 
 
-## I incorporated 2022 population data from both counties so that I could calculate per capita rates. I chose 2022 because it was close to the center of my range (2017 to 2026) and would most accurately reflect the population despite the COVID-19 pandemic. 
+## I incorporated 2022 population data from both counties so that I could calculate per capita rates. I chose 2022 because it was close to the center of my range (2021-2022) and would not reflect population changes caused by the COVID-19 pandemic. As I suspected, Montgomery County has a slightly larger population than Prince George's County, which demonstrates the importance of calculating crime rates per capita.
 
 ## I retrieved the Montgomery County data from this link (https://montgomeryplanning.org/blog-design/2024/06/montgomery-countys-population-rebound-part-1-recovering-from-the-covid-19-years/) and the Prince George's County data from this link (https://www.princegeorgescountymd.gov/sites/default/files/media-document/County%20Profile_0.pdf).
 
@@ -259,7 +259,7 @@ new_pgcrime <- new_pgcrime %>%
 
 
 
-## I calculated the number of specific crimes that occured in both counties per month, then calcuated the rate of said crimes per month per capita. I then combined the Prince George's and Montgomery counties' crime data to facilitate my comparison. 
+## I counted the number of specific crimes that occured in both counties per month, then calcuated the per capita rates of said crimes. I then combined the Prince George's and Montgomery counties' crime data into eight dataframes to facilitate my comparison. 
 
 ```{r}
 pg_assault <- new_pgcrime |> 
@@ -399,6 +399,8 @@ combined_theft <- pg_theft |>
 
 
 ## I compared the rates for each crime between the two counties in a graph so I could more easily analyze the data. Additionally, I color-coded the data to make it easier to differentiate and added titles, labels and captions.
+
+(add more explanation)
 
 ```{r}
 combined_assault |> 
@@ -966,7 +968,11 @@ combined_all |>
 
 
 
-Calculate the correlations between assault and sex offenses, etc.
+Next step: Calculate the correlations between assault and sex offenses, etc.
+
+```{r}
+
+```
 
 
 
