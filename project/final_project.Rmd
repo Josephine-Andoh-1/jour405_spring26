@@ -700,7 +700,9 @@ unusual_moco_theftfromauto <- combined_theftfromauto |>
 
 
 
-## I graphed out the z-scores, highlighting the unusual ones in red.
+## I graphed out the z-scores, highlighting the unusual ones in red. I also added titles, labels and captions to make my graphs easier to read. More specifically, my graph titles summarize my findings.
+
+## a
 
 ```{r}
 ggplot(combined_assault, aes(x = month, y = pg_total, color = abs(z_pg_assault) > 2)) +
@@ -708,10 +710,6 @@ ggplot(combined_assault, aes(x = month, y = pg_total, color = abs(z_pg_assault) 
   scale_color_manual(values = c("gray", "red"), 
                      name = "Unusual Value",
                      labels = c("Normal", "Unusual")) +
-  geom_point(alpha = 0.5) +
-  scale_color_manual(values = c("gray", "blue"), 
-                     name = "Unusual Value",
-                     labels = c("Normal", "Unusual"))
   theme_minimal() +
   labs(title = "Prince George's County, Maryland, had unusually low assault rate in October 2019",
        subtitle = "Unusual months have z-scores with absolute values > 2",
