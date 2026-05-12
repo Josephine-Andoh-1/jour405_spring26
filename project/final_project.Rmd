@@ -402,9 +402,19 @@ combined_theft <- pg_theft |>
 
 ## The result that surprised me the most from the graphic was Montgomery County's high assault rate compared to Prince George's County. It went against my hypothesis and is an outlier compared to the other graphs, where the crime rates are closer together. I suspected that my categorization of assault may have contributed to this discrepancy. 
 
-## It appears that automobile theft rates in both counties spiked in 2023. I have been hearing more about automobile thefts in the past few years, so this piqued my interest and would warrant further research.
+## It appears that automobile theft rates in both counties spiked in 2023. I have been hearing more about automobile thefts in the past few years, so this piqued my interest and will warrant further research.
 
-## It appears that burglary rates in both counties have decreased overall since April 2017. This decrease would warrant further research.
+## It appears that burglary rates in both counties have decreased overall since April 2017. This decrease warrants further research.
+
+## It appears that homicide rates in Prince George's County spiked in late 2020 and in 2023. These spikes warrant further research.
+
+## It appears that robbery rates in Prince George's County spiked in late 2023 and have steadily decreased since then. This change warrants further research.
+
+## Since 2017, both counties have had sex offense rates of less than five per 10,000 residents. However, to determine whether this number is high or low, I will have to compare it to the national average.
+
+## It appears that theft rates in both counties had a spike in late 2024. This spike warrants further research.
+
+## Theft from automobile rates in both counties appear to zigzag without a consistent pattern. This lack of a pattern warrants further research.
 
 ```{r}
 combined_assault |> 
