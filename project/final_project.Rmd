@@ -925,7 +925,7 @@ ggplot(combined_theftfromauto, aes(x = month, y = moco_total, color = abs(z_moco
 
 
 
-## I renamed the columns in my eight large dataframes so I could combine them. I also redid my 
+## I renamed the columns in my eight large dataframes so I could combine them. 
 
 ```{r}
 rename_rates <- function(combined_assault, crime_name) {
