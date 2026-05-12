@@ -248,11 +248,6 @@ new_pgcrime <- new_pgcrime %>%
 ```
 
 
-mean_assault = mean(pg_total),
-    sd_assault = sd(pg_total),
-    z_assault = (pg_total - mean_assault) / sd_assault
-
-
 
 ## I calculated the number of specific crimes that occured in both counties per month, then calcuated the rate of said crimes per month per capita. I then combined the Prince George's and Montgomery counties' crime data to facilitate my comparison. 
 
@@ -393,6 +388,10 @@ combined_theft <- pg_theft |>
 
 
 
+mean_assault = mean(pg_total),
+    sd_assault = sd(pg_total),
+    z_assault = (pg_total - mean_assault) / sd_assault
+
 unusual_days <- accidents |>
   filter(abs(z_score) > 2) |>
   arrange(desc(abs(z_score)))
@@ -400,6 +399,8 @@ unusual_days <- accidents |>
 cat("Number of days with unusual accident counts:", nrow(unusual_days), 
     "out of", nrow(accidents), "total days (", 
     round(nrow(unusual_days)/nrow(accidents)*100, 2), "%)")
+    
+    
     
 unusual_days |>
   head(10) |>
@@ -520,7 +521,31 @@ combined_theftfromauto |>
 
 
 
-## Calculating unusual z-scores
+## Calculating correlations
+
+```{r}
+combined_crime <- combined_assault |> 
+  inner_join(combined_autotheft, join_by(category, month))
+
+combined_crime <- combined_assault |> 
+  inner_join(combined_burglary, join_by(category, month))
+
+combined_crime <- combined_assault |> 
+  inner_join(combined_homicide, join_by(category, month))
+
+combined_crime <- combined_assault |> 
+  inner_join(combined_theft, join_by(category, month))
+
+combined_crime <- combined_assault |> 
+  inner_join(combined_theftfromauto, join_by(category, month))
+
+combined_crime <- combined_assault |> 
+  inner_join(combined_sexoffense, join_by(category, month))
+
+combined_crime <- combined_assault |> 
+  inner_join(combined_robbery, join_by(category, month))
+```
+
 
 
 1. Calculate the correlations between assault and sex offenses, etc.
