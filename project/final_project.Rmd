@@ -517,6 +517,7 @@ unusual_moco_assault <- combined_assault |>
   arrange(desc(abs(z_moco_assault)))
 
 
+
 unusual_pg_autotheft <- combined_autotheft |>
   filter(abs(z_pg_autotheft) > 2) |>
   arrange(desc(abs(z_pg_autotheft)))
@@ -524,6 +525,7 @@ unusual_pg_autotheft <- combined_autotheft |>
 unusual_moco_autotheft <- combined_autotheft |>
   filter(abs(z_moco_autotheft) > 2) |>
   arrange(desc(abs(z_moco_autotheft)))
+
 
 
 unusual_pg_burglary <- combined_burglary |>
@@ -535,6 +537,7 @@ unusual_moco_burglary <- combined_burglary |>
   arrange(desc(abs(z_moco_burglary)))
 
 
+
 unusual_pg_homicide <- combined_homicide |>
   filter(abs(z_pg_homicide) > 2) |>
   arrange(desc(abs(z_pg_homicide)))
@@ -542,6 +545,7 @@ unusual_pg_homicide <- combined_homicide |>
 unusual_moco_homicide <- combined_homicide |>
   filter(abs(z_moco_homicide) > 2) |>
   arrange(desc(abs(z_moco_homicide)))
+
 
 
 unusual_pg_robbery <- combined_robbery |>
@@ -553,6 +557,7 @@ unusual_moco_robbery <- combined_robbery |>
   arrange(desc(abs(z_moco_robbery)))
 
 
+
 unusual_pg_sexoffense <- combined_sexoffense |>
   filter(abs(z_pg_sexoffense) > 2) |>
   arrange(desc(abs(z_pg_sexoffense)))
@@ -562,6 +567,7 @@ unusual_moco_sexoffense <- combined_sexoffense |>
   arrange(desc(abs(z_moco_sexoffense)))
 
 
+
 unusual_pg_theft <- combined_theft |>
   filter(abs(z_pg_theft) > 2) |>
   arrange(desc(abs(z_pg_theft)))
@@ -569,6 +575,7 @@ unusual_pg_theft <- combined_theft |>
 unusual_moco_theft <- combined_theft |>
   filter(abs(z_moco_theft) > 2) |>
   arrange(desc(abs(z_moco_theft)))
+
 
 
 unusual_pg_theftfromauto <- combined_theftfromauto |>
