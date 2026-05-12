@@ -960,7 +960,6 @@ Calculate the correlations between assault and sex offenses, etc.
 
 
 
-
 Hypotheses:
 
 1. Montgomery County has higher rates of burglaries, automobile thefts and thefts from automobiles than Prince George's County
@@ -968,11 +967,3 @@ Hypotheses:
 2. Prince George's County has higher rates of assault, sex offenses and overall theft than Montgomery County
 
 3. Prince George's County has higher overall rates of these six crime categories than Montgomery County
-
-
-
-Possible tests:
-
-1. Calculating correlations among the different crime categories I am analyzing.
-
-2. Calculating whether any decreases or increases in crime were statistically significant. If I found that they were, I could also calculate their effect size. 
