@@ -19,6 +19,8 @@ library(lubridate)
 library(dplyr)
 
 library(scales)
+
+library(purrr)
 ```
 
 
@@ -388,6 +390,123 @@ combined_theft <- pg_theft |>
 
 
 
+## Z-scores
+
+```{r}
+combined_assault <- combined_assault |>
+  mutate(month_number = month(month)) |>
+  group_by(month_number) |>
+  mutate(
+    mean_pg_assault = mean(pg_total),
+    sd_pg_assault = sd(pg_total),
+    z_pg_assault = (pg_total - mean_pg_assault) / sd_pg_assault, 
+    mean_moco_assault = mean(moco_total),
+    sd_moco_assault = sd(moco_total),
+    z_moco_assault = (moco_total - mean_moco_assault) / sd_moco_assault
+  ) |>
+  ungroup()
+
+
+combined_autotheft <- combined_autotheft |>
+  mutate(month_number = month(month)) |>
+  group_by(month_number) |>
+  mutate(
+    mean_pg_autotheft = mean(pg_total),
+    sd_pg_autotheft = sd(pg_total),
+    z_pg_autotheft = (pg_total - mean_pg_autotheft) / sd_pg_autotheft, 
+    mean_moco_autotheft = mean(moco_total),
+    sd_moco_autotheft = sd(moco_total),
+    z_moco_autotheft = (moco_total - mean_moco_autotheft) / sd_moco_autotheft
+  ) |>
+  ungroup()
+
+
+combined_burglary <- combined_burglary |>
+  mutate(month_number = month(month)) |>
+  group_by(month_number) |>
+  mutate(
+    mean_pg_burglary = mean(pg_total),
+    sd_pg_burglary = sd(pg_total),
+    z_pg_burglary = (pg_total - mean_pg_burglary) / sd_pg_burglary, 
+    mean_moco_burglary = mean(moco_total),
+    sd_moco_burglary = sd(moco_total),
+    z_moco_burglary = (moco_total - mean_moco_burglary) / sd_moco_burglary
+  ) |>
+  ungroup()
+
+
+combined_homicide <- combined_homicide |>
+  mutate(month_number = month(month)) |>
+  group_by(month_number) |>
+  mutate(
+    mean_pg_homicide = mean(pg_total),
+    sd_pg_homicide = sd(pg_total),
+    z_pg_homicide = (pg_total - mean_pg_homicide) / sd_pg_homicide, 
+    mean_moco_homicide = mean(moco_total),
+    sd_moco_homicide = sd(moco_total),
+    z_moco_homicide = (moco_total - mean_moco_homicide) / sd_moco_homicide
+  ) |>
+  ungroup()
+
+
+combined_robbery <- combined_robbery |>
+  mutate(month_number = month(month)) |>
+  group_by(month_number) |>
+  mutate(
+    mean_pg_robbery = mean(pg_total),
+    sd_pg_robbery = sd(pg_total),
+    z_pg_robbery = (pg_total - mean_pg_robbery) / sd_pg_robbery, 
+    mean_moco_robbery = mean(moco_total),
+    sd_moco_robbery = sd(moco_total),
+    z_moco_robbery = (moco_total - mean_moco_robbery) / sd_moco_robbery
+  ) |>
+  ungroup()
+
+
+combined_sexoffense <- combined_sexoffense |>
+  mutate(month_number = month(month)) |>
+  group_by(month_number) |>
+  mutate(
+    mean_pg_sexoffense = mean(pg_total),
+    sd_pg_sexoffense = sd(pg_total),
+    z_pg_sexoffense = (pg_total - mean_pg_sexoffense) / sd_pg_sexoffense, 
+    mean_moco_sexoffense = mean(moco_total),
+    sd_moco_sexoffense = sd(moco_total),
+    z_moco_sexoffense = (moco_total - mean_moco_sexoffense) / sd_moco_sexoffense
+  ) |>
+  ungroup()
+
+
+combined_theft <- combined_theft |>
+  mutate(month_number = month(month)) |>
+  group_by(month_number) |>
+  mutate(
+    mean_pg_theft = mean(pg_total),
+    sd_pg_theft = sd(pg_total),
+    z_pg_theft = (pg_total - mean_pg_theft) / sd_pg_theft, 
+    mean_moco_theft = mean(moco_total),
+    sd_moco_theft = sd(moco_total),
+    z_moco_theft = (moco_total - mean_moco_theft) / sd_moco_theft
+  ) |>
+  ungroup()
+
+
+combined_theftfromauto <- combined_theftfromauto |>
+  mutate(month_number = month(month)) |>
+  group_by(month_number) |>
+  mutate(
+    mean_pg_theftfromauto = mean(pg_total),
+    sd_pg_theftfromauto = sd(pg_total),
+    z_pg_theftfromauto = (pg_total - mean_pg_theftfromauto) / sd_pg_theftfromauto, 
+    mean_moco_theftfromauto = mean(moco_total),
+    sd_moco_theftfromauto = sd(moco_total),
+    z_moco_theftfromauto = (moco_total - mean_moco_theftfromauto) / sd_moco_theftfromauto
+  ) |>
+  ungroup()
+```
+
+
+
 mean_assault = mean(pg_total),
     sd_assault = sd(pg_total),
     z_assault = (pg_total - mean_assault) / sd_assault
@@ -519,32 +638,13 @@ combined_theftfromauto |>
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
 ```
 
-
-
 ## Calculating correlations
 
-```{r}
-combined_crime <- combined_assault |> 
-  inner_join(combined_autotheft, join_by(category, month))
 
-combined_crime <- combined_assault |> 
-  inner_join(combined_burglary, join_by(category, month))
+crime_list <- list(combined_assault, combined_burglary, combined_theftfromauto, combined_theft, combined_sexoffense, combined_robbery, combined_homicide, combined_autotheft)
 
-combined_crime <- combined_assault |> 
-  inner_join(combined_homicide, join_by(category, month))
+combined_crime <- crime_list %>% reduce(inner_join, by = "month")
 
-combined_crime <- combined_assault |> 
-  inner_join(combined_theft, join_by(category, month))
-
-combined_crime <- combined_assault |> 
-  inner_join(combined_theftfromauto, join_by(category, month))
-
-combined_crime <- combined_assault |> 
-  inner_join(combined_sexoffense, join_by(category, month))
-
-combined_crime <- combined_assault |> 
-  inner_join(combined_robbery, join_by(category, month))
-```
 
 
 
