@@ -398,14 +398,20 @@ combined_theft <- pg_theft |>
 
 
 
-## I compared the rates for each crime between the two counties in a graph so I could more easily analyze the data. Additionally, I color-coded the data to make it easier to differentiate and added titles, labels and captions.
+## I compared the rates for each crime between the two counties in a graph so I could more easily analyze the data. Additionally, I color-coded the data to make it easier to differentiate and added titles, labels and captions. More specifically, I noted my discoveries using the titles.
+
+## The result that surprised me the most from the graphic was Montgomery County's high assault rate compared to Prince George's County. It went against my hypothesis and is an outlier compared to the other graphs, where the crime rates are closer together. I suspected that my categorization of assault may have contributed to this discrepancy. 
+
+## It appears that automobile theft rates in both counties spiked in 2023. I have been hearing more about automobile thefts in the past few years, so this piqued my interest and would warrant further research.
+
+## It appears that burglary rates in both counties have decreased overall since April 2017. This decrease would warrant further research.
 
 ```{r}
 combined_assault |> 
   ggplot() +
   geom_line((aes(x=month, y=pg_assault_rate)), color = "red", linewidth = 1) +
   geom_line(aes(x=month, y=moco_assault_rate), color = "blue", linewidth = 1) +
-  labs(title = "Assault rates in Montgomery County, Maryland, consistently higher than in neighboring Prince George's County",
+  labs(title = "Assault rates in Montgomery County, Maryland, consistently higher than in neighboring Prince George's County from early 2017 to early 2026, according to analysis",
        x = "Month",
        y = "Assault rate per 10,000 residents",
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
@@ -415,7 +421,7 @@ combined_autotheft |>
   ggplot() +
   geom_line((aes(x=month, y=pg_autotheft_rate)), color = "red", linewidth = 1) +
   geom_line(aes(x=month, y=moco_autotheft_rate), color = "blue", linewidth = 1) +
-  labs(title = "Auto theft rates in Prince George's County, Maryland, generally higher than in neighboring Montgomery County",
+  labs(title = "Auto theft rates in Prince George's County, Maryland, generally higher than in neighboring Montgomery County from early 2017 to early 2026, according to analysis",
        x = "Month",
        y = "Auto theft rate per 10,000 residents",
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
@@ -425,7 +431,7 @@ combined_burglary |>
   ggplot() +
   geom_line((aes(x=month, y=pg_burglary_rate)), color = "red", linewidth = 1) +
   geom_line(aes(x=month, y=moco_burglary_rate), color = "blue", linewidth = 1) +
-  labs(title = "Burglary rates in Prince George's and Montgomery counties in Maryland have decreased since 2017",
+  labs(title = "Burglary rates in Prince George's and Montgomery counties in Maryland have decreased since 2017, according to analysis",
        x = "Month",
        y = "Burglary rate per 10,000 residents",
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
@@ -435,7 +441,7 @@ combined_homicide |>
   ggplot() +
   geom_line((aes(x=month, y=pg_homicide_rate)), color = "red", linewidth = 1) +
   geom_line(aes(x=month, y=moco_homicide_rate), color = "blue", linewidth = 1) +
-  labs(title = "Homicide rates in Prince George's County, Maryland, generally higher than in neighboring Montgomery County",
+  labs(title = "Homicide rates in Prince George's County, Maryland, generally higher than in neighboring Montgomery County from early 2017 to early 2026, according to analysis",
        x = "Month",
        y = "Homicide rate per 10,000 residents",
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
@@ -445,7 +451,7 @@ combined_robbery |>
   ggplot() +
   geom_line((aes(x=month, y=pg_robbery_rate)), color = "red", linewidth = 1) +
   geom_line(aes(x=month, y=moco_robbery_rate), color = "blue", linewidth = 1) +
-  labs(title = "Robbery rates in Prince George's County, Maryland, generally higher than in neighboring Montgomery County",
+  labs(title = "Robbery rates in Prince George's County, Maryland, generally higher than in neighboring Montgomery County from early 2017 to early 2026, according to analysis",
        x = "Month",
        y = "Robbery rate per 10,000 residents",
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
@@ -455,7 +461,7 @@ combined_sexoffense |>
   ggplot() +
   geom_line((aes(x=month, y=pg_sexoffense_rate)), color = "red", linewidth = 1) +
   geom_line(aes(x=month, y=moco_sexoffense_rate), color = "blue", linewidth = 1) +
-  labs(title = "Sex offense rates in Montgomery County, Maryland, generally higher than in neighboring Prince George's County",
+  labs(title = "Sex offense rates in Montgomery County, Maryland, generally higher than in neighboring Prince George's County from early 2017 to early 2026, according to analysis",
        x = "Month",
        y = "Sex offense rate per 10,000 residents",
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
@@ -465,7 +471,7 @@ combined_theft |>
   ggplot() +
   geom_line((aes(x=month, y=pg_theft_rate)), color = "red", linewidth = 1) +
   geom_line(aes(x=month, y=moco_theft_rate), color = "blue", linewidth = 1) +
-  labs(title = "Theft rates in Montgomery County, Maryland, generally higher than in neighboring Prince George's County",
+  labs(title = "Theft rates in Montgomery County, Maryland, generally higher than in neighboring Prince George's County from early 2017 to early 2026, according to analysis",
        x = "Month",
        y = "Theft rate per 10,000 residents",
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
@@ -969,6 +975,14 @@ combined_all |>
 Next step: Calculate the correlations between assault and sex offenses, etc.
 
 combined_all |> summarize(combined_all$pg_assault_rate, combined_all$pg_autotheft_rate, method="pearson")
+
+
+
+Story pitch:
+
+It appears that automobile theft rates in both counties spiked in 2023. I have been hearing more about automobile thefts in the past few years, so this piqued my interest and would warrant further research.
+
+It appears that burglary rates in both counties have decreased overall since April 2017. This decrease would warrant further research.
 
 
 
