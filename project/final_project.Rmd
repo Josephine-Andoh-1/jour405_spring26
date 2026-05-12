@@ -397,11 +397,6 @@ combined_theft <- pg_theft |>
 ```
 
 
-```{r}
-combined_all |> summarize(combined_all$pg_assault_rate, combined_all$pg_autotheft_rate, method="pearson")
-```
-
-
 
 ## I compared the rates for each crime between the two counties in a graph so I could more easily analyze the data. Additionally, I color-coded the data to make it easier to differentiate and added titles, labels and captions.
 
@@ -975,9 +970,7 @@ combined_all |>
 
 Next step: Calculate the correlations between assault and sex offenses, etc.
 
-
-
-
+combined_all |> summarize(combined_all$pg_assault_rate, combined_all$pg_autotheft_rate, method="pearson")
 
 
 
