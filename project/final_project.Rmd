@@ -19,8 +19,6 @@ library(lubridate)
 library(dplyr)
 
 library(scales)
-
-library(purrr)
 ```
 
 
@@ -225,7 +223,7 @@ mococrime <- mococrime |>
 
 
 
-## I filtered my data from April 1, 2017, to April 1, 2026, so that I could compare crime rates over the same time period.
+## I filtered my data from April 1, 2017, to March 31, 2026, so that I could compare crime rates over an exact nine-year time period.
 
 ```{r}
 new_pgcrime <- pgcrime |> filter(Date < '2026-04-01', Date > '2017-03-31')
@@ -749,16 +747,11 @@ combined_all |>
   mutate(
     mean_pg = mean(pg_total),
     sd_pg = sd(pg_total),
-    z_pg = (pg_total - mean_pg) / sd_pg
+    z_pg = (pg_total - mean_pg) / sd_pg, 
   ) |>
   ungroup()
 ```
 
-
-
-crime_list <- list(combined_assault, combined_burglary, combined_theftfromauto, combined_theft, combined_sexoffense, combined_robbery, combined_homicide, combined_autotheft)
-
-combined_crime <- crime_list %>% reduce(inner_join, by = "month")
 
 
 
