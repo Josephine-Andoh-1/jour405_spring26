@@ -925,7 +925,7 @@ ggplot(combined_theftfromauto, aes(x = month, y = moco_total, color = abs(z_moco
 
 
 
-## Calculating correlations
+## I renamed the columns in my eight large dataframes so I could combine them. I also redid my 
 
 ```{r}
 rename_rates <- function(combined_assault, crime_name) {
@@ -979,23 +979,10 @@ combined_all <- bind_rows(
   rename_rates(combined_theft),
   rename_rates(combined_theftfromauto)
 )
-
-combined_all |>
-  mutate(month_number = month(month)) |>
-  group_by(category, month_number) |>
-  mutate(
-    mean_pg = mean(pg_total),
-    sd_pg = sd(pg_total),
-    z_pg = (pg_total - mean_pg) / sd_pg, 
-    mean_moco = mean(moco_total),
-    sd_moco = sd(moco_total),
-    z_moco = (moco_total - mean_moco) / sd_moco,
-  ) |>
-  ungroup()
 ```
 
 
-
+  
 Next step: Calculate the correlations between assault and sex offenses, etc.
 
 
