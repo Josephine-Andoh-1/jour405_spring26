@@ -507,13 +507,79 @@ combined_theftfromauto <- combined_theftfromauto |>
 
 
 
-mean_assault = mean(pg_total),
-    sd_assault = sd(pg_total),
-    z_assault = (pg_total - mean_assault) / sd_assault
+```{r}
+unusual_pg_assault <- combined_assault |>
+  filter(abs(z_pg_assault) > 2) |>
+  arrange(desc(abs(z_pg_assault)))
 
-unusual_days <- accidents |>
-  filter(abs(z_score) > 2) |>
-  arrange(desc(abs(z_score)))
+unusual_moco_assault <- combined_assault |>
+  filter(abs(z_moco_assault) > 2) |>
+  arrange(desc(abs(z_moco_assault)))
+
+
+unusual_pg_autotheft <- combined_autotheft |>
+  filter(abs(z_pg_autotheft) > 2) |>
+  arrange(desc(abs(z_pg_autotheft)))
+
+unusual_moco_autotheft <- combined_autotheft |>
+  filter(abs(z_moco_autotheft) > 2) |>
+  arrange(desc(abs(z_moco_autotheft)))
+
+
+unusual_pg_burglary <- combined_burglary |>
+  filter(abs(z_pg_burglary) > 2) |>
+  arrange(desc(abs(z_pg_burglary)))
+
+unusual_moco_burglary <- combined_burglary |>
+  filter(abs(z_moco_burglary) > 2) |>
+  arrange(desc(abs(z_moco_burglary)))
+
+
+unusual_pg_homicide <- combined_homicide |>
+  filter(abs(z_pg_homicide) > 2) |>
+  arrange(desc(abs(z_pg_homicide)))
+
+unusual_moco_homicide <- combined_homicide |>
+  filter(abs(z_moco_homicide) > 2) |>
+  arrange(desc(abs(z_moco_homicide)))
+
+
+unusual_pg_robbery <- combined_robbery |>
+  filter(abs(z_pg_robbery) > 2) |>
+  arrange(desc(abs(z_pg_robbery)))
+
+unusual_moco_robbery <- combined_robbery |>
+  filter(abs(z_moco_robbery) > 2) |>
+  arrange(desc(abs(z_moco_robbery)))
+
+
+unusual_pg_sexoffense <- combined_sexoffense |>
+  filter(abs(z_pg_sexoffense) > 2) |>
+  arrange(desc(abs(z_pg_sexoffense)))
+
+unusual_moco_sexoffense <- combined_sexoffense |>
+  filter(abs(z_moco_sexoffense) > 2) |>
+  arrange(desc(abs(z_moco_sexoffense)))
+
+
+unusual_pg_theft <- combined_theft |>
+  filter(abs(z_pg_theft) > 2) |>
+  arrange(desc(abs(z_pg_theft)))
+
+unusual_moco_theft <- combined_theft |>
+  filter(abs(z_moco_theft) > 2) |>
+  arrange(desc(abs(z_moco_theft)))
+
+
+unusual_pg_theftfromauto <- combined_theftfromauto |>
+  filter(abs(z_pg_theftfromauto) > 2) |>
+  arrange(desc(abs(z_pg_theftfromauto)))
+
+unusual_moco_theftfromauto <- combined_theftfromauto |>
+  filter(abs(z_moco_theftfromauto) > 2) |>
+  arrange(desc(abs(z_moco_theftfromauto)))
+```
+
   
 cat("Number of days with unusual accident counts:", nrow(unusual_days), 
     "out of", nrow(accidents), "total days (", 
