@@ -676,6 +676,10 @@ ggplot(combined_assault, aes(x = month, y = pg_total, color = abs(z_pg_assault) 
   scale_color_manual(values = c("gray", "red"), 
                      name = "Unusual Value",
                      labels = c("Normal", "Unusual")) +
+  geom_point(alpha = 0.5) +
+  scale_color_manual(values = c("gray", "blue"), 
+                     name = "Unusual Value",
+                     labels = c("Normal", "Unusual"))
   theme_minimal() +
   labs(title = "Prince George's County, Maryland, had unusually low assault rate in October 2019",
        subtitle = "Unusual months have z-scores with absolute values > 2",
@@ -742,10 +746,140 @@ ggplot(combined_burglary, aes(x = month, y = moco_total, color = abs(z_moco_burg
                      name = "Unusual Value",
                      labels = c("Normal", "Unusual")) +
   theme_minimal() +
-  labs(title = "Montgomery County, Maryland, had unusually high burglary rates for six months in 2017 and early 2018",
+  labs(title = "Montgomery County, Maryland, had four months with unusual burglary rates between 2017 and 2025",
        subtitle = "Unusual months have z-scores with absolute values > 2",
        x = "Month",
        y = "Burglary rate per 10,000 residents",
+       caption = "Source: Montgomery County crime archives")
+
+
+ggplot(combined_homicide, aes(x = month, y = pg_total, color = abs(z_pg_homicide) > 2)) +
+  geom_point(alpha = 0.5) +
+  scale_color_manual(values = c("gray", "red"), 
+                     name = "Unusual Value",
+                     labels = c("Normal", "Unusual")) +
+  theme_minimal() +
+  labs(title = "Prince George's County, Maryland, had unusually high homicide rates for three months between 2020 and 2023",
+       subtitle = "Unusual months have z-scores with absolute values > 2",
+       x = "Month",
+       y = "Homicide rate per 10,000 residents",
+       caption = "Source: Prince George's County crime archives")
+
+
+ggplot(combined_homicide, aes(x = month, y = moco_total, color = abs(z_moco_homicide) > 2)) +
+  geom_point(alpha = 0.5) +
+  scale_color_manual(values = c("gray", "red"), 
+                     name = "Unusual Value",
+                     labels = c("Normal", "Unusual")) +
+  theme_minimal() +
+  labs(title = "Montgomery County, Maryland, had unusually high homicide rates for four months between 2017 and 2024",
+       subtitle = "Unusual months have z-scores with absolute values > 2",
+       x = "Month",
+       y = "Homicide rate per 10,000 residents",
+       caption = "Source: Montgomery County crime archives")
+
+
+ggplot(combined_robbery, aes(x = month, y = pg_total, color = abs(z_pg_robbery) > 2)) +
+  geom_point(alpha = 0.5) +
+  scale_color_manual(values = c("gray", "red"), 
+                     name = "Unusual Value",
+                     labels = c("Normal", "Unusual")) +
+  theme_minimal() +
+  labs(title = "Prince George's County, Maryland, had unusually high robbery rates for three months between 2023 and 2024",
+       subtitle = "Unusual months have z-scores with absolute values > 2",
+       x = "Month",
+       y = "Robbery rate per 10,000 residents",
+       caption = "Source: Prince George's County crime archives")
+
+
+ggplot(combined_robbery, aes(x = month, y = moco_total, color = abs(z_moco_robbery) > 2)) +
+  geom_point(alpha = 0.5) +
+  scale_color_manual(values = c("gray", "red"), 
+                     name = "Unusual Value",
+                     labels = c("Normal", "Unusual")) +
+  theme_minimal() +
+  labs(title = "Montgomery County, Maryland, had unusually high robbery rates for seven months between 2017 and 2024",
+       subtitle = "Unusual months have z-scores with absolute values > 2",
+       x = "Month",
+       y = "Robbery rate per 10,000 residents",
+       caption = "Source: Montgomery County crime archives")
+
+
+ggplot(combined_sexoffense, aes(x = month, y = pg_total, color = abs(z_pg_sexoffense) > 2)) +
+  geom_point(alpha = 0.5) +
+  scale_color_manual(values = c("gray", "red"), 
+                     name = "Unusual Value",
+                     labels = c("Normal", "Unusual")) +
+  theme_minimal() +
+  labs(title = "Prince George's County, Maryland, had unusually high sex offense rates for three months between 2018 and 2019",
+       subtitle = "Unusual months have z-scores with absolute values > 2",
+       x = "Month",
+       y = "Sex offense rate per 10,000 residents",
+       caption = "Source: Prince George's County crime archives")
+
+
+ggplot(combined_sexoffense, aes(x = month, y = moco_total, color = abs(z_moco_sexoffense) > 2)) +
+  geom_point(alpha = 0.5) +
+  scale_color_manual(values = c("gray", "red"), 
+                     name = "Unusual Value",
+                     labels = c("Normal", "Unusual")) +
+  theme_minimal() +
+  labs(title = "Montgomery County, Maryland, had no months with unusually high sex offense rates between April 2017 and March 2026",
+       subtitle = "Unusual months have z-scores with absolute values > 2",
+       x = "Month",
+       y = "Sex offense rate per 10,000 residents",
+       caption = "Source: Montgomery County crime archives")
+
+
+ggplot(combined_theft, aes(x = month, y = pg_total, color = abs(z_pg_theft) > 2)) +
+  geom_point(alpha = 0.5) +
+  scale_color_manual(values = c("gray", "red"), 
+                     name = "Unusual Value",
+                     labels = c("Normal", "Unusual")) +
+  theme_minimal() +
+  labs(title = "Prince George's County, Maryland, had unusually low theft rates for two months in 2021",
+       subtitle = "Unusual months have z-scores with absolute values > 2",
+       x = "Month",
+       y = "Theft rate per 10,000 residents",
+       caption = "Source: Prince George's County crime archives")
+
+
+ggplot(combined_theft, aes(x = month, y = moco_total, color = abs(z_moco_theft) > 2)) +
+  geom_point(alpha = 0.5) +
+  scale_color_manual(values = c("gray", "red"), 
+                     name = "Unusual Value",
+                     labels = c("Normal", "Unusual")) +
+  theme_minimal() +
+  labs(title = "Montgomery County, Maryland, had unusually low theft rates for two months between 2023 and 2024",
+       subtitle = "Unusual months have z-scores with absolute values > 2",
+       x = "Month",
+       y = "Theft rate per 10,000 residents",
+       caption = "Source: Montgomery County crime archives")
+
+
+ggplot(combined_theftfromauto, aes(x = month, y = pg_total, color = abs(z_pg_theftfromauto) > 2)) +
+  geom_point(alpha = 0.5) +
+  scale_color_manual(values = c("gray", "red"), 
+                     name = "Unusual Value",
+                     labels = c("Normal", "Unusual")) +
+  theme_minimal() +
+  labs(title = "Prince George's County, Maryland, had unusual theft from automobile rates for two months between 2021 and 2023",
+       subtitle = "Unusual months have z-scores with absolute values > 2",
+       x = "Month",
+       y = "Theft from automobile rate per 10,000 residents",
+       caption = "Source: Prince George's County crime archives")
+
+
+ggplot(combined_theftfromauto, aes(x = month, y = moco_total, color = abs(z_moco_theftfromauto) > 2)) +
+  geom_point(alpha = 0.5) +
+  scale_color_manual(values = c("gray", "red"), 
+                     name = "Unusual Value",
+                     labels = c("Normal", "Unusual")) +
+  theme_minimal() +
+  labs(title = "Montgomery County, Maryland, had unusual theft from automobile rates for two months between 2018 and 2020",
+       subtitle = "Unusual months have z-scores with absolute values > 2",
+       x = "Month",
+       y = "Theft from automobile rate per 10,000 residents",
        caption = "Source: Montgomery County crime archives")
 ```
 
