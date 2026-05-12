@@ -956,7 +956,7 @@ combined_all |>
 
 
 
-1. Calculate the correlations between assault and sex offenses, etc.
+Calculate the correlations between assault and sex offenses, etc.
 
 
 
