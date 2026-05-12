@@ -405,7 +405,7 @@ combined_autotheft |>
   ggplot() +
   geom_line((aes(x=month, y=pg_autotheft_rate)), color = "red", linewidth = 1) +
   geom_line(aes(x=month, y=moco_autotheft_rate), color = "blue", linewidth = 1) +
-  labs(title = "Auto theft rates in Prince George's County, Maryland, consistently higher than in neighboring Montgomery County",
+  labs(title = "Auto theft rates in Prince George's County, Maryland, generally higher than in neighboring Montgomery County",
        x = "Month",
        y = "Auto theft rate per 10,000 residents",
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
@@ -425,7 +425,7 @@ combined_homicide |>
   ggplot() +
   geom_line((aes(x=month, y=pg_homicide_rate)), color = "red", linewidth = 1) +
   geom_line(aes(x=month, y=moco_homicide_rate), color = "blue", linewidth = 1) +
-  labs(title = "Homicide rates in Prince George's County, Maryland, consistently higher than in neighboring Montgomery County",
+  labs(title = "Homicide rates in Prince George's County, Maryland, generally higher than in neighboring Montgomery County",
        x = "Month",
        y = "Homicide rate per 10,000 residents",
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
@@ -435,7 +435,7 @@ combined_robbery |>
   ggplot() +
   geom_line((aes(x=month, y=pg_robbery_rate)), color = "red", linewidth = 1) +
   geom_line(aes(x=month, y=moco_robbery_rate), color = "blue", linewidth = 1) +
-  labs(title = "Robbery rates in Prince George's County, Maryland, consistently higher than in neighboring Montgomery County",
+  labs(title = "Robbery rates in Prince George's County, Maryland, generally higher than in neighboring Montgomery County",
        x = "Month",
        y = "Robbery rate per 10,000 residents",
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
@@ -465,7 +465,7 @@ combined_theftfromauto |>
   ggplot() +
   geom_line((aes(x=month, y=pg_theftfromauto_rate)), color = "red", linewidth = 1) +
   geom_line(aes(x=month, y=moco_theftfromauto_rate), color = "blue", linewidth = 1) +
-  labs(title = "Theft from automobile rates in Prince George's and Montgomery counties in Maryland have decreased since 2017",
+  labs(title = "Theft from automobile rates in Prince George's and Montgomery counties in Maryland lower in early 2026 than in 2017",
        x = "Month",
        y = "Theft from automobile rate per 10,000 residents",
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
@@ -761,7 +761,7 @@ combined_all |>
 
 1. Calculate the correlations between assault and sex offenses, etc.
 
-2. Analyze any increases or decreases in crime rates and evaluate for statistical significance.
+2. Analyze any increases or decreases outside confidence interval.
 
 
 
