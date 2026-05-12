@@ -410,7 +410,7 @@ combined_theft <- pg_theft |>
 
 ## It appears that robbery rates in Prince George's County spiked in late 2023 and have steadily decreased since then. This change warrants further research.
 
-## Since 2017, both counties have had sex offense rates of less than five per 10,000 residents. However, to determine whether this number is high or low, I will have to compare it to the national average.
+## It appears that Prince George's County had a relatively high sex offense rate in 2017. However, since that year, both counties have sustained sex offense rates of less than five per 10,000 residents. However, to determine whether this number is high or low, I will have to compare it to the national average.
 
 ## It appears that theft rates in both counties had a spike in late 2024. This spike warrants further research.
 
@@ -704,11 +704,15 @@ unusual_moco_theftfromauto <- combined_theftfromauto |>
 
 ## The spike in auto thefts in both counties that I noticed in the graph was corroborated by my z-score analysis, further proving that said spike was unusual and underlining the need for additional research. 
 
-## The anomalies in burglargy rates in Prince George's County caught my eye because the graphs appeared to show an overall decrease. I will need to research this further to detect the causes of these anomalies.
+## The anomalies in burglary rates in Prince George's County caught my eye because the graphs appeared to show an overall decrease. I will need to research this further to detect the causes of these anomalies.
 
-## The spike in homicide rates in Prince George's County that I noticed in the graph are corroborated by my z-score analysis, further proving that said spike was unusual and underlining the need for additional research. 
+## The spike in homicide rates in Prince George's County that I noticed in the graph are corroborated by my z-score analysis, indicating a need for further research. 
 
-(MoCo homicide and onward)
+## The spike in robbery rates in Prince George's County that I noticed in the graph was corroborated by my z-score analysis, indicating a need for further research. 
+
+## The spike in sex offense rates in Prince George's County that I noticed in the graph was corroborated by my z-score analysis, indicating a need for further research. 
+
+## The spike in theft rates in both counties that I noticed in the graph was not corroborated by my z-score analysis. However, those spikes may still be signficant, and I still need to research them.
 
 ```{r}
 ggplot(combined_assault, aes(x = month, y = pg_total, color = abs(z_pg_assault) > 2)) +
@@ -993,8 +997,6 @@ combined_all |>
 
 
 Next step: Calculate the correlations between assault and sex offenses, etc.
-
-combined_all |> summarize(combined_all$pg_assault_rate, combined_all$pg_autotheft_rate, method="pearson")
 
 
 
