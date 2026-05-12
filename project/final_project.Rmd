@@ -499,7 +499,7 @@ combined_theftfromauto |>
 
 
 
-## I calculated the means, standard deviations and z-scores for each crime in their combined dataframes. 
+## I calculated the means, standard deviations and z-scores for each crime in their combined dataframes to determine if the number of occurences of a certain crime per month was an anomaly or not.
 
 ```{r}
 combined_assault <- combined_assault |>
@@ -698,6 +698,9 @@ unusual_moco_theftfromauto <- combined_theftfromauto |>
   arrange(desc(abs(z_moco_theftfromauto)))
 ```
 
+
+
+## I graphed out the z-scores, highlighting the unusual ones in red.
 
 ```{r}
 ggplot(combined_assault, aes(x = month, y = pg_total, color = abs(z_pg_assault) > 2)) +
@@ -992,10 +995,6 @@ combined_all |> summarize(combined_all$pg_assault_rate, combined_all$pg_autothef
 
 
 Story pitch:
-
-It appears that automobile theft rates in both counties spiked in 2023. I have been hearing more about automobile thefts in the past few years, so this piqued my interest and would warrant further research.
-
-It appears that burglary rates in both counties have decreased overall since April 2017. This decrease would warrant further research.
 
 
 
