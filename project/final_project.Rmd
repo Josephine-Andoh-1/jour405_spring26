@@ -5,6 +5,16 @@ output: html_document
 ---
 
 
+For my final project, I analyzed per capita crime rates in Prince George's and Montgomery counties between 2017 and April 2026. My hypotheses were:
+
+1. Montgomery County had higher rates of burglaries, automobile thefts and thefts from automobiles than Prince George's County during this time period.
+
+2. Prince George's County had higher rates of assault, sex offenses and overall theft than Montgomery County during this time period.
+
+3. Prince George's County had higher overall rates of these six crime categories than Montgomery County during this time period.
+
+
+
 ## I loaded the tidyverse, knitr, lubridate, dplyr and scales so I could analyze and graph my datasets.
 
 ```{r}
@@ -37,7 +47,7 @@ pgcrime <- bind_rows(pgcrime17_23, pgcrime23_26)
 
 
 
-## I sorted all the crimes into seven categories (assault, burglary, auto theft, theft from auto, robbery, sex offenses and homicide) to facilitate my analysis.
+## I sorted all the crimes into seven categories (assault, burglary, auto theft, theft from auto, robbery, sex offenses and homicide) to facilitate my analysis. Through this sorting, I noticed that Montgomery County has much more specific categories for crime that Prince George's County. I predicted that because of this, Montgomery County would appear to have higher crime rates per capita in certain categories, specifically assault.
 
 ```{r}
 pgcrime <- pgcrime |> 
@@ -205,7 +215,7 @@ mococrime <- mococrime |>
 
 
 
-## I filtered my data on a monthly basis so that I was not comparing too many individual data points.
+## I filtered my data so that I would be comparing crime rates month-to-month. Any other increment would be too small or too large.
 
 ```{r}
 pgcrime <- pgcrime |>
