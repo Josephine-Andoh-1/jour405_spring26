@@ -757,11 +757,7 @@ combined_all |>
 
 
 
-
-
 1. Calculate the correlations between assault and sex offenses, etc.
-
-2. Analyze any increases or decreases outside confidence interval.
 
 
 
