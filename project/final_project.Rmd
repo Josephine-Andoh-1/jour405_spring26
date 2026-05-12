@@ -390,7 +390,92 @@ combined_theft <- pg_theft |>
 
 
 
-## Z-scores
+## I compared the rates for each crime between the two counties in a graph so I could more easily analyze the data. Additionally, I color-coded the data to make it easier to differentiate and added titles, labels and captions.
+
+```{r}
+combined_assault |> 
+  ggplot() +
+  geom_line((aes(x=month, y=pg_assault_rate)), color = "red", linewidth = 1) +
+  geom_line(aes(x=month, y=moco_assault_rate), color = "blue", linewidth = 1) +
+  labs(title = "Assault rates in Montgomery County, Maryland, consistently higher than in neighboring Prince George's County",
+       x = "Month",
+       y = "Assault rate per 10,000 residents",
+       caption = "Sources: Montgomery and Prince George's counties' crime archives")
+
+
+combined_autotheft |> 
+  ggplot() +
+  geom_line((aes(x=month, y=pg_autotheft_rate)), color = "red", linewidth = 1) +
+  geom_line(aes(x=month, y=moco_autotheft_rate), color = "blue", linewidth = 1) +
+  labs(title = "Auto theft rates in Prince George's County, Maryland, consistently higher than in neighboring Montgomery County",
+       x = "Month",
+       y = "Auto theft rate per 10,000 residents",
+       caption = "Sources: Montgomery and Prince George's counties' crime archives")
+
+
+combined_burglary |> 
+  ggplot() +
+  geom_line((aes(x=month, y=pg_burglary_rate)), color = "red", linewidth = 1) +
+  geom_line(aes(x=month, y=moco_burglary_rate), color = "blue", linewidth = 1) +
+  labs(title = "Burglary rates in Prince George's and Montgomery counties in Maryland have decreased since 2017",
+       x = "Month",
+       y = "Burglary rate per 10,000 residents",
+       caption = "Sources: Montgomery and Prince George's counties' crime archives")
+
+
+combined_homicide |> 
+  ggplot() +
+  geom_line((aes(x=month, y=pg_homicide_rate)), color = "red", linewidth = 1) +
+  geom_line(aes(x=month, y=moco_homicide_rate), color = "blue", linewidth = 1) +
+  labs(title = "Homicide rates in Prince George's County, Maryland, consistently higher than in neighboring Montgomery County",
+       x = "Month",
+       y = "Homicide rate per 10,000 residents",
+       caption = "Sources: Montgomery and Prince George's counties' crime archives")
+
+
+combined_robbery |> 
+  ggplot() +
+  geom_line((aes(x=month, y=pg_robbery_rate)), color = "red", linewidth = 1) +
+  geom_line(aes(x=month, y=moco_robbery_rate), color = "blue", linewidth = 1) +
+  labs(title = "Robbery rates in Prince George's County, Maryland, consistently higher than in neighboring Montgomery County",
+       x = "Month",
+       y = "Robbery rate per 10,000 residents",
+       caption = "Sources: Montgomery and Prince George's counties' crime archives")
+
+
+combined_sexoffense |> 
+  ggplot() +
+  geom_line((aes(x=month, y=pg_sexoffense_rate)), color = "red", linewidth = 1) +
+  geom_line(aes(x=month, y=moco_sexoffense_rate), color = "blue", linewidth = 1) +
+  labs(title = "Sex offense rates in Montgomery County, Maryland, generally higher than in neighboring Prince George's County",
+       x = "Month",
+       y = "Sex offense rate per 10,000 residents",
+       caption = "Sources: Montgomery and Prince George's counties' crime archives")
+
+
+combined_theft |> 
+  ggplot() +
+  geom_line((aes(x=month, y=pg_theft_rate)), color = "red", linewidth = 1) +
+  geom_line(aes(x=month, y=moco_theft_rate), color = "blue", linewidth = 1) +
+  labs(title = "Theft rates in Montgomery County, Maryland, generally higher than in neighboring Prince George's County",
+       x = "Month",
+       y = "Theft rate per 10,000 residents",
+       caption = "Sources: Montgomery and Prince George's counties' crime archives")
+
+
+combined_theftfromauto |> 
+  ggplot() +
+  geom_line((aes(x=month, y=pg_theftfromauto_rate)), color = "red", linewidth = 1) +
+  geom_line(aes(x=month, y=moco_theftfromauto_rate), color = "blue", linewidth = 1) +
+  labs(title = "Theft from automobile rates in Prince George's and Montgomery counties in Maryland have decreased since 2017",
+       x = "Month",
+       y = "Theft from automobile rate per 10,000 residents",
+       caption = "Sources: Montgomery and Prince George's counties' crime archives")
+```
+
+
+
+## I calculated the means, standard deviations and z-scores for each crime rate based on the month, filtered out unusual z-scores and graphed out the z-scores.
 
 ```{r}
 combined_assault <- combined_assault |>
@@ -506,7 +591,6 @@ combined_theftfromauto <- combined_theftfromauto |>
 ```
 
 
-
 ```{r}
 unusual_pg_assault <- combined_assault |>
   filter(abs(z_pg_assault) > 2) |>
@@ -588,7 +672,6 @@ unusual_moco_theftfromauto <- combined_theftfromauto |>
 ```
 
 
-  
 ```{r}
 ggplot(combined_assault, aes(x = month, y = pg_total, color = abs(z_pg_assault) > 2)) +
   geom_point(alpha = 0.5) +
@@ -605,91 +688,6 @@ ggplot(combined_assault, aes(x = month, y = pg_total, color = abs(z_pg_assault) 
 
 
 
-
-
-## I compared the rates for each crime between the two counties in a graph so I could more easily analyze the data. Additionally, I color-coded the data to make it easier to differentiate and added titles, labels and captions.
-
-```{r}
-combined_assault |> 
-  ggplot() +
-  geom_line((aes(x=month, y=pg_assault_rate)), color = "red", linewidth = 1) +
-  geom_line(aes(x=month, y=moco_assault_rate), color = "blue", linewidth = 1) +
-  labs(title = "Assault rates in Montgomery County, Maryland, consistently higher than in neighboring Prince George's County",
-       x = "Month",
-       y = "Assault rate per 10,000 residents",
-       caption = "Sources: Montgomery and Prince George's counties' crime archives")
-
-
-combined_autotheft |> 
-  ggplot() +
-  geom_line((aes(x=month, y=pg_autotheft_rate)), color = "red", linewidth = 1) +
-  geom_line(aes(x=month, y=moco_autotheft_rate), color = "blue", linewidth = 1) +
-  labs(title = "Auto theft rates in Prince George's County, Maryland, consistently higher than in neighboring Montgomery County",
-       x = "Month",
-       y = "Auto theft rate per 10,000 residents",
-       caption = "Sources: Montgomery and Prince George's counties' crime archives")
-
-
-combined_burglary |> 
-  ggplot() +
-  geom_line((aes(x=month, y=pg_burglary_rate)), color = "red", linewidth = 1) +
-  geom_line(aes(x=month, y=moco_burglary_rate), color = "blue", linewidth = 1) +
-  labs(title = "Burglary rates in Prince George's and Montgomery counties in Maryland have decreased since 2017",
-       x = "Month",
-       y = "Burglary rate per 10,000 residents",
-       caption = "Sources: Montgomery and Prince George's counties' crime archives")
-
-
-combined_homicide |> 
-  ggplot() +
-  geom_line((aes(x=month, y=pg_homicide_rate)), color = "red", linewidth = 1) +
-  geom_line(aes(x=month, y=moco_homicide_rate), color = "blue", linewidth = 1) +
-  labs(title = "Homicide rates in Prince George's County, Maryland, consistently higher than in neighboring Montgomery County",
-       x = "Month",
-       y = "Homicide rate per 10,000 residents",
-       caption = "Sources: Montgomery and Prince George's counties' crime archives")
-
-
-combined_robbery |> 
-  ggplot() +
-  geom_line((aes(x=month, y=pg_robbery_rate)), color = "red", linewidth = 1) +
-  geom_line(aes(x=month, y=moco_robbery_rate), color = "blue", linewidth = 1) +
-  labs(title = "Robbery rates in Prince George's County, Maryland, consistently higher than in neighboring Montgomery County",
-       x = "Month",
-       y = "Robbery rate per 10,000 residents",
-       caption = "Sources: Montgomery and Prince George's counties' crime archives")
-
-
-combined_sexoffense |> 
-  ggplot() +
-  geom_line((aes(x=month, y=pg_sexoffense_rate)), color = "red", linewidth = 1) +
-  geom_line(aes(x=month, y=moco_sexoffense_rate), color = "blue", linewidth = 1) +
-  labs(title = "Sex offense rates in Montgomery County, Maryland, generally higher than in neighboring Prince George's County",
-       x = "Month",
-       y = "Sex offense rate per 10,000 residents",
-       caption = "Sources: Montgomery and Prince George's counties' crime archives")
-
-
-combined_theft |> 
-  ggplot() +
-  geom_line((aes(x=month, y=pg_theft_rate)), color = "red", linewidth = 1) +
-  geom_line(aes(x=month, y=moco_theft_rate), color = "blue", linewidth = 1) +
-  labs(title = "Theft rates in Montgomery County, Maryland, generally higher than in neighboring Prince George's County",
-       x = "Month",
-       y = "Theft rate per 10,000 residents",
-       caption = "Sources: Montgomery and Prince George's counties' crime archives")
-
-
-combined_theftfromauto |> 
-  ggplot() +
-  geom_line((aes(x=month, y=pg_theftfromauto_rate)), color = "red", linewidth = 1) +
-  geom_line(aes(x=month, y=moco_theftfromauto_rate), color = "blue", linewidth = 1) +
-  labs(title = "Theft from automobile rates in Prince George's and Montgomery counties in Maryland have decreased since 2017",
-       x = "Month",
-       y = "Theft from automobile rate per 10,000 residents",
-       caption = "Sources: Montgomery and Prince George's counties' crime archives")
-```
-
 ## Calculating correlations
 
 
@@ -702,9 +700,7 @@ combined_crime <- crime_list %>% reduce(inner_join, by = "month")
 
 1. Calculate the correlations between assault and sex offenses, etc.
 
-2. Calculate the monthly means for each crime and analyze for any unusual z-scores.
-
-3. Analyze any increases or decreases in crime rates and evaluate for statistical significance.
+2. Analyze any increases or decreases in crime rates and evaluate for statistical significance.
 
 
 
@@ -718,12 +714,9 @@ Hypotheses:
 3. Prince George's County has higher overall rates of these six crime categories than Montgomery County
 
 
+
 Possible tests:
 
 1. Calculating correlations among the different crime categories I am analyzing.
 
-2. Calculating the correlation between assault and overall crime rates for Prince George's and Montgomery counties
-
-3. Calculating the z-scores of the number of crimes committed per month and analyzing any unusual z-scores.
-
-4. Calculating whether any decreases or increases in crime were statistically significant. If I found that they were, I could also calculate their effect size. 
+2. Calculating whether any decreases or increases in crime were statistically significant. If I found that they were, I could also calculate their effect size. 
