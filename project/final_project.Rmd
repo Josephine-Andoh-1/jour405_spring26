@@ -47,9 +47,11 @@ pgcrime <- bind_rows(pgcrime17_23, pgcrime23_26)
 
 
 
-## I sorted all the crimes into eight categories (assault, burglary, auto theft, theft from auto, robbery, sex offenses, theft and homicide) to facilitate my analysis. Through this sorting, I noticed that Montgomery County has much more specific categories for crime that Prince George's County. I predicted that because of this, Montgomery County would appear to have higher crime rates per capita in certain categories, specifically assault.
+## I sorted all the crimes into eight categories (assault, burglary, auto theft, theft from auto, robbery, sex offenses, theft and homicide) based on general Maryland law to facilitate my analysis. Through this sorting, I noticed that Montgomery County has much more specific categories for crime that Prince George's County. I predicted that because of this, Montgomery County would appear to have higher crime rates per capita in certain categories, specifically assault.
 
 ```{r}
+
+# Categorizing Prince George's County's data. 
 pgcrime <- pgcrime |> 
   mutate(category = case_when(
     str_detect(`Clearance Code Inc Type`, "ASSAULT") ~ "assault",
@@ -75,6 +77,7 @@ pgcrime <- pgcrime |>
 )
 
 
+# Categorizing Montgomery County's assault data.
 mococrime <- mococrime |>
   mutate(category = case_when(
     str_detect(`Crime Name3`, "ASSAULT - 2ND DEGREE") ~ "assault",
@@ -98,6 +101,7 @@ mococrime <- mococrime |>
   )
 )
 
+# Categorizing Montgomery County's sex offense data.
 mococrime <- mococrime |>
   mutate(category = case_when(
     str_detect(`Crime Name3`, "SEX OFFENSE - AGAINST CHILD-FONDLING") ~ "sex offense",
@@ -123,6 +127,7 @@ mococrime <- mococrime |>
   )
 )
 
+# Categorizing Montgomery County's robbery data.
 mococrime <- mococrime |>
   mutate(category = case_when(
     str_detect(`Crime Name3`, "ROBBERY - STREET-GUN") ~ "robbery",
@@ -141,6 +146,7 @@ mococrime <- mococrime |>
   )
 )
 
+# Categorizing Montgomery County's burglary data.
 mococrime <- mococrime |>
   mutate(category = case_when(
     str_detect(`Crime Name3`, "BURGLARY - SAFE-VAULT") ~ "burglary",
@@ -154,6 +160,7 @@ mococrime <- mococrime |>
   )
 )
 
+# Categorizing Montgomery County's automobile theft data.
 mococrime <- mococrime |>
   mutate(category = case_when(
     str_detect(`Crime Name3`, "STOLEN VEHICLE (DESCRIBE OFFENSE)") ~ "auto theft",
@@ -167,6 +174,7 @@ mococrime <- mococrime |>
   )
 )
 
+# Categorizing Montgomery County's theft from automobile data.
 mococrime <- mococrime |>
   mutate(category = case_when(
     str_detect(`Crime Name3`, "LARCENY - FROM AUTO") ~ "theft from auto",
@@ -175,6 +183,7 @@ mococrime <- mococrime |>
   )
 )
 
+# Categorizing Montgomery County's homicide data.
 mococrime <- mococrime |>
   mutate(category = case_when(
     str_detect(`Crime Name3`, "HOMICIDE - WILLFUL KILL-GUN") ~ "homicide",
@@ -192,6 +201,7 @@ mococrime <- mococrime |>
   )
 )
 
+# Categorizing Montgomery County's theft data.
 mococrime <- mococrime |>
   mutate(category = case_when(
     str_detect(`Crime Name3`, "LARCENY (DESCRIBE OFFENSE)") ~ "theft",
@@ -262,6 +272,8 @@ new_pgcrime <- new_pgcrime %>%
 ## I counted the number of specific crimes that occured in both counties per month, then calcuated the per capita rates of said crimes. I then combined the Prince George's and Montgomery counties' crime data into eight dataframes to facilitate my comparison. 
 
 ```{r}
+
+# Counting the number of assaults for both counties and combining the dataframes.
 pg_assault <- new_pgcrime |> 
   filter(category == "assault") |> 
   group_by(category, month, population) |> 
@@ -279,6 +291,7 @@ combined_assault <- pg_assault |>
 
 
 
+# Counting the number of sex offenses for both counties and combining the dataframes.
 pg_sexoffense <- new_pgcrime |> 
   filter(category == "sex offense") |> 
   group_by(category, month, population) |> 
@@ -296,6 +309,7 @@ combined_sexoffense <- pg_sexoffense |>
 
 
 
+# Counting the number of robberies for both counties and combining the dataframes.
 pg_robbery <- new_pgcrime |> 
   filter(category == "robbery") |> 
   group_by(category, month, population) |> 
@@ -312,6 +326,7 @@ combined_robbery <- pg_robbery |> inner_join(moco_robbery, join_by(category, mon
 
 
 
+# Counting the number of burglaries for both counties and combining the dataframes.
 pg_burglary <- new_pgcrime |> 
   filter(category == "burglary") |> 
   group_by(category, month, population) |> 
@@ -329,6 +344,7 @@ combined_burglary <- pg_burglary |>
 
 
 
+# Counting the number of automobile thefts for both counties and combining the dataframes.
 pg_autotheft <- new_pgcrime |> 
   filter(category == "auto theft") |> 
   group_by(category, month, population) |> 
@@ -346,6 +362,7 @@ combined_autotheft <- pg_autotheft |>
 
 
 
+# Counting the number of thefts from automobiles for both counties and combining the dataframes.
 pg_theftfromauto <- new_pgcrime |> 
   filter(category == "theft from auto") |> 
   group_by(category, month, population) |> 
@@ -363,6 +380,7 @@ combined_theftfromauto <- pg_theftfromauto |>
 
 
 
+# Counting the number of homicides for both counties and combining the dataframes.
 pg_homicide <- new_pgcrime |> 
   filter(category == "homicide") |> 
   group_by(category, month, population) |> 
@@ -380,6 +398,7 @@ combined_homicide <- pg_homicide |>
 
 
 
+# Counting the number of thefts for both counties and combining the dataframes.
 pg_theft <- new_pgcrime |> 
   filter(category == "theft") |> 
   group_by(category, month, population) |> 
@@ -417,6 +436,8 @@ combined_theft <- pg_theft |>
 ## Theft from automobile rates in both counties appear to zigzag without a consistent pattern. This lack of a pattern warrants further research.
 
 ```{r}
+
+# Assault graph.
 combined_assault |> 
   ggplot() +
   geom_line((aes(x=month, y=pg_assault_rate)), color = "red", linewidth = 1) +
@@ -427,6 +448,7 @@ combined_assault |>
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
 
 
+# Automobile theft graph.
 combined_autotheft |> 
   ggplot() +
   geom_line((aes(x=month, y=pg_autotheft_rate)), color = "red", linewidth = 1) +
@@ -437,6 +459,7 @@ combined_autotheft |>
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
 
 
+# Burglary graph.
 combined_burglary |> 
   ggplot() +
   geom_line((aes(x=month, y=pg_burglary_rate)), color = "red", linewidth = 1) +
@@ -447,6 +470,7 @@ combined_burglary |>
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
 
 
+# Homicide graph.
 combined_homicide |> 
   ggplot() +
   geom_line((aes(x=month, y=pg_homicide_rate)), color = "red", linewidth = 1) +
@@ -457,6 +481,7 @@ combined_homicide |>
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
 
 
+# Robbery graph.
 combined_robbery |> 
   ggplot() +
   geom_line((aes(x=month, y=pg_robbery_rate)), color = "red", linewidth = 1) +
@@ -467,6 +492,7 @@ combined_robbery |>
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
 
 
+# Sex offense graph.
 combined_sexoffense |> 
   ggplot() +
   geom_line((aes(x=month, y=pg_sexoffense_rate)), color = "red", linewidth = 1) +
@@ -477,6 +503,7 @@ combined_sexoffense |>
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
 
 
+# Theft graph.
 combined_theft |> 
   ggplot() +
   geom_line((aes(x=month, y=pg_theft_rate)), color = "red", linewidth = 1) +
@@ -487,6 +514,7 @@ combined_theft |>
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
 
 
+# Theft from automobile graph.
 combined_theftfromauto |> 
   ggplot() +
   geom_line((aes(x=month, y=pg_theftfromauto_rate)), color = "red", linewidth = 1) +
@@ -502,6 +530,8 @@ combined_theftfromauto |>
 ## I calculated the means, standard deviations and z-scores for each crime in their combined dataframes to determine if the number of occurences of a certain crime per month was an anomaly or not.
 
 ```{r}
+
+# Calculations for assault rates.
 combined_assault <- combined_assault |>
   mutate(month_number = month(month)) |>
   group_by(month_number) |>
@@ -516,6 +546,7 @@ combined_assault <- combined_assault |>
   ungroup()
 
 
+# Calculations for automobile theft rates.
 combined_autotheft <- combined_autotheft |>
   mutate(month_number = month(month)) |>
   group_by(month_number) |>
@@ -530,6 +561,7 @@ combined_autotheft <- combined_autotheft |>
   ungroup()
 
 
+# Calculations for burglary rates.
 combined_burglary <- combined_burglary |>
   mutate(month_number = month(month)) |>
   group_by(month_number) |>
@@ -544,6 +576,7 @@ combined_burglary <- combined_burglary |>
   ungroup()
 
 
+# Calculations for homicide rates.
 combined_homicide <- combined_homicide |>
   mutate(month_number = month(month)) |>
   group_by(month_number) |>
@@ -558,6 +591,7 @@ combined_homicide <- combined_homicide |>
   ungroup()
 
 
+# Calculations for robbery rates.
 combined_robbery <- combined_robbery |>
   mutate(month_number = month(month)) |>
   group_by(month_number) |>
@@ -572,6 +606,7 @@ combined_robbery <- combined_robbery |>
   ungroup()
 
 
+# Calculations for sex offense rates.
 combined_sexoffense <- combined_sexoffense |>
   mutate(month_number = month(month)) |>
   group_by(month_number) |>
@@ -586,6 +621,7 @@ combined_sexoffense <- combined_sexoffense |>
   ungroup()
 
 
+# Calculations for theft rates.
 combined_theft <- combined_theft |>
   mutate(month_number = month(month)) |>
   group_by(month_number) |>
@@ -600,6 +636,7 @@ combined_theft <- combined_theft |>
   ungroup()
 
 
+# Calculations for theft from automobile rates.
 combined_theftfromauto <- combined_theftfromauto |>
   mutate(month_number = month(month)) |>
   group_by(month_number) |>
@@ -619,6 +656,8 @@ combined_theftfromauto <- combined_theftfromauto |>
 ## I filtered out unusual z-scores, meaning z-scores that had an absolute value of two or above. This would help me determine if the apparent spikes and drops in crime rates, as displayed in the graphs, had actual meaning.
 
 ```{r}
+
+# Filters for assault rates.
 unusual_pg_assault <- combined_assault |>
   filter(abs(z_pg_assault) > 2) |>
   arrange(desc(abs(z_pg_assault)))
@@ -629,6 +668,7 @@ unusual_moco_assault <- combined_assault |>
 
 
 
+# Filters for automobile theft rates.
 unusual_pg_autotheft <- combined_autotheft |>
   filter(abs(z_pg_autotheft) > 2) |>
   arrange(desc(abs(z_pg_autotheft)))
@@ -639,6 +679,7 @@ unusual_moco_autotheft <- combined_autotheft |>
 
 
 
+# Filters for burglary rates.
 unusual_pg_burglary <- combined_burglary |>
   filter(abs(z_pg_burglary) > 2) |>
   arrange(desc(abs(z_pg_burglary)))
@@ -649,6 +690,7 @@ unusual_moco_burglary <- combined_burglary |>
 
 
 
+# Filters for homicide rates.
 unusual_pg_homicide <- combined_homicide |>
   filter(abs(z_pg_homicide) > 2) |>
   arrange(desc(abs(z_pg_homicide)))
@@ -659,6 +701,7 @@ unusual_moco_homicide <- combined_homicide |>
 
 
 
+# Filters for robbery rates.
 unusual_pg_robbery <- combined_robbery |>
   filter(abs(z_pg_robbery) > 2) |>
   arrange(desc(abs(z_pg_robbery)))
@@ -669,6 +712,7 @@ unusual_moco_robbery <- combined_robbery |>
 
 
 
+# Filters for sex offense rates.
 unusual_pg_sexoffense <- combined_sexoffense |>
   filter(abs(z_pg_sexoffense) > 2) |>
   arrange(desc(abs(z_pg_sexoffense)))
@@ -679,6 +723,7 @@ unusual_moco_sexoffense <- combined_sexoffense |>
 
 
 
+# Filters for theft rates.
 unusual_pg_theft <- combined_theft |>
   filter(abs(z_pg_theft) > 2) |>
   arrange(desc(abs(z_pg_theft)))
@@ -689,6 +734,7 @@ unusual_moco_theft <- combined_theft |>
 
 
 
+# Filters for theft from automobile rates.
 unusual_pg_theftfromauto <- combined_theftfromauto |>
   filter(abs(z_pg_theftfromauto) > 2) |>
   arrange(desc(abs(z_pg_theftfromauto)))
@@ -715,6 +761,8 @@ unusual_moco_theftfromauto <- combined_theftfromauto |>
 ## The spike in theft rates in both counties that I noticed in the graph was not corroborated by my z-score analysis. However, those spikes may still be signficant, and I still need to research them.
 
 ```{r}
+
+# Graph for Prince George's County assault rates.
 ggplot(combined_assault, aes(x = month, y = pg_total, color = abs(z_pg_assault) > 2)) +
   geom_point(alpha = 0.5) +
   scale_color_manual(values = c("gray", "red"), 
@@ -727,7 +775,7 @@ ggplot(combined_assault, aes(x = month, y = pg_total, color = abs(z_pg_assault) 
        y = "Assault rate per 10,000 residents",
        caption = "Source: Prince George's County crime archives")
 
-
+# Graph for Montgomery County assault rates.
 ggplot(combined_assault, aes(x = month, y = moco_total, color = abs(z_moco_assault) > 2)) +
   geom_point(alpha = 0.5) +
   scale_color_manual(values = c("gray", "red"), 
@@ -741,6 +789,7 @@ ggplot(combined_assault, aes(x = month, y = moco_total, color = abs(z_moco_assau
        caption = "Source: Montgomery County crime archives")
 
 
+# Graph for Prince George's County automobile theft rates.
 ggplot(combined_autotheft, aes(x = month, y = pg_total, color = abs(z_pg_autotheft) > 2)) +
   geom_point(alpha = 0.5) +
   scale_color_manual(values = c("gray", "red"), 
@@ -754,6 +803,7 @@ ggplot(combined_autotheft, aes(x = month, y = pg_total, color = abs(z_pg_autothe
        caption = "Source: Prince George's County crime archives")
 
 
+# Graph for Montgomery County automobile theft rates.
 ggplot(combined_autotheft, aes(x = month, y = moco_total, color = abs(z_moco_autotheft) > 2)) +
   geom_point(alpha = 0.5) +
   scale_color_manual(values = c("gray", "red"), 
@@ -767,6 +817,7 @@ ggplot(combined_autotheft, aes(x = month, y = moco_total, color = abs(z_moco_aut
        caption = "Source: Montgomery County crime archives")
 
 
+# Graph for Prince George's County burglary rates.
 ggplot(combined_burglary, aes(x = month, y = pg_total, color = abs(z_pg_burglary) > 2)) +
   geom_point(alpha = 0.5) +
   scale_color_manual(values = c("gray", "red"), 
@@ -780,6 +831,7 @@ ggplot(combined_burglary, aes(x = month, y = pg_total, color = abs(z_pg_burglary
        caption = "Source: Prince George's County crime archives")
 
 
+# Graph for Montgomery County burglary rates.
 ggplot(combined_burglary, aes(x = month, y = moco_total, color = abs(z_moco_burglary) > 2)) +
   geom_point(alpha = 0.5) +
   scale_color_manual(values = c("gray", "red"), 
@@ -793,6 +845,7 @@ ggplot(combined_burglary, aes(x = month, y = moco_total, color = abs(z_moco_burg
        caption = "Source: Montgomery County crime archives")
 
 
+# Graph for Prince George's County homicide rates.
 ggplot(combined_homicide, aes(x = month, y = pg_total, color = abs(z_pg_homicide) > 2)) +
   geom_point(alpha = 0.5) +
   scale_color_manual(values = c("gray", "red"), 
@@ -806,6 +859,7 @@ ggplot(combined_homicide, aes(x = month, y = pg_total, color = abs(z_pg_homicide
        caption = "Source: Prince George's County crime archives")
 
 
+# Graph for Montgomery County homicide rates.
 ggplot(combined_homicide, aes(x = month, y = moco_total, color = abs(z_moco_homicide) > 2)) +
   geom_point(alpha = 0.5) +
   scale_color_manual(values = c("gray", "red"), 
@@ -819,6 +873,7 @@ ggplot(combined_homicide, aes(x = month, y = moco_total, color = abs(z_moco_homi
        caption = "Source: Montgomery County crime archives")
 
 
+# Graph for Prince George's County robbery rates.
 ggplot(combined_robbery, aes(x = month, y = pg_total, color = abs(z_pg_robbery) > 2)) +
   geom_point(alpha = 0.5) +
   scale_color_manual(values = c("gray", "red"), 
@@ -832,6 +887,7 @@ ggplot(combined_robbery, aes(x = month, y = pg_total, color = abs(z_pg_robbery) 
        caption = "Source: Prince George's County crime archives")
 
 
+# Graph for Montgomery County robbery rates.
 ggplot(combined_robbery, aes(x = month, y = moco_total, color = abs(z_moco_robbery) > 2)) +
   geom_point(alpha = 0.5) +
   scale_color_manual(values = c("gray", "red"), 
@@ -845,6 +901,7 @@ ggplot(combined_robbery, aes(x = month, y = moco_total, color = abs(z_moco_robbe
        caption = "Source: Montgomery County crime archives")
 
 
+# Graph for Prince George's County sex offense rates.
 ggplot(combined_sexoffense, aes(x = month, y = pg_total, color = abs(z_pg_sexoffense) > 2)) +
   geom_point(alpha = 0.5) +
   scale_color_manual(values = c("gray", "red"), 
@@ -858,6 +915,7 @@ ggplot(combined_sexoffense, aes(x = month, y = pg_total, color = abs(z_pg_sexoff
        caption = "Source: Prince George's County crime archives")
 
 
+# Graph for Montgomery County sex offense rates.
 ggplot(combined_sexoffense, aes(x = month, y = moco_total, color = abs(z_moco_sexoffense) > 2)) +
   geom_point(alpha = 0.5) +
   scale_color_manual(values = c("gray", "red"), 
@@ -871,6 +929,7 @@ ggplot(combined_sexoffense, aes(x = month, y = moco_total, color = abs(z_moco_se
        caption = "Source: Montgomery County crime archives")
 
 
+# Graph for Prince George's County theft rates.
 ggplot(combined_theft, aes(x = month, y = pg_total, color = abs(z_pg_theft) > 2)) +
   geom_point(alpha = 0.5) +
   scale_color_manual(values = c("gray", "red"), 
@@ -884,6 +943,7 @@ ggplot(combined_theft, aes(x = month, y = pg_total, color = abs(z_pg_theft) > 2)
        caption = "Source: Prince George's County crime archives")
 
 
+# Graph for Montgomery County theft rates.
 ggplot(combined_theft, aes(x = month, y = moco_total, color = abs(z_moco_theft) > 2)) +
   geom_point(alpha = 0.5) +
   scale_color_manual(values = c("gray", "red"), 
@@ -897,6 +957,7 @@ ggplot(combined_theft, aes(x = month, y = moco_total, color = abs(z_moco_theft) 
        caption = "Source: Montgomery County crime archives")
 
 
+# Graph for Prince George's County theft from automobile rates.
 ggplot(combined_theftfromauto, aes(x = month, y = pg_total, color = abs(z_pg_theftfromauto) > 2)) +
   geom_point(alpha = 0.5) +
   scale_color_manual(values = c("gray", "red"), 
@@ -910,6 +971,7 @@ ggplot(combined_theftfromauto, aes(x = month, y = pg_total, color = abs(z_pg_the
        caption = "Source: Prince George's County crime archives")
 
 
+# Graph for Montgomery County theft from automobile rates.
 ggplot(combined_theftfromauto, aes(x = month, y = moco_total, color = abs(z_moco_theftfromauto) > 2)) +
   geom_point(alpha = 0.5) +
   scale_color_manual(values = c("gray", "red"), 
