@@ -248,49 +248,10 @@ new_pgcrime <- new_pgcrime %>%
 ```
 
 
-mean_assault = mean(total),
-    sd_accidents = sd(total),
-    z_score = (total - mean_accidents) / sd_accidents
+mean_assault = mean(pg_total),
+    sd_assault = sd(pg_total),
+    z_assault = (pg_total - mean_assault) / sd_assault
 
-unusual_days <- accidents |>
-  filter(abs(z_score) > 2) |>
-  arrange(desc(abs(z_score)))
-  
-cat("Number of days with unusual accident counts:", nrow(unusual_days), 
-    "out of", nrow(accidents), "total days (", 
-    round(nrow(unusual_days)/nrow(accidents)*100, 2), "%)")
-    
-unusual_days |>
-  head(10) |>
-  select(date, day_of_week, total, z_score) |>
-  kable(digits = 2)
-  
-  
-ggplot(accidents, aes(x = date, y = total, color = abs(z_score) > 2)) +
-  geom_point(alpha = 0.5) +
-  scale_color_manual(values = c("gray", "red"), 
-                     name = "Unusual Value",
-                     labels = c("Normal", "Unusual")) +
-  theme_minimal() +
-  labs(title = "Daily Accidents with Unusual Days Highlighted",
-       subtitle = "Unusual days have z-scores with absolute values > 2",
-       x = "Date",
-       y = "Number of Accidents",
-       caption = "Source: Prince George's County Accident Data")
-       
-       
-extreme_outliers <- accidents |>
-  filter(abs(z_score) > 3) |>
-  arrange(desc(abs(z_score)))
-  
-  
-  
-if(nrow(extreme_outliers) > 0) {
-  extreme_outliers |>
-    select(date, day_of_week, total, z_score) |>
-    kable(digits = 2)
-} else {
-  cat("No days with z-scores beyond ±3 were found in the dataset.")
 
 
 ## I calculated the number of specific crimes that occured in both counties per month, then calcuated the rate of said crimes per month per capita. I then combined the Prince George's and Montgomery counties' crime data to facilitate my comparison. 
@@ -429,6 +390,48 @@ moco_theft <- new_mococrime |>
 combined_theft <- pg_theft |> 
   inner_join(moco_theft, join_by(category, month))
 ```
+
+
+
+unusual_days <- accidents |>
+  filter(abs(z_score) > 2) |>
+  arrange(desc(abs(z_score)))
+  
+cat("Number of days with unusual accident counts:", nrow(unusual_days), 
+    "out of", nrow(accidents), "total days (", 
+    round(nrow(unusual_days)/nrow(accidents)*100, 2), "%)")
+    
+unusual_days |>
+  head(10) |>
+  select(date, day_of_week, total, z_score) |>
+  kable(digits = 2)
+  
+  
+ggplot(accidents, aes(x = date, y = total, color = abs(z_score) > 2)) +
+  geom_point(alpha = 0.5) +
+  scale_color_manual(values = c("gray", "red"), 
+                     name = "Unusual Value",
+                     labels = c("Normal", "Unusual")) +
+  theme_minimal() +
+  labs(title = "Daily Accidents with Unusual Days Highlighted",
+       subtitle = "Unusual days have z-scores with absolute values > 2",
+       x = "Date",
+       y = "Number of Accidents",
+       caption = "Source: Prince George's County Accident Data")
+       
+       
+extreme_outliers <- accidents |>
+  filter(abs(z_score) > 3) |>
+  arrange(desc(abs(z_score)))
+  
+  
+  
+if(nrow(extreme_outliers) > 0) {
+  extreme_outliers |>
+    select(date, day_of_week, total, z_score) |>
+    kable(digits = 2)
+} else {
+  cat("No days with z-scores beyond ±3 were found in the dataset.")
 
 
 
