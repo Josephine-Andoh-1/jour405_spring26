@@ -499,7 +499,7 @@ combined_theftfromauto |>
 
 
 
-## I calculated the means, standard deviations and z-scores for each crime rate based on the month, filtered out unusual z-scores and graphed out the z-scores.
+## I calculated the means, standard deviations and z-scores for each crime in their combined dataframes. 
 
 ```{r}
 combined_assault <- combined_assault |>
@@ -614,6 +614,9 @@ combined_theftfromauto <- combined_theftfromauto |>
   ungroup()
 ```
 
+
+
+## I filtered out unusual z-scores, meaning z-scores that had an absolute value of two or above. This would help me determine if the apparent spikes and drops in crime rates, as displayed in the graphs, had actual meaning.
 
 ```{r}
 unusual_pg_assault <- combined_assault |>
