@@ -1061,7 +1061,7 @@ combined_all |>
   summarise(correlation = cor(pg_rate, moco_rate))
 ```
 
-## Step 13 results: The result that fascinated me the most was the high correlation between automobile theft rates in both counties. Though I had noticed that the rates between the counties almost mirrored each other when observing the graph, I forgot to mention it. However, when thought about in the context of the real world, it makes sense. Neighboring counties, to an extent, should experience similar increases and decreases in crime rates. Based on this viewpoint, the lack of correlation between any other crime category is more surprising.
+## Step 13 results: The result that fascinated me the most was the high correlation coefficient between automobile theft rates in both counties. Though I had noticed that the rates between the counties almost mirrored each other when observing the graph, I forgot to mention it. However, when thought about in the context of the real world, it makes sense. Neighboring counties, to an extent, should experience similar increases and decreases in crime rates. Based on this viewpoint, the lack of correlation between any other crime category is more surprising.
 
 
 
@@ -1122,6 +1122,9 @@ cor(pg_wide$`theft`, pg_wide$`theft from auto`)
 ```
 
 
+
+## Step 15: I then created multiple regression models for each crime category. Below are the models I deemed most successful (relatively high R-squared values). I found that, despite the multiple variations I created, none of my models were very successful. However, the low correlation coefficients between individual crime categories made this result unsurprising.
+
 ```{r}
 pg_theft_model <- lm(theft ~ `auto theft` + `theft from auto` + burglary + robbery, data = pg_wide)
 summary(pg_theft_model)
@@ -1144,8 +1147,6 @@ summary(pg_sexoffense_model)
 pg_theftfromauto_model <- lm(`theft from auto` ~ theft + `auto theft` + assault + burglary + robbery, data = pg_wide)
 summary(pg_theftfromauto_model)
 ```
-
-
 
 
 
@@ -1210,7 +1211,7 @@ cor(moco_wide$`theft`, moco_wide$`theft from auto`)
 
 
 
-## Step 17: 
+## Step 17: I created multiple regression models for each crime category. Below are my most successful models. Once again, I concluded that none of my models were very successful, which was unsurprising.
 
 ```{r}
 moco_theft_model <- lm(theft ~ `auto theft` + `theft from auto` + assault + burglary + robbery, data = moco_wide)
@@ -1234,12 +1235,6 @@ summary(moco_sexoffense_model)
 moco_theftfromauto_model <- lm(`theft from auto` ~ theft + `auto theft`, data = moco_wide)
 summary(moco_theftfromauto_model)
 ```
-## Step 17 results: 
-
-
-
-
-
 
 Story pitch:
 
