@@ -1204,6 +1204,11 @@ summary(moco_autotheft_model)
 
 moco_burglary_model <- lm(burglary ~ robbery + assault + theft, data = moco_wide)
 summary(moco_burglary_model)
+
+moco_robbery_model <- lm(robbery ~ assault + theft + burglary, data = moco_wide)
+summary(moco_robbery_model)
+
+
 ```
 
 
