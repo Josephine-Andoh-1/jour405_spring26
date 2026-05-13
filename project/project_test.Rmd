@@ -443,5 +443,73 @@ moco_wide <- combined_all |>
 ```
 
 
+```{r}
+cor(moco_wide$`assault`, moco_wide$`auto theft`)
 
+cor(moco_wide$`assault`, moco_wide$`burglary`)
+
+cor(moco_wide$`assault`, moco_wide$`robbery`)
+
+cor(moco_wide$`assault`, moco_wide$`sex offense`)
+
+cor(moco_wide$`assault`, moco_wide$`theft`)
+
+cor(moco_wide$`assault`, moco_wide$`theft from auto`)
+
+
+cor(moco_wide$`auto theft`, moco_wide$`burglary`)
+
+cor(moco_wide$`auto theft`, moco_wide$`robbery`)
+
+cor(moco_wide$`auto theft`, moco_wide$`sex offense`)
+
+cor(moco_wide$`auto theft`, moco_wide$`theft`)
+
+cor(moco_wide$`auto theft`, moco_wide$`theft from auto`)
+
+
+cor(moco_wide$`burglary`, moco_wide$`robbery`)
+
+cor(moco_wide$`burglary`, moco_wide$`sex offense`)
+
+cor(moco_wide$`burglary`, moco_wide$`theft`)
+
+cor(moco_wide$`burglary`, moco_wide$`theft from auto`)
+
+
+cor(moco_wide$`robbery`, moco_wide$`sex offense`)
+
+cor(moco_wide$`robbery`, moco_wide$`theft`)
+
+cor(moco_wide$`robbery`, moco_wide$`theft from auto`)
+
+
+cor(moco_wide$`sex offense`, moco_wide$`theft`)
+
+cor(moco_wide$`sex offense`, moco_wide$`theft from auto`)
+
+cor(moco_wide$`theft`, moco_wide$`theft from auto`)
+```
+
+
+```{r}
+
+```
+
+
+
+pg_autotheft_model <- lm(`auto theft` ~ theft + `theft from auto` + burglary + robbery, data = pg_wide)
+summary(pg_autotheft_model)
+
+pg_burglary_model <- lm(burglary ~ robbery + `sex offense` + theft + `theft from auto`, data = pg_wide)
+summary(pg_burglary_model)
+
+pg_robbery_model <- lm(robbery ~ assault + `sex offense` + theft + `theft from auto`, data = pg_wide)
+summary(pg_robbery_model)
+
+pg_sexoffense_model <- lm(`sex offense` ~ robbery + burglary + assault, data = pg_wide)
+summary(pg_sexoffense_model)
+
+pg_theftfromauto_model <- lm(`theft from auto` ~ theft + `auto theft` + assault + burglary + robbery, data = pg_wide)
+summary(pg_theftfromauto_model)
 

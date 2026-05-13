@@ -1137,6 +1137,73 @@ summary(pg_theftfromauto_model)
 
 
 
+```{r}
+moco_wide <- combined_all |>
+  select(month, category, moco_rate) |>
+  pivot_wider(names_from = category, values_from = moco_rate)
+
+
+cor(moco_wide$`assault`, moco_wide$`auto theft`)
+
+cor(moco_wide$`assault`, moco_wide$`burglary`)
+
+cor(moco_wide$`assault`, moco_wide$`robbery`)
+
+cor(moco_wide$`assault`, moco_wide$`sex offense`)
+
+cor(moco_wide$`assault`, moco_wide$`theft`)
+
+cor(moco_wide$`assault`, moco_wide$`theft from auto`)
+
+
+cor(moco_wide$`auto theft`, moco_wide$`burglary`)
+
+cor(moco_wide$`auto theft`, moco_wide$`robbery`)
+
+cor(moco_wide$`auto theft`, moco_wide$`sex offense`)
+
+cor(moco_wide$`auto theft`, moco_wide$`theft`)
+
+cor(moco_wide$`auto theft`, moco_wide$`theft from auto`)
+
+
+cor(moco_wide$`burglary`, moco_wide$`robbery`)
+
+cor(moco_wide$`burglary`, moco_wide$`sex offense`)
+
+cor(moco_wide$`burglary`, moco_wide$`theft`)
+
+cor(moco_wide$`burglary`, moco_wide$`theft from auto`)
+
+
+cor(moco_wide$`robbery`, moco_wide$`sex offense`)
+
+cor(moco_wide$`robbery`, moco_wide$`theft`)
+
+cor(moco_wide$`robbery`, moco_wide$`theft from auto`)
+
+
+cor(moco_wide$`sex offense`, moco_wide$`theft`)
+
+cor(moco_wide$`sex offense`, moco_wide$`theft from auto`)
+
+cor(moco_wide$`theft`, moco_wide$`theft from auto`)
+```
+
+
+
+```{r}
+moco_theft_model <- lm(theft ~ `auto theft` + `theft from auto` + assault + burglary + robbery, data = moco_wide)
+summary(moco_theft_model)
+
+moco_assault_model <- lm(assault ~ theft + `sex offense` + burglary + robbery, data = moco_wide)
+summary(moco_assault_model)
+
+
+```
+
+
+
 Story pitch:
 
 Based on 
