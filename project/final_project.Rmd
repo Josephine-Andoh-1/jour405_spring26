@@ -748,7 +748,7 @@ unusual_moco_theftfromauto <- combined_theftfromauto |>
 
 ## I graphed out the z-scores, highlighting the unusual ones in red. I also added titles, labels and captions to make my graphs easier to read. More specifically, my graph titles summarize my findings.
 
-## The spike in auto thefts in both counties that I noticed in the graph was corroborated by my z-score analysis, further proving that said spike was unusual and underlining the need for additional research. 
+## The spike in automobile thefts in both counties that I noticed in the graph was corroborated by my z-score analysis, further proving that said spike was unusual and underlining the need for additional research. 
 
 ## The anomalies in burglary rates in Prince George's County caught my eye because the graphs appeared to show an overall decrease. I will need to research this further to detect the causes of these anomalies.
 
@@ -1047,15 +1047,13 @@ combined_all <- bind_rows(
 
 ## Then I ran a correlation test to see if crime rates were correlated between both counties.
 
+## The result that fascinated me the most was the high correlation between automobile theft rates in both counties. Though I had noticed that the rates between the counties almost mirrored each other when observing the graph, I forgot to mention it. However, when thought about in the context of the real world, it makes sense. Neighboring counties, to an extent, should experience similar increases and decreases in crime rates. Based on this viewpoint, the lack of correlation between any other crime category is more surprising.
+
 ```{r}
 combined_all |>
   group_by(category) |>
   summarise(correlation = cor(pg_rate, moco_rate))
 ```
-
-
-  
-Next step: Calculate the correlations between assault and sex offenses, etc.
 
 
 
