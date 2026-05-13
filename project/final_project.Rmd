@@ -1059,6 +1059,15 @@ combined_all |>
 
 Story pitch:
 
+Based on 
+
+
+
+Montgomery County had higher assault rates than Prince George's County from April 2017 to March 2026, proving that part of my hypothesis false.
+
+
+I did not calculate overall crime rates based on the eight categories I selected because Montgomery County's high assault rates likely would have skewed those results. Additionally, both counties include and exclude different crime categories. For example, Prince George's County does not report financial, unlawful substance or intoxication crimes to the public, while Montgomery County does. On the other hand, it reports car accidents, while Montgomery County does not. Consequently, I thought it best to only analyze the eight crime categories they had in common. This also means that I decided to ignore my third hypothesis.
+
 
 
 Hypotheses:
