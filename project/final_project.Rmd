@@ -1057,6 +1057,24 @@ combined_all |>
 
 
 
+```{r}
+pg_wide <- combined_all |>
+  select(month, category, pg_rate) |>
+  pivot_wider(names_from = category, values_from = pg_rate)
+
+
+cor(pg_wide$`assault`, pg_wide$`auto theft`)
+
+cor(pg_wide$`auto theft`, pg_wide$`theft from auto`)
+
+
+
+pg_theft_model <- lm(theft ~ `auto theft` + `theft from auto`, data = pg_wide)
+summary(pg_theft_model)
+```
+
+
+
 Story pitch:
 
 Based on 
