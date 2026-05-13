@@ -1044,6 +1044,16 @@ combined_all <- bind_rows(
 ```
 
 
+
+## Then I ran a correlation test to see if crime rates were correlated between both counties.
+
+```{r}
+combined_all |>
+  group_by(category) |>
+  summarise(correlation = cor(pg_rate, moco_rate))
+```
+
+
   
 Next step: Calculate the correlations between assault and sex offenses, etc.
 
