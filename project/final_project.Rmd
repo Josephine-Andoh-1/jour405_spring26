@@ -1065,7 +1065,38 @@ pg_wide <- combined_all |>
 
 cor(pg_wide$`assault`, pg_wide$`auto theft`)
 
+cor(pg_wide$`assault`, pg_wide$`burglary`)
+
+cor(pg_wide$`assault`, pg_wide$`homicide`)
+
+cor(pg_wide$`assault`, pg_wide$`robbery`)
+
+cor(pg_wide$`assault`, pg_wide$`sex offense`)
+
+cor(pg_wide$`assault`, pg_wide$`theft`)
+
+cor(pg_wide$`assault`, pg_wide$`theft from auto`)
+
+
+cor(pg_wide$`auto theft`, pg_wide$`burglary`)
+
+cor(pg_wide$`auto theft`, pg_wide$`robbery`)
+
+cor(pg_wide$`auto theft`, pg_wide$`sex offense`)
+
+cor(pg_wide$`auto theft`, pg_wide$`theft`)
+
 cor(pg_wide$`auto theft`, pg_wide$`theft from auto`)
+
+
+cor(pg_wide$`burglary`, pg_wide$`robbery`)
+
+
+
+
+
+
+
 
 
 
