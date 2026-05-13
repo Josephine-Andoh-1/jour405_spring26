@@ -1115,8 +1115,26 @@ cor(pg_wide$`theft`, pg_wide$`theft from auto`)
 
 
 ```{r}
-pg_theft_model <- lm(theft ~ `auto theft` + `theft from auto`, data = pg_wide)
+pg_theft_model <- lm(theft ~ `auto theft` + `theft from auto` + burglary + robbery, data = pg_wide)
 summary(pg_theft_model)
+
+pg_assault_model <- lm(assault ~ `sex offense` + theft + burglary + robbery, data = pg_wide)
+summary(pg_assault_model)
+
+pg_autotheft_model <- lm(`auto theft` ~ theft + `theft from auto` + burglary + robbery, data = pg_wide)
+summary(pg_autotheft_model)
+
+pg_burglary_model <- lm(burglary ~ robbery + `sex offense` + theft + `theft from auto`, data = pg_wide)
+summary(pg_burglary_model)
+
+pg_robbery_model <- lm(robbery ~ assault + `sex offense` + theft + `theft from auto`, data = pg_wide)
+summary(pg_robbery_model)
+
+pg_sexoffense_model <- lm(`sex offense` ~ robbery + burglary + assault, data = pg_wide)
+summary(pg_sexoffense_model)
+
+pg_theftfromauto_model <- lm(`theft from auto` ~ theft + `auto theft` + assault + burglary + robbery, data = pg_wide)
+summary(pg_theftfromauto_model)
 ```
 
 
