@@ -492,10 +492,6 @@ cor(moco_wide$`theft`, moco_wide$`theft from auto`)
 ```
 
 
-```{r}
-pg_sexoffense_model <- lm(`sex offense` ~ robbery + burglary + assault, data = pg_wide)
-summary(pg_sexoffense_model)
-```
 
 
 
@@ -507,6 +503,5 @@ summary(pg_sexoffense_model)
 
 
 
-pg_theftfromauto_model <- lm(`theft from auto` ~ theft + `auto theft` + assault + burglary + robbery, data = pg_wide)
-summary(pg_theftfromauto_model)
+
 
