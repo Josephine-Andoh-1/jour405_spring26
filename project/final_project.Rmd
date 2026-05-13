@@ -1066,7 +1066,7 @@ combined_all |>
 
 
 
-## Step 14: 
+## Step 14: I rearranged Prince George's County's crime data, then calculated the correlation coefficients for each crime. I found that none of the crimes are strongly correlated with each other, which did not surprise me as the nature and motivations behind different crimes are different.
 
 ```{r}
 pg_wide <- combined_all |>
@@ -1147,6 +1147,10 @@ summary(pg_theftfromauto_model)
 
 
 
+
+
+## Step 16: I rearranged Montgomery County's crime data, then calculated the correlation coefficients for each crime. 
+
 ```{r}
 moco_wide <- combined_all |>
   select(month, category, moco_rate) |>
@@ -1199,8 +1203,14 @@ cor(moco_wide$`sex offense`, moco_wide$`theft from auto`)
 
 cor(moco_wide$`theft`, moco_wide$`theft from auto`)
 ```
+## Step 16 results: I found that none of the crimes are strongly correlated with each other, which did not surprise me as the nature and motivations behind different crimes are different.
+
+## However, for both Prince George's and Montgomery counties, automobile theft and robbery had the highest correlation coefficients (approximately 0.58 and 0.67, respectively), which is interesting and may warrant further investigation.
 
 
+
+
+## Step 17: 
 
 ```{r}
 moco_theft_model <- lm(theft ~ `auto theft` + `theft from auto` + assault + burglary + robbery, data = moco_wide)
@@ -1224,7 +1234,7 @@ summary(moco_sexoffense_model)
 moco_theftfromauto_model <- lm(`theft from auto` ~ theft + `auto theft`, data = moco_wide)
 summary(moco_theftfromauto_model)
 ```
-
+## Step 17 results: 
 
 
 
