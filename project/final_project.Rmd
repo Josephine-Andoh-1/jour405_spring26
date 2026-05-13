@@ -1067,8 +1067,6 @@ cor(pg_wide$`assault`, pg_wide$`auto theft`)
 
 cor(pg_wide$`assault`, pg_wide$`burglary`)
 
-cor(pg_wide$`assault`, pg_wide$`homicide`)
-
 cor(pg_wide$`assault`, pg_wide$`robbery`)
 
 cor(pg_wide$`assault`, pg_wide$`sex offense`)

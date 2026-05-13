@@ -436,6 +436,12 @@ pg_wide <- combined_all |>
 ```
 
 
+```{r}
+moco_wide <- combined_all |>
+  select(month, category, moco_rate) |>
+  pivot_wider(names_from = category, values_from = moco_rate)
+```
+
 
 
 
