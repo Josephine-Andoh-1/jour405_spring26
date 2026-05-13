@@ -374,35 +374,64 @@ combined_theft <- pg_theft |>
 ```
 
 
+```{r}
+rename_rates <- function(combined_assault, crime_name) {
+  combined_assault |>
+    rename_with(~ "pg_rate", starts_with("pg_") & ends_with("_rate")) |>
+    rename_with(~ "moco_rate", starts_with("moco_") & ends_with("_rate"))}
 
-## The result that surprised me the most from the graphic was Montgomery County's high assault rate compared to Prince George's County. It went against my hypothesis and is an outlier compared to the other graphs, where the crime rates are closer together. I suspected that my categorization of assault may have contributed to this discrepancy. 
+rename_rates <- function(combined_autotheft, crime_name) {
+  combined_autotheft |>
+    rename_with(~ "pg_rate", starts_with("pg_") & ends_with("_rate")) |>
+    rename_with(~ "moco_rate", starts_with("moco_") & ends_with("_rate"))}
 
-## It appears that automobile theft rates in both counties spiked in 2023. I have been hearing more about automobile thefts in the past few years, so this piqued my interest and will warrant further research.
+rename_rates <- function(combined_burglary, crime_name) {
+  combined_burglary |>
+    rename_with(~ "pg_rate", starts_with("pg_") & ends_with("_rate")) |>
+    rename_with(~ "moco_rate", starts_with("moco_") & ends_with("_rate"))}
 
-## It appears that burglary rates in both counties have decreased overall since April 2017. This decrease warrants further research.
+rename_rates <- function(combined_homicide, crime_name) {
+  combined_homicide |>
+    rename_with(~ "pg_rate", starts_with("pg_") & ends_with("_rate")) |>
+    rename_with(~ "moco_rate", starts_with("moco_") & ends_with("_rate"))}
 
-## It appears that homicide rates in Prince George's County spiked in late 2020 and in 2023. These spikes warrant further research.
+rename_rates <- function(combined_robbery, crime_name) {
+  combined_robbery |>
+    rename_with(~ "pg_rate", starts_with("pg_") & ends_with("_rate")) |>
+    rename_with(~ "moco_rate", starts_with("moco_") & ends_with("_rate"))}
 
-## It appears that robbery rates in Prince George's County spiked in late 2023 and have steadily decreased since then. This change warrants further research.
+rename_rates <- function(combined_sexoffense, crime_name) {
+  combined_sexoffense |>
+    rename_with(~ "pg_rate", starts_with("pg_") & ends_with("_rate")) |>
+    rename_with(~ "moco_rate", starts_with("moco_") & ends_with("_rate"))}
 
-## It appears that Prince George's County had a relatively high sex offense rate in 2017. However, since that year, both counties have sustained sex offense rates of less than five per 10,000 residents. However, to determine whether this number is high or low, I will have to compare it to the national average.
+rename_rates <- function(combined_theft, crime_name) {
+  combined_theft |>
+    rename_with(~ "pg_rate", starts_with("pg_") & ends_with("_rate")) |>
+    rename_with(~ "moco_rate", starts_with("moco_") & ends_with("_rate"))}
 
-## It appears that theft rates in both counties had a spike in late 2024. This spike warrants further research.
-
-## Theft from automobile rates in both counties appear to zigzag without a consistent pattern. This lack of a pattern warrants further research.
-
-
-## The spike in auto thefts in both counties that I noticed in the graph was corroborated by my z-score analysis, further proving that said spike was unusual and underlining the need for additional research. 
-
-## The anomalies in burglary rates in Prince George's County caught my eye because the graphs appeared to show an overall decrease. I will need to research this further to detect the causes of these anomalies.
-
-## The spike in homicide rates in Prince George's County that I noticed in the graph are corroborated by my z-score analysis, indicating a need for further research. 
-
-## The spike in robbery rates in Prince George's County that I noticed in the graph was corroborated by my z-score analysis, indicating a need for further research. 
-
-## The spike in sex offense rates in Prince George's County that I noticed in the graph was corroborated by my z-score analysis, indicating a need for further research. 
-
-## The spike in theft rates in both counties that I noticed in the graph was not corroborated by my z-score analysis. However, those spikes may still be signficant, and I still need to research them.
+rename_rates <- function(combined_theftfromauto, crime_name) {
+  combined_theftfromauto |>
+    rename_with(~ "pg_rate", starts_with("pg_") & ends_with("_rate")) |>
+    rename_with(~ "moco_rate", starts_with("moco_") & ends_with("_rate"))}
 
 
-## The result that fascinated me the most was the high correlation between automobile theft rates in both counties. Though I had noticed that the rates between the counties almost mirrored each other when observing the graph, I forgot to mention it. However, when thought about in the context of the real world, it makes sense. Neighboring counties, to an extent, should experience similar increases and decreases in crime rates. Based on this viewpoint, the lack of correlation between any other crime category is more surprising.
+combined_all <- bind_rows(
+  rename_rates(combined_assault),
+  rename_rates(combined_autotheft),
+  rename_rates(combined_burglary),
+  rename_rates(combined_homicide),
+  rename_rates(combined_robbery),
+  rename_rates(combined_sexoffense),
+  rename_rates(combined_theft),
+  rename_rates(combined_theftfromauto)
+)
+```
+
+
+```{r}
+pg_wide <- combined_all |>
+  select(month, category, pg_rate) |>
+  pivot_wider(names_from = category, values_from = pg_rate)
+```
+
