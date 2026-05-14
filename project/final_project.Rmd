@@ -258,7 +258,7 @@ new_mococrime <- mococrime |> filter(Date < '2026-04-01', Date > '2017-03-31')
 
 
 
-## Step 6: I incorporated 2022 population data from both counties so that I could calculate per capita rates. I chose 2022 because it was close to the center of my range (2021-2022) and would not reflect population changes caused by the COVID-19 pandemic. As I suspected, Montgomery County has a slightly larger population than Prince George's County, which demonstrates the importance of calculating crime rates per capita.
+## Step 6: I incorporated 2022 population data from both counties to calculate per-capita crime rates. I chose 2022 because it was close to the center of my data and would not reflect population changes caused by the COVID-19 pandemic. As I suspected, Montgomery County has a slightly larger population than Prince George's County.
 
 ## I retrieved the Montgomery County data from this link (https://montgomeryplanning.org/blog-design/2024/06/montgomery-countys-population-rebound-part-1-recovering-from-the-covid-19-years/) and the Prince George's County data from this link (https://www.princegeorgescountymd.gov/sites/default/files/media-document/County%20Profile_0.pdf).
 
@@ -272,11 +272,11 @@ new_pgcrime <- new_pgcrime %>%
 
 
 
-## Step 7: I counted the number of specific crimes that occured in both counties per month, then calcuated the per capita rates of said crimes. I then combined the Prince George's and Montgomery counties' crime data into eight dataframes to facilitate my comparison. 
+## Step 7: I counted the number of specific crimes that occurred in both counties each month, then calculated per capita rates for each. I then combined the crime data from both counties into eight dataframes to facilitate my comparison. 
 
 ```{r}
 
-# Counting the number of assaults for both counties and combining the dataframes.
+# Counting the number of assaults in both counties and combining the dataframes.
 pg_assault <- new_pgcrime |> 
   filter(category == "assault") |> 
   group_by(category, month, population) |> 
@@ -294,7 +294,7 @@ combined_assault <- pg_assault |>
 
 
 
-# Counting the number of sex offenses for both counties and combining the dataframes.
+# Counting the number of sex offenses in both counties and combining the dataframes.
 pg_sexoffense <- new_pgcrime |> 
   filter(category == "sex offense") |> 
   group_by(category, month, population) |> 
@@ -312,7 +312,7 @@ combined_sexoffense <- pg_sexoffense |>
 
 
 
-# Counting the number of robberies for both counties and combining the dataframes.
+# Counting the number of robberies in both counties and combining the dataframes.
 pg_robbery <- new_pgcrime |> 
   filter(category == "robbery") |> 
   group_by(category, month, population) |> 
@@ -329,7 +329,7 @@ combined_robbery <- pg_robbery |> inner_join(moco_robbery, join_by(category, mon
 
 
 
-# Counting the number of burglaries for both counties and combining the dataframes.
+# Counting the number of burglaries in both counties and combining the dataframes.
 pg_burglary <- new_pgcrime |> 
   filter(category == "burglary") |> 
   group_by(category, month, population) |> 
@@ -347,7 +347,7 @@ combined_burglary <- pg_burglary |>
 
 
 
-# Counting the number of automobile thefts for both counties and combining the dataframes.
+# Counting the number of automobile thefts in both counties and combining the dataframes.
 pg_autotheft <- new_pgcrime |> 
   filter(category == "auto theft") |> 
   group_by(category, month, population) |> 
@@ -365,7 +365,7 @@ combined_autotheft <- pg_autotheft |>
 
 
 
-# Counting the number of thefts from automobiles for both counties and combining the dataframes.
+# Counting the number of thefts from automobiles in both counties and combining the dataframes.
 pg_theftfromauto <- new_pgcrime |> 
   filter(category == "theft from auto") |> 
   group_by(category, month, population) |> 
@@ -383,7 +383,7 @@ combined_theftfromauto <- pg_theftfromauto |>
 
 
 
-# Counting the number of homicides for both counties and combining the dataframes.
+# Counting the number of homicides in both counties and combining the dataframes.
 pg_homicide <- new_pgcrime |> 
   filter(category == "homicide") |> 
   group_by(category, month, population) |> 
@@ -401,7 +401,7 @@ combined_homicide <- pg_homicide |>
 
 
 
-# Counting the number of thefts for both counties and combining the dataframes.
+# Counting the number of thefts in both counties and combining the dataframes.
 pg_theft <- new_pgcrime |> 
   filter(category == "theft") |> 
   group_by(category, month, population) |> 
@@ -420,7 +420,7 @@ combined_theft <- pg_theft |>
 
 
 
-## Step 8: I compared the rates for each crime between the two counties in a graph so I could more easily analyze the data. Additionally, I color-coded the data to make it easier to differentiate and added titles, labels and captions. More specifically, I noted my discoveries using the titles.
+## Step 8: I compared the rates for each crime between the two counties in graphs to more easily analyze the data. I noted my takeaways in the titles for each graph.
 
 ```{r}
 
@@ -513,9 +513,9 @@ combined_theftfromauto |>
 ```
 ## Step 8 results: 
 
-## The result that surprised me the most from the graphic was Montgomery County's high assault rate compared to Prince George's County. It went against my hypothesis and is an outlier compared to the other graphs, where the crime rates are closer together. I suspected that my categorization of assault may have contributed to this discrepancy. 
+## The result that surprised me the most from the graphic was Montgomery County's high assault rate compared to Prince George's County. It disproved my hypothesis and is an outlier compared to the other graphs, where the crime rates are closer together. I suspected that my categorization of assault may have contributed to this discrepancy. 
 
-## It appears that automobile theft rates in both counties spiked in 2023. I have been hearing more about automobile thefts in the past few years, so this piqued my interest and will warrant further research.
+## It appears that automobile theft rates in both counties spiked in 2023. I have been hearing more about automobile thefts in recent years, so this piqued my interest and warrants further research.
 
 ## It appears that burglary rates in both counties have decreased overall since April 2017. This decrease warrants further research.
 
@@ -527,12 +527,12 @@ combined_theftfromauto |>
 
 ## It appears that theft rates in both counties had a spike in late 2024. This spike warrants further research.
 
-## Theft from automobile rates in both counties appear to zigzag without a consistent pattern. This lack of a pattern warrants further research.
+## Theft from automobile rates in both counties appear to zigzag without a consistent pattern, which warrants further research.
 
 
 
 
-## Step 9: I calculated the means, standard deviations and z-scores for each crime in their combined dataframes to determine if the number of occurences of a certain crime per month was an anomaly or not.
+## Step 9: I calculated the means, standard deviations and z-scores for each crime in their combined dataframes to determine whether the number of occurrences of each crime per month was anomalous.
 
 ```{r}
 
@@ -658,7 +658,7 @@ combined_theftfromauto <- combined_theftfromauto |>
 
 
 
-## Step 10: I filtered out unusual z-scores, meaning z-scores that had an absolute value of two or above. This would help me determine if the apparent spikes and drops in crime rates, as displayed in the graphs, had actual meaning.
+## Step 10: I filtered out unusual z-scores, meaning z-scores that had an absolute value of two or above. This would help me determine whether the apparent spikes and drops in crime rates, as displayed in the graphs, had actual meaning.
 
 ```{r}
 
@@ -751,7 +751,7 @@ unusual_moco_theftfromauto <- combined_theftfromauto |>
 
 
 
-## Step 11: I graphed out the z-scores, highlighting the unusual ones in red. I also added titles, labels and captions to make my graphs easier to read. More specifically, my graph titles summarize my findings.
+## Step 11: I graphed the crimes again, highlighting the months with unusual z-scores in red. My graph titles summarized my findings.
 
 ```{r}
 
@@ -915,7 +915,7 @@ ggplot(combined_sexoffense, aes(x = month, y = moco_total, color = abs(z_moco_se
                      name = "Unusual Value",
                      labels = c("Normal", "Unusual")) +
   theme_minimal() +
-  labs(title = "Montgomery County, Maryland, had no months with unusually high sex offense rates between April 2017 and March 2026",
+  labs(title = "Montgomery County, Maryland, had no months with unusual sex offense rates between April 2017 and March 2026",
        subtitle = "Unusual months have z-scores with absolute values > 2",
        x = "Month",
        y = "Sex offense rate per 10,000 residents",
@@ -984,18 +984,18 @@ ggplot(combined_theftfromauto, aes(x = month, y = moco_total, color = abs(z_moco
 
 ## The anomalies in burglary rates in Prince George's County caught my eye because the graphs appeared to show an overall decrease. I will need to research this further to detect the causes of these anomalies.
 
-## The spike in homicide rates in Prince George's County that I noticed in the graph are corroborated by my z-score analysis, indicating a need for further research. 
+## The spike in homicide rates in Prince George's County that I noticed in the graph is corroborated by my z-score analysis, indicating a need for further research. 
 
 ## The spike in robbery rates in Prince George's County that I noticed in the graph was corroborated by my z-score analysis, indicating a need for further research. 
 
 ## The spike in sex offense rates in Prince George's County that I noticed in the graph was corroborated by my z-score analysis, indicating a need for further research. 
 
-## The spike in theft rates in both counties that I noticed in the graph was not corroborated by my z-score analysis. However, those spikes may still be signficant, and I still need to research them.
+## The spike in theft rates in both counties that I noticed in the graph was not corroborated by my z-score analysis. However, those spikes may still be significant, and I need to research them.
 
 
 
 
-## Step 12: I renamed the columns in my eight large dataframes so I could combine them. 
+## Step 12: I renamed the columns in my eight large dataframes so I could combine them for further analysis. 
 
 ```{r}
 rename_rates <- function(combined_assault, crime_name) {
@@ -1061,12 +1061,12 @@ combined_all |>
   summarise(correlation = cor(pg_rate, moco_rate))
 ```
 
-## Step 13 results: The result that fascinated me the most was the high correlation coefficient between automobile theft rates in both counties. Though I had noticed that the rates between the counties almost mirrored each other when observing the graph, I forgot to mention it. However, when thought about in the context of the real world, it makes sense. Neighboring counties, to an extent, should experience similar increases and decreases in crime rates. Based on this viewpoint, the lack of correlation between any other crime category is more surprising.
+## Step 13 results: The result that fascinated me the most was the high correlation coefficient between automobile theft rates in both counties. Though I noticed that the rates between the counties almost mirrored each other in the graph, I forgot to mention it. However, when thought about in the context of the real world, it makes sense. To an extent, neighboring counties should experience similar increases and decreases in crime rates. Based on this viewpoint, the lack of correlation between any other crime category is more surprising.
 
 
 
 
-## Step 14: I rearranged Prince George's County's crime data, then calculated the correlation coefficients for each crime. 
+## Step 14: I rearranged Prince George's County's crime data, then calculated the correlation coefficients between individual crimes. 
 
 ```{r}
 # Rearranged data for Prince George's County.
@@ -1074,8 +1074,6 @@ pg_wide <- combined_all |>
   select(month, category, pg_rate) |>
   pivot_wider(names_from = category, values_from = pg_rate)
 
-
-# Correlation coefficients for assault rates.
 
 cor(pg_wide$`assault`, pg_wide$`auto theft`)
 
@@ -1090,8 +1088,6 @@ cor(pg_wide$`assault`, pg_wide$`theft`)
 cor(pg_wide$`assault`, pg_wide$`theft from auto`)
 
 
-# Correlation coefficients for automobile theft rates.
-
 cor(pg_wide$`auto theft`, pg_wide$`burglary`)
 
 cor(pg_wide$`auto theft`, pg_wide$`robbery`)
@@ -1103,8 +1099,6 @@ cor(pg_wide$`auto theft`, pg_wide$`theft`)
 cor(pg_wide$`auto theft`, pg_wide$`theft from auto`)
 
 
-# Correlation coefficients for burglary rates.
-
 cor(pg_wide$`burglary`, pg_wide$`robbery`)
 
 cor(pg_wide$`burglary`, pg_wide$`sex offense`)
@@ -1114,8 +1108,6 @@ cor(pg_wide$`burglary`, pg_wide$`theft`)
 cor(pg_wide$`burglary`, pg_wide$`theft from auto`)
 
 
-# Correlation coefficients for sex offense rates.
-
 cor(pg_wide$`robbery`, pg_wide$`sex offense`)
 
 cor(pg_wide$`robbery`, pg_wide$`theft`)
@@ -1123,20 +1115,19 @@ cor(pg_wide$`robbery`, pg_wide$`theft`)
 cor(pg_wide$`robbery`, pg_wide$`theft from auto`)
 
 
-# Correlation coefficients for theft rates.
-
 cor(pg_wide$`sex offense`, pg_wide$`theft`)
 
 cor(pg_wide$`sex offense`, pg_wide$`theft from auto`)
 
+
 cor(pg_wide$`theft`, pg_wide$`theft from auto`)
 ```
-## Step 14 results: I found that none of the crimes are strongly correlated with each other, which did not surprise me as the nature and motivations behind different crimes are different. Unfortunately, when the data was rearranged, the homicide data was messed up. Consequently, it was excluded from my analysis.
+## Step 14 results: I found that none of the crimes were strongly correlated with each other on their own, which did not surprise me, as the nature and motivations behind different crimes are different. Unfortunately, when the data was rearranged, the homicide data was messed up. Consequently, it was excluded from my analysis.
 
 
 
 
-## Step 15: I then created multiple regression models for each crime category. Below are the models I deemed most successful (relatively high R-squared values). 
+## Step 15: I then created multiple regression models for each crime category. Below are the models I deemed most successful (they had relatively high R-squared values). 
 
 ```{r}
 
@@ -1150,6 +1141,9 @@ summary(pg_theft_model)
 
 pg_assault_model <- lm(assault ~ `sex offense` + theft + burglary + robbery, data = pg_wide)
 summary(pg_assault_model)
+
+
+# A model attempting to predict automobile theft based on theft, theft from automobiles, burglary and robbery.
 
 pg_autotheft_model <- lm(`auto theft` ~ theft + `theft from auto` + burglary + robbery, data = pg_wide)
 summary(pg_autotheft_model)
@@ -1183,7 +1177,7 @@ summary(pg_theftfromauto_model)
 
 
 
-## Step 16: I rearranged Montgomery County's crime data, then calculated the correlation coefficients for each crime. 
+## Step 16: I rearranged Montgomery County's crime data, then calculated the correlation coefficients between individual crimes. 
 
 ```{r}
 
@@ -1192,8 +1186,6 @@ moco_wide <- combined_all |>
   select(month, category, moco_rate) |>
   pivot_wider(names_from = category, values_from = moco_rate)
 
-
-# Correlation coefficients for assault rates.
 
 cor(moco_wide$`assault`, moco_wide$`auto theft`)
 
@@ -1208,8 +1200,6 @@ cor(moco_wide$`assault`, moco_wide$`theft`)
 cor(moco_wide$`assault`, moco_wide$`theft from auto`)
 
 
-# Correlation coefficients for automobile theft rates.
-
 cor(moco_wide$`auto theft`, moco_wide$`burglary`)
 
 cor(moco_wide$`auto theft`, moco_wide$`robbery`)
@@ -1221,8 +1211,6 @@ cor(moco_wide$`auto theft`, moco_wide$`theft`)
 cor(moco_wide$`auto theft`, moco_wide$`theft from auto`)
 
 
-# Correlation coefficients for burglary rates.
-
 cor(moco_wide$`burglary`, moco_wide$`robbery`)
 
 cor(moco_wide$`burglary`, moco_wide$`sex offense`)
@@ -1232,8 +1220,6 @@ cor(moco_wide$`burglary`, moco_wide$`theft`)
 cor(moco_wide$`burglary`, moco_wide$`theft from auto`)
 
 
-# Correlation coefficients for robbery rates.
-
 cor(moco_wide$`robbery`, moco_wide$`sex offense`)
 
 cor(moco_wide$`robbery`, moco_wide$`theft`)
@@ -1241,25 +1227,21 @@ cor(moco_wide$`robbery`, moco_wide$`theft`)
 cor(moco_wide$`robbery`, moco_wide$`theft from auto`)
 
 
-# Correlation coefficients for sex offense rates.
-
 cor(moco_wide$`sex offense`, moco_wide$`theft`)
 
 cor(moco_wide$`sex offense`, moco_wide$`theft from auto`)
 
 
-# Correlation coefficients for theft rates.
-
 cor(moco_wide$`theft`, moco_wide$`theft from auto`)
 ```
-## Step 16 results: I found that none of the crimes are strongly correlated with each other, which did not surprise me as the nature and motivations behind different crimes are different.
+## Step 16 results: I again found that none of the crimes were strongly correlated with each other on their own. Once again, the homicide data had errors and was excluded from my analysis.
 
 ## However, for both Prince George's and Montgomery counties, automobile theft and robbery had the highest correlation coefficients (approximately 0.58 and 0.67, respectively), which is interesting and may warrant further investigation.
 
 
 
 
-## Step 17: I created multiple regression models for each crime category. Below are my most successful models. Once again, I concluded that none of my models were very successful, which was unsurprising.
+## Step 17: I created multiple regression models for each crime category. Below are my most successful models. Once again, my models were relatively unsuccessful.
 
 ```{r}
 # A model attempting to predict theft based on automobile theft, theft from automobiles, assault and burglary.
@@ -1280,7 +1262,7 @@ moco_autotheft_model <- lm(`auto theft` ~ theft + `theft from auto` + burglary +
 summary(moco_autotheft_model)
 
 
-# A model attempting to predict burglary based on robbery, assault and theft
+# A model attempting to predict burglary based on robbery, assault and theft.
 
 moco_burglary_model <- lm(burglary ~ robbery + assault + theft, data = moco_wide)
 summary(moco_burglary_model)
@@ -1305,29 +1287,29 @@ summary(moco_theftfromauto_model)
 ```
 Hypothesis reevaluation :
 
-The burglary rate for both counties fluctuated from April 2017 to 2025, but since then, Montgomery County's automobile theft has been higher, proving that part of my hypothesis true. Prince George's County had higher rates of automobile theft than Montgomery County from April 2017 to March 2026, proving that part of my hypothesis false. The theft from automobile rate for both counties fluctuated during that time period, meaning that part of my hypothesis cannot be proven.
+The burglary rate for both counties fluctuated from April 2017 to 2025, but since then, Montgomery County's automobile theft has been higher, proving that part of my hypothesis. Prince George's County had higher rates of automobile theft than Montgomery County from April 2017 to March 2026, disproving that part of my hypothesis. The theft from automobile rate for both counties fluctuated during that time period, meaning that part of my hypothesis cannot be proven.
 
-Montgomery County had higher assault rates than Prince George's County from April 2017 to March 2026, proving that part of my hypothesis false. Montgomery County generally had higher rates of sex offense than Prince George's County during that same time period, proving another part of my hypothesis false. Montgomery County had higher theft rates than Prince George's County during that same time period, proving another part of my hypothesis false.
+Montgomery County had higher assault rates than Prince George's County from April 2017 to March 2026, disproving that part of my hypothesis. Montgomery County generally had higher rates of sex offenses than Prince George's County during that same time period, disproving another part of my hypothesis. Montgomery County had higher theft rates than Prince George's County during that same time period, disproving another part of my hypothesis.
 
 Additionally, Prince George's County generally had higher homicide and robbery rates than Montgomery County. 
 
-I did not calculate overall crime rates based on the eight categories I selected because Montgomery County's high assault rates likely would have skewed those results. Additionally, both counties include and exclude different crime categories. For example, Prince George's County does not report financial, unlawful substance or intoxication crimes to the public, while Montgomery County does. On the other hand, it reports car accidents, while Montgomery County does not. Consequently, I thought it best to only analyze the eight crime categories they had in common. This also means that I decided to ignore my third hypothesis.
+I did not calculate overall crime rates based on the eight categories I selected because Montgomery County's high assault rates likely would have skewed those results. Additionally, both counties include and exclude different crime categories. For example, Prince George's County does not report financial crimes or crimes related to unlawful substances or alcohol to the public, while Montgomery County does. On the other hand, it reports car accidents, while Montgomery County does not. Consequently, I thought it best to only analyze the eight crime categories they had in common. This means that I decided to ignore my third hypothesis.
 
 
 Story pitch:
 
-My main finding from my analysis is that Montgomery County consistently had an assault rate approximately three times higher than Prince George's County from April 2017 to March 2026. If I were to pitch a story based on my analysis, I would base it on that finding, with a focus on investigating the cause of that discrepancy. 
+The main finding from my analysis is that Montgomery County had an assault rate approximately three times higher than Prince George's County from April 2017 to March 2026. If I were to pitch a story based on my analysis, I would base it on that finding, with a focus on investigating the cause of that discrepancy. 
 
-One problem with this finding is that it may have been skewed by my categorization of assault. I combined three of Prince George's County's crime categories into an "assault" category, while I combined 15 for Montgomery County. I may have accidentally miscategorized one of these specific categories, or Montgomery County may have counted crimes for multiple categories, such as counting sexual assault as assault. To rectify this issue, I would need to have my categorizations reevaluated by someone else. I would also need to contact the Montgomery and Prince George's counties police departments to ask them about their crime categorizations.
+One problem with this finding is that it may have been skewed by my categorization of assault. I combined three of Prince George's County's crime categories into an "assault" category, while I combined 15 for Montgomery County. I may have accidentally miscategorized one of these specific categories, or Montgomery County may have counted crimes for multiple categories, such as counting sexual assault as assault. To rectify this issue, I would need to have my categorizations reevaluated by someone else. I would also need to contact the Montgomery and Prince George's counties’ police departments to ask them about their crime categorizations.
 
-Another problem with this finding is that the per capita rates for both counties were based on 2022 population data. This may have slightly skewed the assault rates. To rectify this issue, I would need to edit my code to enter population estimates from 2017 to 2026.
+Another problem with this finding is that the per capita rates for both counties were based on 2022 population data. This may have slightly skewed the assault rates. To rectify this issue, I would need to edit my dataframes to add population estimates from 2017 to 2026.
 
 To report on this finding, I would need to take many steps. I would need to have my categorizations reevaluated to ensure their accuracy, and add incremental population data for both Montgomery and Prince George's counties.
 
 I would need to contact the Montgomery County Police Department to discuss its categorizations of assault and the increase in assaults in 2023 and 2024. I would also need to evaluate if this increase was statistically significant, and if so, evaluate its effect size.
 
-I would need to contact the Prince George's County Police Department to discuss its categorization of assault and ask about the unusual dip in assaults in October 2019. I would also send a public records request for its financial, illegal substance and intoxication crime records from April 2017 to March 2026 so I could calculate the overall crime rate for each county and evaluate if assault rates can predict overall crime rates.
+I would need to contact the Prince George's County Police Department to discuss its categorization of assault and ask about the unusual dip in assaults in October 2019. I would also send a public records request for its financial, unlawful substance-related and alcohol-related crime records from April 2017 to March 2026. With that information, I could calculate the overall crime rate for both counties and evaluate if their assault rates can predict their overall crime rates.
 
 I would need to look at local news archives and other sources of information to investigate any documented spikes or dips in assault rates, then see if they are reflected in the data. I would want to analyze national assault rates to see if both counties' rates were unusually high or low.
 
-I would want to add demographic information, such as median income, race and education level, into my dataframes and create regression models to evaluate if these factors could predict assault rates in either Montgomery or Prince George's County. I would also want to map out the locations of each crime and look for patterns in crime locations. Additionally, I would want to interview residents of areas with high assault rates and ask them about their perception of assault in their communities.
+I would need to incorporate demographic information, such as median income, race and education level, into my dataframes and create regression models to evaluate if these factors could predict assault rates in either Montgomery or Prince George's County. I would also want to map out the locations of each crime and look for patterns in crime locations. Additionally, I would want to interview residents of areas with high assault rates and ask them about their perception of assault in their communities.
