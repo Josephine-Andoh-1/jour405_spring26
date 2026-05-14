@@ -33,7 +33,7 @@ library(scales)
 
 
 
-## Step 2: I loaded crime data from Prince George's County from 2017 to 2023 and 2023 to 2026, then combined those datasets to facilitate my analysis. I then loaded crime data from Montgomery County from 2017 to 2026.
+## Step 2: I loaded crime data from Prince George's County from 2017 to 2023 and 2023 to 2026, then combined those datasets to facilitate my analysis. I then loaded crime data from Montgomery County from 2016 to 2026.
 
 ```{r}
 pgcrime17_23 <- read_csv("PGCRIME17-23.csv")
@@ -47,7 +47,7 @@ pgcrime <- bind_rows(pgcrime17_23, pgcrime23_26)
 
 
 
-## Step 3: I sorted all the crimes into eight categories (assault, burglary, auto theft, theft from auto, robbery, sex offenses, theft and homicide) based on general Maryland law to facilitate my analysis. 
+## Step 3: I sorted the relevant crimes into eight categories (assault, burglary, automobile theft, theft from automobiles, robbery, sex offenses, theft and homicide) based on general Maryland law to facilitate my analysis. 
 
 ```{r}
 
@@ -223,12 +223,12 @@ mococrime <- mococrime |>
 )
 ```
 
-## Step 3 results: Through this sorting, I noticed that Montgomery County has much more specific categories for crime that Prince George's County. I predicted that because of this, Montgomery County would appear to have higher crime rates per capita in certain categories, specifically assault.
+## Step 3 results: Through this sorting, I noticed that Montgomery County has much more specific crime categories than Prince George's County. I predicted that because of this, Montgomery County would appear to have higher crime rates per capita in certain categories, specifically assault.
 
 
 
 
-## Step 4: I filtered my data so that I would be comparing crime rates month-to-month. Any other increment would be too small or too large. After filtering, I realized that Montgomery County had data from 2016, while Prince George's County did not.
+## Step 4: I filtered my data to compare crime rates month-to-month. Any other time increment would have been too small or too large.
 
 ```{r}
 pgcrime <- pgcrime |>
