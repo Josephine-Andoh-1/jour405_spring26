@@ -1262,23 +1262,43 @@ cor(moco_wide$`theft`, moco_wide$`theft from auto`)
 ## Step 17: I created multiple regression models for each crime category. Below are my most successful models. Once again, I concluded that none of my models were very successful, which was unsurprising.
 
 ```{r}
+# A model attempting to predict theft based on automobile theft, theft from automobiles, assault and burglary.
+
 moco_theft_model <- lm(theft ~ `auto theft` + `theft from auto` + assault + burglary + robbery, data = moco_wide)
 summary(moco_theft_model)
+
+
+# A model attempting to predict assault based on theft, sex offenses, burglary and robbery.
 
 moco_assault_model <- lm(assault ~ theft + `sex offense` + burglary + robbery, data = moco_wide)
 summary(moco_assault_model)
 
+
+# A model attempting to predict automobile theft based on theft, theft from automobiles, burglary and robbery.
+
 moco_autotheft_model <- lm(`auto theft` ~ theft + `theft from auto` + burglary + robbery, data = moco_wide)
 summary(moco_autotheft_model)
+
+
+# A model attempting to predict burglary based on robbery, assault and theft
 
 moco_burglary_model <- lm(burglary ~ robbery + assault + theft, data = moco_wide)
 summary(moco_burglary_model)
 
+
+# A model attempting to predict robbery based on assault, theft and burglary.
+
 moco_robbery_model <- lm(robbery ~ assault + theft + burglary, data = moco_wide)
 summary(moco_robbery_model)
 
+
+# A model attempting to predict sex offenses based on robbery, assault and theft.
+
 moco_sexoffense_model <- lm(`sex offense` ~ robbery + assault + theft, data = moco_wide)
 summary(moco_sexoffense_model)
+
+
+# A model attempting to predict theft from automobiles based on theft and automobile theft.
 
 moco_theftfromauto_model <- lm(`theft from auto` ~ theft + `auto theft`, data = moco_wide)
 summary(moco_theftfromauto_model)
