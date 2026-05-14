@@ -1303,22 +1303,12 @@ summary(moco_sexoffense_model)
 moco_theftfromauto_model <- lm(`theft from auto` ~ theft + `auto theft`, data = moco_wide)
 summary(moco_theftfromauto_model)
 ```
-
 Story pitch:
 
-Based on my analysis, many
+The burglary rate for both counties fluctuated from April 2017 to 2025, but since then, Montgomery County's automobile theft has been higher, proving that part of my hypothesis true. Prince George's County had higher rates of automobile theft than Montgomery County from April 2017 to March 2026, proving that part of my hypothesis false. The theft from automobile rate for both counties fluctuated during that time period, meaning that part of my hypothesis cannot be proven.
 
+Montgomery County had higher assault rates than Prince George's County from April 2017 to March 2026, proving that part of my hypothesis false. Montgomery County generally had higher rates of sex offense than Prince George's County during that same time period, proving another part of my hypothesis false. Montgomery County had higher theft rates than Prince George's County during that same time period, proving another part of my hypothesis false.
 
-
-Montgomery County had higher assault rates than Prince George's County from April 2017 to March 2026, proving that part of my hypothesis false.
-
+Additionally, Prince George's County generally had higher homicide and robbery rates than Montgomery County. 
 
 I did not calculate overall crime rates based on the eight categories I selected because Montgomery County's high assault rates likely would have skewed those results. Additionally, both counties include and exclude different crime categories. For example, Prince George's County does not report financial, unlawful substance or intoxication crimes to the public, while Montgomery County does. On the other hand, it reports car accidents, while Montgomery County does not. Consequently, I thought it best to only analyze the eight crime categories they had in common. This also means that I decided to ignore my third hypothesis.
-
-
-
-Hypotheses:
-
-1. Montgomery County has higher rates of burglaries, automobile thefts and thefts from automobiles than Prince George's County
-
-2. Prince George's County has higher rates of assault, sex offenses and overall theft than Montgomery County
