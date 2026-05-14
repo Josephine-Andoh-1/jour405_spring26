@@ -374,60 +374,6 @@ combined_theft <- pg_theft |>
 ```
 
 
-```{r}
-rename_rates <- function(combined_assault, crime_name) {
-  combined_assault |>
-    rename_with(~ "pg_rate", starts_with("pg_") & ends_with("_rate")) |>
-    rename_with(~ "moco_rate", starts_with("moco_") & ends_with("_rate"))}
-
-rename_rates <- function(combined_autotheft, crime_name) {
-  combined_autotheft |>
-    rename_with(~ "pg_rate", starts_with("pg_") & ends_with("_rate")) |>
-    rename_with(~ "moco_rate", starts_with("moco_") & ends_with("_rate"))}
-
-rename_rates <- function(combined_burglary, crime_name) {
-  combined_burglary |>
-    rename_with(~ "pg_rate", starts_with("pg_") & ends_with("_rate")) |>
-    rename_with(~ "moco_rate", starts_with("moco_") & ends_with("_rate"))}
-
-rename_rates <- function(combined_homicide, crime_name) {
-  combined_homicide |>
-    rename_with(~ "pg_rate", starts_with("pg_") & ends_with("_rate")) |>
-    rename_with(~ "moco_rate", starts_with("moco_") & ends_with("_rate"))}
-
-rename_rates <- function(combined_robbery, crime_name) {
-  combined_robbery |>
-    rename_with(~ "pg_rate", starts_with("pg_") & ends_with("_rate")) |>
-    rename_with(~ "moco_rate", starts_with("moco_") & ends_with("_rate"))}
-
-rename_rates <- function(combined_sexoffense, crime_name) {
-  combined_sexoffense |>
-    rename_with(~ "pg_rate", starts_with("pg_") & ends_with("_rate")) |>
-    rename_with(~ "moco_rate", starts_with("moco_") & ends_with("_rate"))}
-
-rename_rates <- function(combined_theft, crime_name) {
-  combined_theft |>
-    rename_with(~ "pg_rate", starts_with("pg_") & ends_with("_rate")) |>
-    rename_with(~ "moco_rate", starts_with("moco_") & ends_with("_rate"))}
-
-rename_rates <- function(combined_theftfromauto, crime_name) {
-  combined_theftfromauto |>
-    rename_with(~ "pg_rate", starts_with("pg_") & ends_with("_rate")) |>
-    rename_with(~ "moco_rate", starts_with("moco_") & ends_with("_rate"))}
-
-
-combined_all <- bind_rows(
-  rename_rates(combined_assault),
-  rename_rates(combined_autotheft),
-  rename_rates(combined_burglary),
-  rename_rates(combined_homicide),
-  rename_rates(combined_robbery),
-  rename_rates(combined_sexoffense),
-  rename_rates(combined_theft),
-  rename_rates(combined_theftfromauto)
-)
-```
-
 
 ```{r}
 pg_wide <- combined_all |>
@@ -443,65 +389,28 @@ moco_wide <- combined_all |>
 ```
 
 
-```{r}
-cor(moco_wide$`assault`, moco_wide$`auto theft`)
-
-cor(moco_wide$`assault`, moco_wide$`burglary`)
-
-cor(moco_wide$`assault`, moco_wide$`robbery`)
-
-cor(moco_wide$`assault`, moco_wide$`sex offense`)
-
-cor(moco_wide$`assault`, moco_wide$`theft`)
-
-cor(moco_wide$`assault`, moco_wide$`theft from auto`)
 
 
-cor(moco_wide$`auto theft`, moco_wide$`burglary`)
-
-cor(moco_wide$`auto theft`, moco_wide$`robbery`)
-
-cor(moco_wide$`auto theft`, moco_wide$`sex offense`)
-
-cor(moco_wide$`auto theft`, moco_wide$`theft`)
-
-cor(moco_wide$`auto theft`, moco_wide$`theft from auto`)
-
-
-cor(moco_wide$`burglary`, moco_wide$`robbery`)
-
-cor(moco_wide$`burglary`, moco_wide$`sex offense`)
-
-cor(moco_wide$`burglary`, moco_wide$`theft`)
-
-cor(moco_wide$`burglary`, moco_wide$`theft from auto`)
+ASSAULT - 2ND DEGREE") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - INTIMIDATION (INCLUDES STALKING)") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - PUB OFF-OTHER WEAPON") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - POL OFF-OTHER WEAPON") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - FAMILY-GUN") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - SIMPLE") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - GUN") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - NON-FAMILY-OTHER WEAPON") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - FAMILY-STRONG-ARM") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - NON-FAMILY-GUN") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - NON-FAMILY-STRONG-ARM") ~ "assault",
+    str_detect(`Crime Name3`, "ATTEMPTED ASSAULT AGGRAVATED POL OFF KNIFE") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - POL OFF-STRONG-ARM") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - POL OFF-GUN") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - PUB OFF-STRONG-ARM") ~ "assault",
+    str_detect(`Crime Name3`, "ASSAULT - AGGRAVATED - PUB OFF-GUN") ~ "assault",
 
 
-cor(moco_wide$`robbery`, moco_wide$`sex offense`)
-
-cor(moco_wide$`robbery`, moco_wide$`theft`)
-
-cor(moco_wide$`robbery`, moco_wide$`theft from auto`)
-
-
-cor(moco_wide$`sex offense`, moco_wide$`theft`)
-
-cor(moco_wide$`sex offense`, moco_wide$`theft from auto`)
-
-cor(moco_wide$`theft`, moco_wide$`theft from auto`)
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
+ASSAULT") ~ "assault",
+    str_detect(`Clearance Code Inc Type`, "ASSAULT, WEAPON") ~ "assault",
+    str_detect(`Clearance Code Inc Type`, "ASSAULT, SHOOTING") ~ "assault
 
 

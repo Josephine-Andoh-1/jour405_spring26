@@ -1303,7 +1303,7 @@ summary(moco_sexoffense_model)
 moco_theftfromauto_model <- lm(`theft from auto` ~ theft + `auto theft`, data = moco_wide)
 summary(moco_theftfromauto_model)
 ```
-Story pitch:
+Hypothesis reevaluation :
 
 The burglary rate for both counties fluctuated from April 2017 to 2025, but since then, Montgomery County's automobile theft has been higher, proving that part of my hypothesis true. Prince George's County had higher rates of automobile theft than Montgomery County from April 2017 to March 2026, proving that part of my hypothesis false. The theft from automobile rate for both counties fluctuated during that time period, meaning that part of my hypothesis cannot be proven.
 
@@ -1312,3 +1312,14 @@ Montgomery County had higher assault rates than Prince George's County from Apri
 Additionally, Prince George's County generally had higher homicide and robbery rates than Montgomery County. 
 
 I did not calculate overall crime rates based on the eight categories I selected because Montgomery County's high assault rates likely would have skewed those results. Additionally, both counties include and exclude different crime categories. For example, Prince George's County does not report financial, unlawful substance or intoxication crimes to the public, while Montgomery County does. On the other hand, it reports car accidents, while Montgomery County does not. Consequently, I thought it best to only analyze the eight crime categories they had in common. This also means that I decided to ignore my third hypothesis.
+
+
+Story pitch:
+
+My main finding from my analysis is that Montgomery County consistently had an assault rate almost three times higher than Prince George's County from April 2017 to March 2026. If I were to pitch a story based on my analysis, I would base it on that finding, with a focus on investigating the cause of that discrepancy. 
+
+One problem with this finding is that it may have been skewed by my categorization of assault. I combined three of Prince George's County's crime categories into an "assault" category, while I combined 15 for Montgomery County. I may have accidentally miscategorized one of these specific categories, or Montgomery County may have counted crimes for multiple categories, such as counting sexual assault as assault.
+
+To rectify this issue, I would need to contact 
+
+
