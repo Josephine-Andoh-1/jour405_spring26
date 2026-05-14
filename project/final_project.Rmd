@@ -440,9 +440,9 @@ combined_autotheft |>
   ggplot() +
   geom_line((aes(x=month, y=pg_autotheft_rate)), color = "red", linewidth = 1) +
   geom_line(aes(x=month, y=moco_autotheft_rate), color = "blue", linewidth = 1) +
-  labs(title = "Auto theft rates in Prince George's County, Maryland, generally higher than in neighboring Montgomery County from early 2017 to early 2026, according to analysis",
+  labs(title = "Automobile theft rates in Prince George's County, Maryland, generally higher than in neighboring Montgomery County from early 2017 to early 2026, according to analysis",
        x = "Month",
-       y = "Auto theft rate per 10,000 residents",
+       y = "Automobile theft rate per 10,000 residents",
        caption = "Sources: Montgomery and Prince George's counties' crime archives")
 
 
@@ -1069,6 +1069,7 @@ combined_all |>
 ## Step 14: I rearranged Prince George's County's crime data, then calculated the correlation coefficients between individual crimes. 
 
 ```{r}
+
 # Rearranged data for Prince George's County.
 pg_wide <- combined_all |>
   select(month, category, pg_rate) |>
@@ -1242,6 +1243,7 @@ cor(moco_wide$`theft`, moco_wide$`theft from auto`)
 ## Step 17: I created multiple regression models for each crime category. Below are my most successful models. Once again, my models were relatively unsuccessful.
 
 ```{r}
+
 # A model attempting to predict theft based on automobile theft, theft from automobiles, assault and burglary.
 
 moco_theft_model <- lm(theft ~ `auto theft` + `theft from auto` + assault + burglary + robbery, data = moco_wide)
