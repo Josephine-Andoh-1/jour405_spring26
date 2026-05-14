@@ -1066,13 +1066,16 @@ combined_all |>
 
 
 
-## Step 14: I rearranged Prince George's County's crime data, then calculated the correlation coefficients for each crime. I found that none of the crimes are strongly correlated with each other, which did not surprise me as the nature and motivations behind different crimes are different.
+## Step 14: I rearranged Prince George's County's crime data, then calculated the correlation coefficients for each crime. 
 
 ```{r}
+# Rearranged data for Prince George's County.
 pg_wide <- combined_all |>
   select(month, category, pg_rate) |>
   pivot_wider(names_from = category, values_from = pg_rate)
 
+
+# Correlation coefficients for assault rates.
 
 cor(pg_wide$`assault`, pg_wide$`auto theft`)
 
@@ -1087,6 +1090,8 @@ cor(pg_wide$`assault`, pg_wide$`theft`)
 cor(pg_wide$`assault`, pg_wide$`theft from auto`)
 
 
+# Correlation coefficients for automobile theft rates.
+
 cor(pg_wide$`auto theft`, pg_wide$`burglary`)
 
 cor(pg_wide$`auto theft`, pg_wide$`robbery`)
@@ -1098,6 +1103,8 @@ cor(pg_wide$`auto theft`, pg_wide$`theft`)
 cor(pg_wide$`auto theft`, pg_wide$`theft from auto`)
 
 
+# Correlation coefficients for burglary rates.
+
 cor(pg_wide$`burglary`, pg_wide$`robbery`)
 
 cor(pg_wide$`burglary`, pg_wide$`sex offense`)
@@ -1107,6 +1114,8 @@ cor(pg_wide$`burglary`, pg_wide$`theft`)
 cor(pg_wide$`burglary`, pg_wide$`theft from auto`)
 
 
+# Correlation coefficients for sex offense rates.
+
 cor(pg_wide$`robbery`, pg_wide$`sex offense`)
 
 cor(pg_wide$`robbery`, pg_wide$`theft`)
@@ -1114,20 +1123,30 @@ cor(pg_wide$`robbery`, pg_wide$`theft`)
 cor(pg_wide$`robbery`, pg_wide$`theft from auto`)
 
 
+# Correlation coefficients for theft rates.
+
 cor(pg_wide$`sex offense`, pg_wide$`theft`)
 
 cor(pg_wide$`sex offense`, pg_wide$`theft from auto`)
 
 cor(pg_wide$`theft`, pg_wide$`theft from auto`)
 ```
+## Step 14 results: I found that none of the crimes are strongly correlated with each other, which did not surprise me as the nature and motivations behind different crimes are different. Unfortunately, when the data was rearranged, the homicide data was messed up. Consequently, it was excluded from my analysis.
 
 
 
-## Step 15: I then created multiple regression models for each crime category. Below are the models I deemed most successful (relatively high R-squared values). I found that, despite the multiple variations I created, none of my models were very successful. However, the low correlation coefficients between individual crime categories made this result unsurprising.
+
+## Step 15: I then created multiple regression models for each crime category. Below are the models I deemed most successful (relatively high R-squared values). 
 
 ```{r}
+
+# A model attempting to predict theft based on automobile theft, theft from automobiles, burglary and robbery.
+
 pg_theft_model <- lm(theft ~ `auto theft` + `theft from auto` + burglary + robbery, data = pg_wide)
 summary(pg_theft_model)
+
+
+# A model attempting to predict assault based on sex offenses, theft, burglary and robbery.
 
 pg_assault_model <- lm(assault ~ `sex offense` + theft + burglary + robbery, data = pg_wide)
 summary(pg_assault_model)
@@ -1135,28 +1154,46 @@ summary(pg_assault_model)
 pg_autotheft_model <- lm(`auto theft` ~ theft + `theft from auto` + burglary + robbery, data = pg_wide)
 summary(pg_autotheft_model)
 
+
+# A model attempting to predict burglary based on robbery, sex offenses, theft and theft from automobiles.
+
 pg_burglary_model <- lm(burglary ~ robbery + `sex offense` + theft + `theft from auto`, data = pg_wide)
 summary(pg_burglary_model)
+
+
+# A model attempting to predict robbery based on assault, sex offenses, theft and theft from automobiles.
 
 pg_robbery_model <- lm(robbery ~ assault + `sex offense` + theft + `theft from auto`, data = pg_wide)
 summary(pg_robbery_model)
 
+
+# A model attempting to predict sex offenses based on robbery, burglary and assault.
+
 pg_sexoffense_model <- lm(`sex offense` ~ robbery + burglary + assault, data = pg_wide)
 summary(pg_sexoffense_model)
+
+
+# A model attempting to predict theft from automobiles based on theft, automobile theft, assault and burglary.
 
 pg_theftfromauto_model <- lm(`theft from auto` ~ theft + `auto theft` + assault + burglary + robbery, data = pg_wide)
 summary(pg_theftfromauto_model)
 ```
+## Step 15 results: I found that, despite the multiple variations I created, none of my models were very successful. However, the low correlation coefficients between individual crime categories made this result unsurprising. Unfortunately, the homicide data was messed up again, and consequently excluded from my analysis.
+
 
 
 
 ## Step 16: I rearranged Montgomery County's crime data, then calculated the correlation coefficients for each crime. 
 
 ```{r}
+
+# Rearranged data for Montgomery County.
 moco_wide <- combined_all |>
   select(month, category, moco_rate) |>
   pivot_wider(names_from = category, values_from = moco_rate)
 
+
+# Correlation coefficients for assault rates.
 
 cor(moco_wide$`assault`, moco_wide$`auto theft`)
 
@@ -1171,6 +1208,8 @@ cor(moco_wide$`assault`, moco_wide$`theft`)
 cor(moco_wide$`assault`, moco_wide$`theft from auto`)
 
 
+# Correlation coefficients for automobile theft rates.
+
 cor(moco_wide$`auto theft`, moco_wide$`burglary`)
 
 cor(moco_wide$`auto theft`, moco_wide$`robbery`)
@@ -1182,6 +1221,8 @@ cor(moco_wide$`auto theft`, moco_wide$`theft`)
 cor(moco_wide$`auto theft`, moco_wide$`theft from auto`)
 
 
+# Correlation coefficients for burglary rates.
+
 cor(moco_wide$`burglary`, moco_wide$`robbery`)
 
 cor(moco_wide$`burglary`, moco_wide$`sex offense`)
@@ -1191,6 +1232,8 @@ cor(moco_wide$`burglary`, moco_wide$`theft`)
 cor(moco_wide$`burglary`, moco_wide$`theft from auto`)
 
 
+# Correlation coefficients for robbery rates.
+
 cor(moco_wide$`robbery`, moco_wide$`sex offense`)
 
 cor(moco_wide$`robbery`, moco_wide$`theft`)
@@ -1198,9 +1241,14 @@ cor(moco_wide$`robbery`, moco_wide$`theft`)
 cor(moco_wide$`robbery`, moco_wide$`theft from auto`)
 
 
+# Correlation coefficients for sex offense rates.
+
 cor(moco_wide$`sex offense`, moco_wide$`theft`)
 
 cor(moco_wide$`sex offense`, moco_wide$`theft from auto`)
+
+
+# Correlation coefficients for theft rates.
 
 cor(moco_wide$`theft`, moco_wide$`theft from auto`)
 ```
@@ -1238,7 +1286,7 @@ summary(moco_theftfromauto_model)
 
 Story pitch:
 
-Based on 
+Based on my analysis, many
 
 
 
