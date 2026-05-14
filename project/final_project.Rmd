@@ -1318,8 +1318,14 @@ Story pitch:
 
 My main finding from my analysis is that Montgomery County consistently had an assault rate almost three times higher than Prince George's County from April 2017 to March 2026. If I were to pitch a story based on my analysis, I would base it on that finding, with a focus on investigating the cause of that discrepancy. 
 
-One problem with this finding is that it may have been skewed by my categorization of assault. I combined three of Prince George's County's crime categories into an "assault" category, while I combined 15 for Montgomery County. I may have accidentally miscategorized one of these specific categories, or Montgomery County may have counted crimes for multiple categories, such as counting sexual assault as assault.
+One problem with this finding is that it may have been skewed by my categorization of assault. I combined three of Prince George's County's crime categories into an "assault" category, while I combined 15 for Montgomery County. I may have accidentally miscategorized one of these specific categories, or Montgomery County may have counted crimes for multiple categories, such as counting sexual assault as assault. To rectify this issue, I would need to have my categorizations reevaluated by someone else. I would also need to contact the Montgomery and Prince George's counties police departments to ask them about their crime categorizations.
 
-To rectify this issue, I would need to contact 
+Another problem with this finding is that the per capita rates for both counties were based on 2022 population data. This may have slightly skewed the assault rates. To rectify this issue, I would need to edit my code to enter population estimates from 2017 to 2026.
+
+To report on this finding, I would need to take many steps. I would need to have my categorizations reevaluated to ensure their accuracy, and add incremental population data for both Montgomery and Prince George's counties.
+
+I would need to contact the Prince George's County Police Department to discuss its categorization of assault and ask about the unusual dip in assaults in October 2019. I would need to contact the Montgomery County Police Department to discuss its categorizations of assault and the increase in assaults in 2023 and 2024. I would also need to evaluate if this increase was statistically significant, and if so, evaluate its effect size.
+
+
 
 
